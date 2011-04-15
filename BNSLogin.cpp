@@ -9,20 +9,13 @@ NAMESPACE_BNS_BEGIN
 
 
 
-CLogin::CLogin(void) : dbLogin(&db), dbUser(&db), m_pUserData(NULL)
+CLogin::CLogin(void) : m_pUserData(NULL)
 {
-	db.SetSQLConcetText(("Provider=SQLOLEDB; Server=7BWZ82X_win7pro\\uboxc;Database=wx; uid=sa; pwd=U-BOXc1921#;"));
-	if(!db.Open())
-	{
-		AfxMessageBox("open db error");
-	}
 }
 
 CLogin::~CLogin(void)
 {
 	Logout(); 
-
-	db.Close();
 }
 
 
@@ -35,21 +28,21 @@ bool CLogin::Login(std::string strName, std::string strPassWord)
 	}
 
 	//判断用户名密码
-	if(!dbUser.IsLogin(strName, strPassWord, m_pUserData))
+	if(!DB::User()->IsLogin(strName, strPassWord, m_pUserData))
 	{
 		return false;
 	}
 
 
 	//锁定用户,失败则返回 false
-	if(!WXBNS::CWXLockDBSingle::Init(db)->LockUser(strName))
+	if(!WXBNS::CWXLockDBSingle::Init()->LockUser(strName))
 	{
 		return false;
 	}
 
 
 	//生成数据	
-	m_loginData._id = dbLogin.CreateNewID();
+	m_loginData._id = DB::Login()->CreateNewID();
 	m_loginData._userID = m_pUserData->_id;
 	CFun::GetIPMacName(m_loginData._ip, m_loginData._mac, m_loginData._computerName);
 
@@ -72,19 +65,19 @@ bool CLogin::Login(std::string strName, std::string strPassWord)
 
 
 	//清理异常退出
-	dbLogin.Logout(m_loginData._userID, m_loginData._operator);
+	DB::Login()->Logout(m_loginData._userID, m_loginData._operator);
 
 	bool bRtn = this->Login(m_loginData);
 
 	//解除锁定
-	WXBNS::CWXLockDBSingle::Init(db)->UnLockUser(strName);
+	WXBNS::CWXLockDBSingle::Init()->UnLockUser(strName);
 
 	return bRtn;
 }
 //登录
 bool CLogin::Login(WXDB::DBLoginData& loginData)
 {
-	dbLogin.Login(loginData);
+	DB::Login()->Login(loginData);
 
 	return true;
 }
@@ -97,7 +90,7 @@ bool CLogin::Logout()
 		return true;
 	}
 
-	dbLogin.Logout(m_loginData._id, m_loginData._state, m_loginData._operator);
+	DB::Login()->Logout(m_loginData._id, m_loginData._state, m_loginData._operator);
 
 	delete m_pUserData;
 	m_pUserData = NULL;
@@ -109,7 +102,7 @@ bool CLogin::Logout()
 //用户是否已登录,存在返回true
 bool CLogin::IsLoging(int nUserID)
 {
-	return dbLogin.IsLoging(nUserID);
+	return DB::Login()->IsLoging(nUserID);
 }
 
 NAMESPACE_BNS_END

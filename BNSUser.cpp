@@ -1,24 +1,20 @@
 #include "StdAfx.h"
 #include "BNSUser.h"
 
+#include "StaticDB.h"
+
 #include "wxlockdb.h"
 #include <sstream>
 #include <functional>
 
 NAMESPACE_BNS_BEGIN
 
-CUser::CUser(void) : dbUser(&db)
+CUser::CUser(void)
 {
-	db.SetSQLConcetText(("Provider=SQLOLEDB; Server=7BWZ82X_win7pro\\uboxc;Database=wx; uid=sa; pwd=U-BOXc1921#;"));
-	if(!db.Open())
-	{
-		AfxMessageBox("open db error");
-	}
 }
 
 CUser::~CUser(void)
 {
-	db.Close();
 }
 
 
@@ -34,7 +30,7 @@ bool CUser::Add(std::string strName, std::string strPassWord, int nEmpID)
 
 
 	//锁定用户,失败则返回 false
-	if(!WXBNS::CWXLockDBSingle::Init(db)->LockUser(strName))
+	if(!WXBNS::CWXLockDBSingle::Init()->LockUser(strName))
 	{
 		return false;
 	}
@@ -48,7 +44,7 @@ bool CUser::Add(std::string strName, std::string strPassWord, int nEmpID)
 		data._passwd = strPassWord;
 		data._empId = nEmpID;
 		//用户ID
-		data._id = dbUser.CreateNewID();
+		data._id = DB::User()->CreateNewID();
 
 		//添加到数据库
 		bRtn = this->Add(data);
@@ -60,7 +56,7 @@ bool CUser::Add(std::string strName, std::string strPassWord, int nEmpID)
 
 
 	//解除锁定
-	WXBNS::CWXLockDBSingle::Init(db)->UnLockUser(strName);
+	WXBNS::CWXLockDBSingle::Init()->UnLockUser(strName);
 
 	return bRtn;
 }
@@ -68,7 +64,7 @@ bool CUser::Add(std::string strName, std::string strPassWord, int nEmpID)
 bool CUser::Add(WXDB::DBUserData& data)
 {
 
-	dbUser.Add(data);
+	DB::User()->Add(data);
 
 	return true;
 }
@@ -87,7 +83,7 @@ bool CUser::Edit(int nID, std::string strPassWord, int nEmpID)
 	}
 
 	//锁定用户,失败则返回 false
-	if(!WXBNS::CWXLockDBSingle::Init(db)->LockUser(data._loginName))
+	if(!WXBNS::CWXLockDBSingle::Init()->LockUser(data._loginName))
 	{
 		return false;
 	}
@@ -96,7 +92,7 @@ bool CUser::Edit(int nID, std::string strPassWord, int nEmpID)
 	if(IsChanged(nID, data))
 	{
 		//解除锁定
-		WXBNS::CWXLockDBSingle::Init(db)->UnLockUser(data._loginName);
+		WXBNS::CWXLockDBSingle::Init()->UnLockUser(data._loginName);
 		return false;
 	}
 
@@ -109,14 +105,14 @@ bool CUser::Edit(int nID, std::string strPassWord, int nEmpID)
 	bRtn = this->Edit(data);
 	
 	//解除锁定
-	WXBNS::CWXLockDBSingle::Init(db)->UnLockUser(data._loginName);
+	WXBNS::CWXLockDBSingle::Init()->UnLockUser(data._loginName);
 
 	return bRtn;
 }
 //修改一个用户
 bool CUser::Edit(WXDB::DBUserData& data)
 {
-	dbUser.Edit(data);
+	DB::User()->Edit(data);
 
 	return true;
 }
@@ -134,7 +130,7 @@ bool CUser::Delete(int nID)
 	}
 
 	//锁定用户,失败则返回 false
-	if(!WXBNS::CWXLockDBSingle::Init(db)->LockUser(data._loginName))
+	if(!WXBNS::CWXLockDBSingle::Init()->LockUser(data._loginName))
 	{
 		return false;
 	}
@@ -143,7 +139,7 @@ bool CUser::Delete(int nID)
 	if(IsChanged(nID, data))
 	{
 		//解除锁定
-		WXBNS::CWXLockDBSingle::Init(db)->UnLockUser(data._loginName);
+		WXBNS::CWXLockDBSingle::Init()->UnLockUser(data._loginName);
 		return false;
 	}
 
@@ -151,7 +147,7 @@ bool CUser::Delete(int nID)
 	Delete(nID, 0);
 
 	//解除锁定
-	WXBNS::CWXLockDBSingle::Init(db)->UnLockUser(data._loginName);
+	WXBNS::CWXLockDBSingle::Init()->UnLockUser(data._loginName);
 
 	return true;
 }
@@ -159,7 +155,7 @@ bool CUser::Delete(int nID)
 //删除一个用户
 bool CUser::Delete(int nID, int nOpertor)
 {
-	dbUser.Delete(nID, nOpertor);
+	DB::User()->Delete(nID, nOpertor);
 
 	return true;
 }
@@ -170,7 +166,7 @@ bool CUser::RefrushAll()
 {
 	this->m_memDataVec.clear();
 
-	dbUser.GetAllList(this->m_memDataVec);
+	DB::User()->GetAllList(this->m_memDataVec);
 
 	return true;
 }
@@ -181,7 +177,7 @@ bool CUser::FindUserName(int nID, std::string& strUserName)
 	bool bRtn = false;
 
 	WXDB::DBUserData data;
-	if(bRtn = dbUser.Find(nID, data))
+	if(bRtn = DB::User()->Find(nID, data))
 	{
 		strUserName = data._loginName;
 	}
@@ -206,7 +202,7 @@ bool CUser::IsBeingInMem(std::string strName)
 //用户在数据库
 bool CUser::IsBeingInDB(std::string strName)
 {
-	if(dbUser.IsBeingByName(strName))
+	if(DB::User()->IsBeingByName(strName))
 	{
 		return true;
 	}
@@ -220,7 +216,7 @@ bool CUser::IsChanged(int nID, WXDB::DBUserData dbUserData)
 {
 	WXDB::DBUserData lastData;
 	//未找到视为被更新
-	if(!dbUser.Find(nID, lastData))
+	if(!DB::User()->Find(nID, lastData))
 	{
 		return true;
 	}

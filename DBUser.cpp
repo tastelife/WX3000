@@ -68,7 +68,8 @@ void CUser::GetAllList(CWXMemDataVector<DBUserData>& memDataVec)
 		" ,[col_user_operator]"
 		" ,[col_user_operatorTime]"
 		" ,[col_user_copyFromID]"
-		" FROM [wx].[dbo].[user1]");
+		" FROM [wx].[dbo].[user1]"
+		" where col_user_recordState!=2");
 	//转换成内存数据
 	CWXRecordsetPtrToVecDBdata<DBUserData>()(rec, memDataVec);
 }

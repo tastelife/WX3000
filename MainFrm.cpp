@@ -5,6 +5,7 @@
 #include "stdafx.h"
 #include "wx.h"
 
+#include "StaticDB.h"
 #include "MainFrm.h"
 #include "Dlg_User.h"
 #include "DlgLogin.h"
@@ -130,6 +131,8 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	// 启用快速(按住 Alt 拖动)工具栏自定义
 	CMFCToolBar::EnableQuickCustomization();
+
+	DB::Init();
 
 	CDlgLogin login;
 	if(IDOK!=login.DoModal())

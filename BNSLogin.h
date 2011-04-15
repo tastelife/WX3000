@@ -1,8 +1,6 @@
 #pragma once
 
 
-#include "DBUser.h"
-#include "DBLogin.h"
 #include "WXBNSComm.h"
 #include "WXMemDataVector.h"
 #include "WXDbDataType.h"
@@ -33,12 +31,6 @@ private:
 private:
 	WXDB::DBUserData* m_pUserData;
 	WXDB::DBLoginData m_loginData;
-
-private:
-	//数据库连接	
-	CWXDBConnect db;
-	WXDB::CUser dbUser;
-	WXDB::CLogin dbLogin;
 };
 
 

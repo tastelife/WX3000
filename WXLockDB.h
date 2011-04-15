@@ -1,6 +1,7 @@
 //wxlockdb.h
 #pragma once
 
+#include "StaticDB.h"
 #include "WXDBConnect.h"
 #include <string>
 #include <sstream>
@@ -80,7 +81,7 @@ class CWXLockDBSingle
 {
 public :
 	
-	static CWXLockDB* Init(CWXDBConnect db)
+	static CWXLockDB* Init(CWXDBConnect& db=*DB::db())
 	{
 		static CWXLockDB lockDB(db);
 		return &lockDB;

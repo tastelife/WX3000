@@ -214,6 +214,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\DlgPower.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\DlogUserAdd.cpp"
 				>
 			</File>
@@ -293,6 +297,10 @@
 			</File>
 			<File
 				RelativePath=".\DlgLogin.h"
+				>
+			</File>
+			<File
+				RelativePath=".\DlgPower.h"
 				>
 			</File>
 			<File

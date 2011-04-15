@@ -54,11 +54,6 @@ private:
 public:
 	//内存数据
 	CWXMemDataVector<WXDB::DBUserData> m_memDataVec;
-
-private:
-	//数据库连接	
-	CWXDBConnect db;
-	WXDB::CUser dbUser;
 };
 
 NAMESPACE_BNS_END
