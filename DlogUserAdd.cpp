@@ -4,20 +4,19 @@
 #include "stdafx.h"
 #include "wx.h"
 #include "DlogUserAdd.h"
-
+#include "StaticDB.h"
 
 
 // CDlogUserAdd ¶Ô»°¿ò
 
 IMPLEMENT_DYNAMIC(CDlogUserAdd, CDialog)
 
-CDlogUserAdd::CDlogUserAdd(WXBNS::CUser* pBnsUser, CWnd* pParent /*=NULL*/)
+CDlogUserAdd::CDlogUserAdd( CWnd* pParent /*=NULL*/)
 	: CDialog(CDlogUserAdd::IDD, pParent)
 	, m_strUserName(_T(""))
 	, m_strPw1(_T(""))
 	, m_strPw2(_T(""))
 	, m_nID(0)
-	, m_pBnsUser(pBnsUser)
 {
 
 }
@@ -48,7 +47,7 @@ void CDlogUserAdd::OnBnClickedOk()
 {
 	this->UpdateData(TRUE);
 
-	m_pBnsUser->Add(this->m_strUserName.GetBuffer(0), 
+	BNS::User()->Add(this->m_strUserName.GetBuffer(0), 
 		this->m_strPw1.GetBuffer(0),
 		-1);
 
@@ -60,7 +59,7 @@ void CDlogUserAdd::OnBnClickedOk2()
 	
 	this->UpdateData(TRUE);
 
-	m_pBnsUser->Edit(this->m_nID, 
+	BNS::User()->Edit(this->m_nID, 
 		this->m_strPw1.GetBuffer(0),
 		-1);
 

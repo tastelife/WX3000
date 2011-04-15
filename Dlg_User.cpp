@@ -9,6 +9,7 @@
 #include "DlogUserAdd.h"
 
 
+#include "StaticDB.h"
 
 #include "WXListCtrl.h"
 #include "WXDBConnect.h"
@@ -51,9 +52,9 @@ void CDlg_User::List(CListCtrl* pList)
 {
 	pList->DeleteAllItems();
 
-	bnsUser.RefrushAll();
+	BNS::User()->RefrushAll();
 	CWXMemDataVector<WXDB::DBUserData> vecData;
-	vecData = bnsUser.m_memDataVec;
+	vecData = BNS::User()->m_memDataVec;
 
 	CString str;
 
@@ -141,14 +142,14 @@ HRESULT CDlg_User::OnButtonCancel(IHTMLElement* /*pElement*/)
 
 void CDlg_User::OnBnClickedOk()
 {
-	CDlogUserAdd dlgUserAdd(&this->bnsUser);
+	CDlogUserAdd dlgUserAdd;
 
 	int index = m_listCtrl.GetFirstSelected();
 	if(index>=0)
 	{
 		dlgUserAdd.m_nID = m_list.GetItemData(index);
 	std::string strName;
-	bnsUser.FindUserName(dlgUserAdd.m_nID, strName);
+	BNS::User()->FindUserName(dlgUserAdd.m_nID, strName);
 		dlgUserAdd.m_strUserName = strName.c_str();
 	}
 
@@ -160,6 +161,6 @@ void CDlg_User::OnBnClickedOk()
 
 void CDlg_User::OnBnClickedButton1()
 {	
-	bnsUser.Delete(m_list.GetItemData(m_listCtrl.GetFirstSelected()));
+	BNS::User()->Delete(m_list.GetItemData(m_listCtrl.GetFirstSelected()));
 	List(&this->m_list);
 }

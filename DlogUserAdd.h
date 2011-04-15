@@ -10,7 +10,7 @@ class CDlogUserAdd : public CDialog
 	DECLARE_DYNAMIC(CDlogUserAdd)
 
 public:
-	CDlogUserAdd(WXBNS::CUser* pBnsUser, CWnd* pParent = NULL);   // 标准构造函数
+	CDlogUserAdd(CWnd* pParent = NULL);   // 标准构造函数
 	virtual ~CDlogUserAdd();
 
 // 对话框数据
@@ -24,7 +24,6 @@ public:
 	afx_msg void OnBnClickedOk();
 public:
 	CString m_strUserName;
-	WXBNS::CUser* m_pBnsUser;
 
 private:
 	CString m_strPw1;

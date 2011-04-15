@@ -55,8 +55,6 @@ public:
 	CListCtrl m_list;
 	CWXListCtrl m_listCtrl;
 
-	WXBNS::CUser bnsUser;
-
 	afx_msg void OnBnClickedOk();
 	afx_msg void OnBnClickedButton1();
 	

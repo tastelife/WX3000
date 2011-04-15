@@ -9,6 +9,7 @@
 #include "MainFrm.h"
 #include "Dlg_User.h"
 #include "DlgLogin.h"
+#include "DlgPower.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -143,6 +144,9 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	CDlg_User user;
 
 	user.DoModal();
+
+	CDlgPower dlgPower;
+	dlgPower.DoModal();
 
 	exit(0);
 

@@ -190,6 +190,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\BNSPower.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\BNSUser.cpp"
 				>
 			</File>
@@ -199,6 +203,10 @@
 			</File>
 			<File
 				RelativePath=".\DBLogin.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\DBPower.cpp"
 				>
 			</File>
 			<File
@@ -276,6 +284,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\BNSPower.h"
+				>
+			</File>
+			<File
 				RelativePath=".\BNSUser.h"
 				>
 			</File>
@@ -285,6 +297,10 @@
 			</File>
 			<File
 				RelativePath=".\DBLogin.h"
+				>
+			</File>
+			<File
+				RelativePath=".\DBPower.h"
 				>
 			</File>
 			<File

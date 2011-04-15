@@ -5,6 +5,7 @@
 
 #include "DBUser.h"
 #include "DBLogin.h"
+#include "BNSUser.h"
 
 
 class DB
@@ -48,6 +49,17 @@ public:
 	{
 		static CWXDBConnect db;
 		return &db;
+	}
+};
+
+class BNS
+{
+public:
+	static WXBNS::CUser* User()
+	{
+		static WXBNS::CUser bnsUser;
+
+		return &bnsUser;
 	}
 };
 
