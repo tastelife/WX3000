@@ -230,6 +230,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\LogFile.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\LogOut.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\MainFrm.cpp"
 				>
 			</File>
@@ -254,7 +262,31 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\tinystr.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\tinyxml.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\tinyxmlerror.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\tinyxmlparser.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\wx.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\WXCommConfigure.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\WXCommFun.cpp"
 				>
 			</File>
 			<File
@@ -267,6 +299,10 @@
 			</File>
 			<File
 				RelativePath=".\WXListCtrl.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\WXLogOut.cpp"
 				>
 			</File>
 			<File
@@ -324,6 +360,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\LogFile.h"
+				>
+			</File>
+			<File
+				RelativePath=".\LogOut.h"
+				>
+			</File>
+			<File
 				RelativePath=".\MainFrm.h"
 				>
 			</File>
@@ -340,11 +384,27 @@
 				>
 			</File>
 			<File
+				RelativePath=".\tinystr.h"
+				>
+			</File>
+			<File
+				RelativePath=".\tinyxml.h"
+				>
+			</File>
+			<File
 				RelativePath=".\wx.h"
 				>
 			</File>
 			<File
-				RelativePath=".\wxcomm.h"
+				RelativePath=".\WXCommConfigure.h"
+				>
+			</File>
+			<File
+				RelativePath=".\WXCommFun.h"
+				>
+			</File>
+			<File
+				RelativePath=".\WXCommMacroCode.h"
 				>
 			</File>
 			<File
@@ -365,6 +425,10 @@
 			</File>
 			<File
 				RelativePath=".\WXLockDB.h"
+				>
+			</File>
+			<File
+				RelativePath=".\WXLogOut.h"
 				>
 			</File>
 			<File

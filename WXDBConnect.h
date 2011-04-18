@@ -2,7 +2,7 @@
 
 #import "C:\Program Files\common files\system\ado\msado15.dll" no_namespace rename("EOF","adoEOF")
 
-#include "wxcomm.h"
+#include "WXCommMacroCode.h"
 #include <string>
 #include <vector>
 

@@ -2,6 +2,9 @@
 #pragma once
 
 
+#include "WXCommMacroCode.h"
+#include "WXCommFun.h"
+
 #include "WXDbComm.h"
 
 NAMESPACE_DB_BEGIN
