@@ -1,6 +1,6 @@
 USE [wx]
 GO
-/****** Object:  Table [dbo].[userGroup]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  Table [dbo].[userGroup]    Script Date: 04/18/2011 10:41:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -20,7 +20,7 @@ CREATE TABLE [dbo].[userGroup](
 ) ON [PRIMARY]
 GO
 INSERT [dbo].[userGroup] ([col_userGroup_id], [col_group_id], [col_user_id], [col_userGroup_recordState], [col_userGroup_operator], [col_userGroup_opertor], [col_userGroup_copyFromID]) VALUES (1, 1, 1, 1, 0, CAST(0x00009F8E00000000 AS DateTime), 0)
-/****** Object:  Table [dbo].[user1]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  Table [dbo].[user1]    Script Date: 04/18/2011 10:41:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -51,20 +51,20 @@ INSERT [dbo].[user1] ([col_user_id], [col_user_loginName], [col_user_empId], [co
 INSERT [dbo].[user1] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatorTime], [col_user_copyFromID]) VALUES (12, N'qw5                 ', -1, N'qw                                                                                                                                                                                                                                                              ', 2, 0, CAST(0x00009EC40108A90D AS DateTime), 0)
 INSERT [dbo].[user1] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatorTime], [col_user_copyFromID]) VALUES (14, N'qw6                 ', -1, N'qw                                                                                                                                                                                                                                                              ', 2, 0, CAST(0x00009EC40108A676 AS DateTime), 0)
 INSERT [dbo].[user1] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatorTime], [col_user_copyFromID]) VALUES (15, N'qw12                ', -1, N'12                                                                                                                                                                                                                                                              ', 2, 0, CAST(0x00009EC600ED9D0F AS DateTime), 0)
-INSERT [dbo].[user1] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatorTime], [col_user_copyFromID]) VALUES (16, N'qw13                ', -1, N'                                                                                                                                                                                                                                                                ', 3, 0, CAST(0x00009EC600F24C52 AS DateTime), -1)
-INSERT [dbo].[user1] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatorTime], [col_user_copyFromID]) VALUES (21, N'a1                  ', -1, N'                                                                                                                                                                                                                                                                ', 3, 0, CAST(0x00009EC600EDA78D AS DateTime), -1)
+INSERT [dbo].[user1] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatorTime], [col_user_copyFromID]) VALUES (16, N'qw13                ', -1, N'                                                                                                                                                                                                                                                                ', 2, 0, CAST(0x00009EC900ABAB6D AS DateTime), -1)
+INSERT [dbo].[user1] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatorTime], [col_user_copyFromID]) VALUES (21, N'a1                  ', -1, N'                                                                                                                                                                                                                                                                ', 3, 0, CAST(0x00009EC900ABA44E AS DateTime), -1)
 INSERT [dbo].[user1] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatorTime], [col_user_copyFromID]) VALUES (22, N'23                  ', -1, N'                                                                                                                                                                                                                                                                ', 2, 0, CAST(0x00009EC400F7B363 AS DateTime), -1)
 INSERT [dbo].[user1] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatorTime], [col_user_copyFromID]) VALUES (23, N'zz                  ', -1, N'                                                                                                                                                                                                                                                                ', 2, 0, CAST(0x00009EC40108A429 AS DateTime), -1)
 INSERT [dbo].[user1] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatorTime], [col_user_copyFromID]) VALUES (24, N'wwwwww              ', -1, N'                                                                                                                                                                                                                                                                ', 2, 0, CAST(0x00009EC600ED9F37 AS DateTime), -1)
 INSERT [dbo].[user1] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatorTime], [col_user_copyFromID]) VALUES (25, N'qwerqw              ', -1, N'                                                                                                                                                                                                                                                                ', 2, 0, CAST(0x00009EC600A324BF AS DateTime), -1)
 INSERT [dbo].[user1] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatorTime], [col_user_copyFromID]) VALUES (26, N'qwqwq               ', -1, N'                                                                                                                                                                                                                                                                ', 2, 0, CAST(0x00009EC600ECF316 AS DateTime), -1)
-INSERT [dbo].[user1] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatorTime], [col_user_copyFromID]) VALUES (27, N'Q                   ', -1, N'Q                                                                                                                                                                                                                                                               ', 1, 0, CAST(0x00009EC600F25662 AS DateTime), -1)
+INSERT [dbo].[user1] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatorTime], [col_user_copyFromID]) VALUES (27, N'Q                   ', -1, N'                                                                                                                                                                                                                                                                ', 3, 0, CAST(0x00009EC900ABA88C AS DateTime), -1)
 INSERT [dbo].[user1] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatorTime], [col_user_copyFromID]) VALUES (11, N'2                   ', -1, N'                                                                                                                                                                                                                                                                ', 2, 0, CAST(0x00009EC600EDA174 AS DateTime), 0)
 INSERT [dbo].[user1] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatorTime], [col_user_copyFromID]) VALUES (17, N'12                  ', -1, N'                                                                                                                                                                                                                                                                ', 2, 0, CAST(0x00009EC500B42B4A AS DateTime), -1)
 INSERT [dbo].[user1] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatorTime], [col_user_copyFromID]) VALUES (18, N'123                 ', -1, N'                                                                                                                                                                                                                                                                ', 2, 0, CAST(0x00009EC401165B97 AS DateTime), -1)
 INSERT [dbo].[user1] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatorTime], [col_user_copyFromID]) VALUES (19, N'1234                ', -1, N'                                                                                                                                                                                                                                                                ', 2, 0, CAST(0x00009EC500B4F1F5 AS DateTime), -1)
 INSERT [dbo].[user1] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatorTime], [col_user_copyFromID]) VALUES (20, N'12345               ', -1, N'                                                                                                                                                                                                                                                                ', 2, 0, CAST(0x00009EC600ED9A0D AS DateTime), -1)
-/****** Object:  Table [dbo].[publicinFormation]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  Table [dbo].[publicinFormation]    Script Date: 04/18/2011 10:41:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -77,7 +77,7 @@ CREATE TABLE [dbo].[publicinFormation](
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[powerEnum]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  Table [dbo].[powerEnum]    Script Date: 04/18/2011 10:41:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -112,7 +112,7 @@ INSERT [dbo].[powerEnum] ([col_powerEnum_id], [col_powerEnum_type], [col_powerEn
 INSERT [dbo].[powerEnum] ([col_powerEnum_id], [col_powerEnum_type], [col_powerEnum_enum], [col_powerEnum_name], [col_powerEnum_manual], [col_powerEnum_recordState], [col_powerEnum_operator], [col_powerEnum_operatoTime], [col_powerEnum_recordCopyFrom]) VALUES (200002, N'functionPointPower', 2, N'删除', NULL, 1, 0, CAST(0x00009F9800000000 AS DateTime), 0)
 INSERT [dbo].[powerEnum] ([col_powerEnum_id], [col_powerEnum_type], [col_powerEnum_enum], [col_powerEnum_name], [col_powerEnum_manual], [col_powerEnum_recordState], [col_powerEnum_operator], [col_powerEnum_operatoTime], [col_powerEnum_recordCopyFrom]) VALUES (200003, N'functionPointPower', 4, N'修改', NULL, 1, 0, CAST(0x00009F9800000000 AS DateTime), 0)
 INSERT [dbo].[powerEnum] ([col_powerEnum_id], [col_powerEnum_type], [col_powerEnum_enum], [col_powerEnum_name], [col_powerEnum_manual], [col_powerEnum_recordState], [col_powerEnum_operator], [col_powerEnum_operatoTime], [col_powerEnum_recordCopyFrom]) VALUES (200004, N'functionPointPower', 8, N'查看', NULL, 1, 0, CAST(0x00009F9800000000 AS DateTime), 0)
-/****** Object:  Table [dbo].[newID]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  Table [dbo].[newID]    Script Date: 04/18/2011 10:41:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -132,9 +132,9 @@ GO
 SET ANSI_PADDING OFF
 GO
 INSERT [dbo].[newID] ([col_newID_ID], [col_newID_lastID], [col_newID_tableName]) VALUES (0, 27, N'user1                           ')
-INSERT [dbo].[newID] ([col_newID_ID], [col_newID_lastID], [col_newID_tableName]) VALUES (1, 80, N'login                           ')
+INSERT [dbo].[newID] ([col_newID_ID], [col_newID_lastID], [col_newID_tableName]) VALUES (1, 81, N'login                           ')
 INSERT [dbo].[newID] ([col_newID_ID], [col_newID_lastID], [col_newID_tableName]) VALUES (2, 16, N'userGroup                       ')
-/****** Object:  Table [dbo].[messageBoard]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  Table [dbo].[messageBoard]    Script Date: 04/18/2011 10:41:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -147,7 +147,7 @@ CREATE TABLE [dbo].[messageBoard](
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[login]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  Table [dbo].[login]    Script Date: 04/18/2011 10:41:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -189,10 +189,11 @@ INSERT [dbo].[login] ([col_login_id], [col_user_id], [col_login_loginTime], [col
 INSERT [dbo].[login] ([col_login_id], [col_user_id], [col_login_loginTime], [col_login_state], [col_login_computerName], [col_login_mac], [col_login_ip], [col_login_recordState], [col_login_operatorUserID], [col_login_operatoTime], [col_login_copyFromID]) VALUES (77, 1, CAST(0x00009EC600FF0C27 AS DateTime), 3, N'7bwz82x_win7pro                                                                                                                 ', N'                                                                                                                                ', N'192.168.120.78  192.168.56.1    ', 2, 0, CAST(0x00009EC600FFE8CB AS DateTime), -1)
 INSERT [dbo].[login] ([col_login_id], [col_user_id], [col_login_loginTime], [col_login_state], [col_login_computerName], [col_login_mac], [col_login_ip], [col_login_recordState], [col_login_operatorUserID], [col_login_operatoTime], [col_login_copyFromID]) VALUES (78, 1, CAST(0x00009EC600FFE8CD AS DateTime), 3, N'7bwz82x_win7pro                                                                                                                 ', N'                                                                                                                                ', N'192.168.120.78  192.168.56.1    ', 2, 0, CAST(0x00009EC601015D2F AS DateTime), -1)
 INSERT [dbo].[login] ([col_login_id], [col_user_id], [col_login_loginTime], [col_login_state], [col_login_computerName], [col_login_mac], [col_login_ip], [col_login_recordState], [col_login_operatorUserID], [col_login_operatoTime], [col_login_copyFromID]) VALUES (79, 1, CAST(0x00009EC601015D32 AS DateTime), 3, N'7bwz82x_win7pro                                                                                                                 ', N'                                                                                                                                ', N'192.168.120.78  192.168.56.1    ', 2, 0, CAST(0x00009EC60102CD06 AS DateTime), -1)
-INSERT [dbo].[login] ([col_login_id], [col_user_id], [col_login_loginTime], [col_login_state], [col_login_computerName], [col_login_mac], [col_login_ip], [col_login_recordState], [col_login_operatorUserID], [col_login_operatoTime], [col_login_copyFromID]) VALUES (80, 1, CAST(0x00009EC60102CD08 AS DateTime), 1, N'7bwz82x_win7pro                                                                                                                 ', N'                                                                                                                                ', N'192.168.120.78  192.168.56.1    ', 1, 0, CAST(0x00009EC60102CD08 AS DateTime), -1)
+INSERT [dbo].[login] ([col_login_id], [col_user_id], [col_login_loginTime], [col_login_state], [col_login_computerName], [col_login_mac], [col_login_ip], [col_login_recordState], [col_login_operatorUserID], [col_login_operatoTime], [col_login_copyFromID]) VALUES (80, 1, CAST(0x00009EC60102CD08 AS DateTime), 3, N'7bwz82x_win7pro                                                                                                                 ', N'                                                                                                                                ', N'192.168.120.78  192.168.56.1    ', 2, 0, CAST(0x00009EC900AB9B8B AS DateTime), -1)
+INSERT [dbo].[login] ([col_login_id], [col_user_id], [col_login_loginTime], [col_login_state], [col_login_computerName], [col_login_mac], [col_login_ip], [col_login_recordState], [col_login_operatorUserID], [col_login_operatoTime], [col_login_copyFromID]) VALUES (81, 1, CAST(0x00009EC900AB9B8E AS DateTime), 1, N'7bwz82x_win7pro                                                                                                                 ', N'                                                                                                                                ', N'192.168.120.78  192.168.56.1    ', 1, 0, CAST(0x00009EC900AB9B8E AS DateTime), -1)
 INSERT [dbo].[login] ([col_login_id], [col_user_id], [col_login_loginTime], [col_login_state], [col_login_computerName], [col_login_mac], [col_login_ip], [col_login_recordState], [col_login_operatorUserID], [col_login_operatoTime], [col_login_copyFromID]) VALUES (63, 1, CAST(0x00009EC5010EA434 AS DateTime), 3, N'7bwz82x_win7pro                                                                                                                 ', N'                                                                                                                                ', N'192.168.120.78  192.168.56.1    ', 2, 0, CAST(0x00009EC5010EEB30 AS DateTime), -1)
 INSERT [dbo].[login] ([col_login_id], [col_user_id], [col_login_loginTime], [col_login_state], [col_login_computerName], [col_login_mac], [col_login_ip], [col_login_recordState], [col_login_operatorUserID], [col_login_operatoTime], [col_login_copyFromID]) VALUES (64, 1, CAST(0x00009EC5010EEB32 AS DateTime), 3, N'7bwz82x_win7pro                                                                                                                 ', N'                                                                                                                                ', N'192.168.120.78  192.168.56.1    ', 2, 0, CAST(0x00009EC501132895 AS DateTime), -1)
-/****** Object:  Table [dbo].[hintuser]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  Table [dbo].[hintuser]    Script Date: 04/18/2011 10:41:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -211,7 +212,7 @@ CREATE TABLE [dbo].[hintuser](
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[hint]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  Table [dbo].[hint]    Script Date: 04/18/2011 10:41:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -243,7 +244,7 @@ CREATE TABLE [dbo].[hint](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[groupFunctionPointPower]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  Table [dbo].[groupFunctionPointPower]    Script Date: 04/18/2011 10:41:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -266,7 +267,7 @@ INSERT [dbo].[groupFunctionPointPower] ([col_group_id], [col_functinPoint_id], [
 INSERT [dbo].[groupFunctionPointPower] ([col_group_id], [col_functinPoint_id], [col_groupFuncitonPointPower], [col_groupFunctionPointPower_recordState], [col_groupFunctionPointPower_operator], [col_groupFunctionPointPower_operatoTime], [col_groupFunctionPointPower_copyFrom]) VALUES (2, 201, 0, 1, 0, CAST(0x00009F9800000000 AS DateTime), 0)
 INSERT [dbo].[groupFunctionPointPower] ([col_group_id], [col_functinPoint_id], [col_groupFuncitonPointPower], [col_groupFunctionPointPower_recordState], [col_groupFunctionPointPower_operator], [col_groupFunctionPointPower_operatoTime], [col_groupFunctionPointPower_copyFrom]) VALUES (3, 201, 0, 1, 0, CAST(0x00009F9800000000 AS DateTime), 0)
 INSERT [dbo].[groupFunctionPointPower] ([col_group_id], [col_functinPoint_id], [col_groupFuncitonPointPower], [col_groupFunctionPointPower_recordState], [col_groupFunctionPointPower_operator], [col_groupFunctionPointPower_operatoTime], [col_groupFunctionPointPower_copyFrom]) VALUES (4, 201, 0, 1, 0, CAST(0x00009F9800000000 AS DateTime), 0)
-/****** Object:  Table [dbo].[group]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  Table [dbo].[group]    Script Date: 04/18/2011 10:41:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -292,13 +293,14 @@ INSERT [dbo].[group] ([col_group_id], [col_group_name], [col_group_recordState],
 INSERT [dbo].[group] ([col_group_id], [col_group_name], [col_group_recordState], [col_group_opertor], [col_group_opertoTime], [col_group_copyFromID]) VALUES (2, N'常规组                                                                                                                          ', 1, 0, CAST(0x00009F9800000000 AS DateTime), 0)
 INSERT [dbo].[group] ([col_group_id], [col_group_name], [col_group_recordState], [col_group_opertor], [col_group_opertoTime], [col_group_copyFromID]) VALUES (3, N'试用组                                                                                                                          ', 1, 0, CAST(0x00009F9800000000 AS DateTime), 0)
 INSERT [dbo].[group] ([col_group_id], [col_group_name], [col_group_recordState], [col_group_opertor], [col_group_opertoTime], [col_group_copyFromID]) VALUES (4, N'禁用组                                                                                                                          ', 1, 0, CAST(0x00009F9800000000 AS DateTime), 0)
-/****** Object:  Table [dbo].[functinPoint]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  Table [dbo].[functinPoint]    Script Date: 04/18/2011 10:41:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[functinPoint](
 	[col_functinPoint_id] [int] NOT NULL,
+	[col_functinPoint_displayName] [text] NOT NULL,
 	[col_functinPoint_name] [text] NOT NULL,
 	[col_functinPoint_recordState] [tinyint] NOT NULL,
 	[col_functinPoint_operator] [int] NOT NULL,
@@ -310,9 +312,9 @@ CREATE TABLE [dbo].[functinPoint](
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-INSERT [dbo].[functinPoint] ([col_functinPoint_id], [col_functinPoint_name], [col_functinPoint_recordState], [col_functinPoint_operator], [col_functinPoint_opertoTime], [col_functinPoint_copyFromID]) VALUES (101, N'用户管理', 1, 0, CAST(0x00009F9800000000 AS DateTime), 0)
-INSERT [dbo].[functinPoint] ([col_functinPoint_id], [col_functinPoint_name], [col_functinPoint_recordState], [col_functinPoint_operator], [col_functinPoint_opertoTime], [col_functinPoint_copyFromID]) VALUES (201, N'权限管理', 1, 0, CAST(0x00009F9800000000 AS DateTime), 0)
-/****** Object:  StoredProcedure [dbo].[comm_CreateNewID]    Script Date: 04/15/2011 17:09:09 ******/
+INSERT [dbo].[functinPoint] ([col_functinPoint_id], [col_functinPoint_displayName], [col_functinPoint_name], [col_functinPoint_recordState], [col_functinPoint_operator], [col_functinPoint_opertoTime], [col_functinPoint_copyFromID]) VALUES (101, N'user', N'用户管理', 1, 0, CAST(0x000007D900000000 AS DateTime), 0)
+INSERT [dbo].[functinPoint] ([col_functinPoint_id], [col_functinPoint_displayName], [col_functinPoint_name], [col_functinPoint_recordState], [col_functinPoint_operator], [col_functinPoint_opertoTime], [col_functinPoint_copyFromID]) VALUES (201, N'power', N'权限管理', 1, 0, CAST(0x000007D900000000 AS DateTime), 0)
+/****** Object:  StoredProcedure [dbo].[comm_CreateNewID]    Script Date: 04/18/2011 10:41:37 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -341,7 +343,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[login_logoutExceptionAll]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  StoredProcedure [dbo].[login_logoutExceptionAll]    Script Date: 04/18/2011 10:41:37 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -362,7 +364,7 @@ UPDATE [wx].[dbo].login
  
 END
 GO
-/****** Object:  StoredProcedure [dbo].[login_logoutException]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  StoredProcedure [dbo].[login_logoutException]    Script Date: 04/18/2011 10:41:37 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -385,7 +387,7 @@ UPDATE [wx].[dbo].login
  
 END
 GO
-/****** Object:  StoredProcedure [dbo].[login_logout]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  StoredProcedure [dbo].[login_logout]    Script Date: 04/18/2011 10:41:37 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -408,7 +410,7 @@ UPDATE [wx].[dbo].login
  
 END
 GO
-/****** Object:  StoredProcedure [dbo].[login_login]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  StoredProcedure [dbo].[login_login]    Script Date: 04/18/2011 10:41:37 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -457,7 +459,7 @@ INSERT INTO [wx].dbo.login
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[login_IsLogining]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  StoredProcedure [dbo].[login_IsLogining]    Script Date: 04/18/2011 10:41:37 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -479,7 +481,7 @@ BEGIN
 	return @count
 END
 GO
-/****** Object:  StoredProcedure [dbo].[user_IsBeing]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  StoredProcedure [dbo].[user_IsBeing]    Script Date: 04/18/2011 10:41:37 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -499,7 +501,7 @@ BEGIN
 	return @count
 END
 GO
-/****** Object:  StoredProcedure [dbo].[user_edit]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  StoredProcedure [dbo].[user_edit]    Script Date: 04/18/2011 10:41:37 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -527,7 +529,7 @@ UPDATE [wx].[dbo].[user1]
  WHERE col_user_id = @col_user_id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[user_delete]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  StoredProcedure [dbo].[user_delete]    Script Date: 04/18/2011 10:41:37 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -547,7 +549,7 @@ UPDATE [wx].[dbo].[user1]
  WHERE col_user_id = @col_user_id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[userGroup_add]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  StoredProcedure [dbo].[userGroup_add]    Script Date: 04/18/2011 10:41:37 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -583,7 +585,7 @@ INSERT INTO [wx].[dbo].[userGroup]
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[user_add]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  StoredProcedure [dbo].[user_add]    Script Date: 04/18/2011 10:41:37 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -623,7 +625,7 @@ INSERT INTO [wx].dbo.user1
 
 END
 GO
-/****** Object:  View [dbo].[View_Power]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  View [dbo].[View_Power]    Script Date: 04/18/2011 10:41:40 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -777,7 +779,7 @@ End
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'View_Power'
 GO
-/****** Object:  StoredProcedure [dbo].[userGroup_edit]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  StoredProcedure [dbo].[userGroup_edit]    Script Date: 04/18/2011 10:41:37 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -799,7 +801,7 @@ UPDATE [wx].[dbo].[userGroup]
  
 END
 GO
-/****** Object:  StoredProcedure [dbo].[userGroup_delete]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  StoredProcedure [dbo].[userGroup_delete]    Script Date: 04/18/2011 10:41:37 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -816,7 +818,7 @@ delete [wx].[dbo].[userGroup]
  
 END
 GO
-/****** Object:  StoredProcedure [dbo].[userGroup_CreateNewID]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  StoredProcedure [dbo].[userGroup_CreateNewID]    Script Date: 04/18/2011 10:41:37 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -837,7 +839,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[user_CreateNewID]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  StoredProcedure [dbo].[user_CreateNewID]    Script Date: 04/18/2011 10:41:37 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -858,7 +860,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[login_CreateNewID]    Script Date: 04/15/2011 17:09:09 ******/
+/****** Object:  StoredProcedure [dbo].[login_CreateNewID]    Script Date: 04/18/2011 10:41:37 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
