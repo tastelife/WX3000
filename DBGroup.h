@@ -8,19 +8,19 @@
 NAMESPACE_DB_BEGIN
 
 
-
-class CPower
+class CGroup
 {
 public:
-	CPower(CWXDBConnect* pDBCon);
-	virtual ~CPower(void);
+	CGroup(CWXDBConnect* pDBCon);
+	virtual ~CGroup(void);
+
 private:
-	CPower(void);
+	CGroup(void);
 
 public:
 	//获得列表
-	void GetAllList(CWXMemDataVector<DBPowerViewData>& memDataVec);
-	
+	void GetAllList(CWXMemDataVector<DBGroupData>& memDataVec);
+
 private:
 	//数据库句柄
 	CWXDBConnect* m_pDBCon;
@@ -29,4 +29,5 @@ private:
 
 
 NAMESPACE_DB_END
+
 

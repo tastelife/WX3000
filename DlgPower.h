@@ -23,6 +23,9 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 private:
+	void List(CListCtrl* pList);
+
+private:
 	CWXListCtrl m_listGroupCtl;
 public:
 	CListCtrl m_listGroup;

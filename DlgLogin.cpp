@@ -5,6 +5,7 @@
 #include "wx.h"
 #include "DlgLogin.h"
 
+#include "StaticDB.h"
 
 // CDlgLogin ¶Ô»°¿ò
 
@@ -41,7 +42,7 @@ void CDlgLogin::OnBnClickedOk()
 {
 	UpdateData();
 
-	if(m_login.Login(m_strUserName.GetBuffer(0), m_strPassWord.GetBuffer()))
+	if(BNS::Login()->Login(m_strUserName.GetBuffer(0), m_strPassWord.GetBuffer()))
 	{
 		OnOK();
 	}

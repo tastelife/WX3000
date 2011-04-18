@@ -186,6 +186,10 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\BNSGroup.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\BNSLogin.cpp"
 				>
 			</File>
@@ -199,6 +203,10 @@
 			</File>
 			<File
 				RelativePath=".\CalendarBar.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\DBGroup.cpp"
 				>
 			</File>
 			<File
@@ -223,6 +231,10 @@
 			</File>
 			<File
 				RelativePath=".\DlgPower.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\DlgPowerEdit.cpp"
 				>
 			</File>
 			<File
@@ -316,6 +328,10 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath=".\BNSGroup.h"
+				>
+			</File>
+			<File
 				RelativePath=".\BNSLogin.h"
 				>
 			</File>
@@ -329,6 +345,10 @@
 			</File>
 			<File
 				RelativePath=".\CalendarBar.h"
+				>
+			</File>
+			<File
+				RelativePath=".\DBGroup.h"
 				>
 			</File>
 			<File
@@ -356,6 +376,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\DlgPowerEdit.h"
+				>
+			</File>
+			<File
 				RelativePath=".\DlogUserAdd.h"
 				>
 			</File>
@@ -373,6 +397,10 @@
 			</File>
 			<File
 				RelativePath=".\Resource.h"
+				>
+			</File>
+			<File
+				RelativePath=".\StaticDB.h"
 				>
 			</File>
 			<File

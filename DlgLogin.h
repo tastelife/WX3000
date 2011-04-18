@@ -23,7 +23,4 @@ public:
 	CString m_strUserName;
 	CString m_strPassWord;
 	afx_msg void OnBnClickedOk();
-
-private:
-	WXBNS::CLogin m_login;
 };

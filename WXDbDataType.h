@@ -72,6 +72,55 @@ struct DBLoginData
 };
 
 
+//权限视图对应数据
+struct DBPowerViewData
+{
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_USE(DBPowerViewData, 4);
+
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD_DEFAULT(int, _groupUserID, 0, -1);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _userID, 1);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD_DEFAULT(int, _groupID, 2, -1);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(std::string, _loginName, 3);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD_DEFAULT(std::string, _groupName, 4, "");
+
+	DBPowerViewData()
+	{
+		_groupUserID = -1;
+		_userID = -1;
+		_groupID = -1;
+		_loginName = "";
+		_groupName = "";
+	}
+};
+
+
+
+//组对应数据
+struct DBGroupData
+{
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_USE(DBGroupData, 5);
+
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _id, 0);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(std::string, _name, 1);
+
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(short, _recordStat, 2);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _operator, 3);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(DATE, _operatorTime, 4);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _copyFromID, 5);
+
+	DBGroupData()
+	{
+		_id = -1;
+		_name = "";
+		
+		_recordStat = 0;
+		_operator = 0;
+		_operatorTime = 0;
+		_copyFromID = 0;
+	}
+};
+
+
 
 NAMESPACE_DB_END
 

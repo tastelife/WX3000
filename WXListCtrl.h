@@ -50,12 +50,12 @@ public:
 	//获得关联数据
 	template<class T>
 	T GetMapItemData(int nPos);
-
+public:
+	//操作List
+	CListCtrl* m_pList;
 private:
 	//插入标题内容
 	static void InsertColumn(SWXLISTCTROLCOLUMN ctlCol, CListCtrl* listCtrl);
-	//操作List
-	CListCtrl* m_pList;
 	//关联的数据
 	void *pMapItemData;
 };

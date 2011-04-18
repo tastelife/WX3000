@@ -19,14 +19,14 @@ public:
 public:
 	//登录
 	bool Login(std::string strName, std::string strPassWord);
-	//登录
-	bool Login(WXDB::DBLoginData& loginData);
 	//登出
 	bool Logout();
 
 private:
 	//用户是否已登录,存在返回true
 	bool IsLoging(int nUserID);
+	//登录
+	bool Login(WXDB::DBLoginData& loginData);
 
 private:
 	WXDB::DBUserData* m_pUserData;

@@ -5,7 +5,14 @@
 
 #include "DBUser.h"
 #include "DBLogin.h"
+#include "DBPower.h"
+#include "DBGroup.h"
+
+
 #include "BNSUser.h"
+#include "BNSLogin.h"
+#include "BNSPower.h"
+#include "BNSGroup.h"
 
 
 class DB
@@ -37,7 +44,21 @@ public:
 
 		return  &dbLogin;
 	}
+
+	static WXDB::CPower* Power()
+	{
+		static WXDB::CPower dbPower(db());
+
+		return  &dbPower;
+	}
 	
+
+	static WXDB::CGroup* Group()
+	{
+		static WXDB::CGroup dbGroup(db());
+
+		return  &dbGroup;
+	}
 
 	static bool UnInit()
 	{
@@ -60,6 +81,27 @@ public:
 		static WXBNS::CUser bnsUser;
 
 		return &bnsUser;
+	}
+	
+	static WXBNS::CLogin* Login()
+	{
+		static WXBNS::CLogin bnsLogin;
+
+		return &bnsLogin;
+	}
+	
+	static WXBNS::CPower* Power()
+	{
+		static WXBNS::CPower bnsPower;
+
+		return &bnsPower;
+	}
+	
+	static WXBNS::CGroup* Group()
+	{
+		static WXBNS::CGroup bnsGroup;
+
+		return &bnsGroup;
 	}
 };
 

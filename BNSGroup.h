@@ -1,28 +1,30 @@
 #pragma once
 
+
 #include "WXBNSComm.h"
 #include "WXMemDataVector.h"
 #include "WXDbDataType.h"
 
 
+
 NAMESPACE_BNS_BEGIN
 
 
-class CPower
+class CGroup
 {
 public:
-	CPower(void);
-	virtual ~CPower(void);
-	
+	CGroup(void);
+	virtual ~CGroup(void);
+
 public:
 	//获得所有数据保存在内存数据中
 	bool RefrushAll();
 
 public:
 	//内存数据
-	CWXMemDataVector<WXDB::DBPowerViewData> m_memDataVec;
+	CWXMemDataVector<WXDB::DBGroupData> m_memDataVec;
 };
 
 
-NAMESPACE_BNS_END
+NAMESPACE_DB_END
 

@@ -1,34 +1,33 @@
 #include "StdAfx.h"
-#include "BNSPower.h"
+#include "BNSGroup.h"
 
 #include "StaticDB.h"
-
 
 
 NAMESPACE_BNS_BEGIN
 
 
-CPower::CPower(void)
+
+CGroup::CGroup(void)
 {
 }
 
-CPower::~CPower(void)
+CGroup::~CGroup(void)
 {
 }
-
 
 
 //获得所有数据保存在内存数据中
-bool CPower::RefrushAll()
+bool CGroup::RefrushAll()
 {
 	this->m_memDataVec.clear();
 
-	DB::Power()->GetAllList(this->m_memDataVec);
+	DB::Group()->GetAllList(this->m_memDataVec);
 
 	return true;
 }
 
 
 
-NAMESPACE_BNS_END
+NAMESPACE_DB_END
 
