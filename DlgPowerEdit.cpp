@@ -12,13 +12,13 @@
 
 IMPLEMENT_DYNAMIC(CDlgPowerEdit, CDialog)
 
-CDlgPowerEdit::CDlgPowerEdit(int nUserID, int nGroupID, CWnd* pParent /*=NULL*/)
+CDlgPowerEdit::CDlgPowerEdit(int nUserID, int nGroupID, int nUserGroupID, CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgPowerEdit::IDD, pParent)
 	, m_strUserName(_T(""))
 	, m_strGroupName(_T(""))
 	, m_nUserID(nUserID)
 	, m_nGroupID(nGroupID)
-	, m_nUserGroupID(-1)
+	, m_nUserGroupID(nUserGroupID)
 {
 
 }
@@ -65,8 +65,22 @@ BOOL CDlgPowerEdit::OnInitDialog()
 
 void CDlgPowerEdit::OnBnClickedOk()
 {
+	if(m_cmbGroup.GetCurSel()<0)
+	{
+		return;
+	}
 	// TODO: 在此添加控件通知处理程序代码
-	OnOK();
+	if(BNS::UserGroup()->SetUserGroupByUserID(
+		m_nUserID, 
+		m_cmbGroup.GetItemData(m_cmbGroup.GetCurSel())
+		))
+	{
+		OnOK();
+	}
+	else
+	{
+		MessageBox("设定组失败");
+	}
 }
 
 void CDlgPowerEdit::List()

@@ -122,6 +122,38 @@ struct DBGroupData
 
 
 
+
+
+//用户-组对应数据
+struct DBUserGroupData
+{
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_USE(DBUserGroupData, 6);
+
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _id, 0);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _groupID, 1);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _userID, 2);
+
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(short, _recordStat, 3);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _operator, 4);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(DATE, _operatorTime, 5);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _copyFromID, 6);
+
+	DBUserGroupData()
+	{
+		_id = -1;
+		_groupID = -1;
+		_userID = -1;
+		
+		_recordStat = 0;
+		_operator = 0;
+		_operatorTime = 0;
+		_copyFromID = 0;
+	}
+};
+
+
+
+
 NAMESPACE_DB_END
 
 

@@ -202,6 +202,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\BNSUserGroup.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\CalendarBar.cpp"
 				>
 			</File>
@@ -219,6 +223,10 @@
 			</File>
 			<File
 				RelativePath=".\DBUser.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\DBUserGroup.cpp"
 				>
 			</File>
 			<File
@@ -344,6 +352,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\BNSUserGroup.h"
+				>
+			</File>
+			<File
 				RelativePath=".\CalendarBar.h"
 				>
 			</File>
@@ -361,6 +373,10 @@
 			</File>
 			<File
 				RelativePath=".\DBUser.h"
+				>
+			</File>
+			<File
+				RelativePath=".\DBUserGroup.h"
 				>
 			</File>
 			<File

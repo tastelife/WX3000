@@ -7,12 +7,16 @@
 #include "DBLogin.h"
 #include "DBPower.h"
 #include "DBGroup.h"
+#include "DBUserGroup.h"
+
 
 
 #include "BNSUser.h"
 #include "BNSLogin.h"
 #include "BNSPower.h"
 #include "BNSGroup.h"
+#include "BNSUserGroup.h"
+
 
 
 class DB
@@ -59,6 +63,14 @@ public:
 
 		return  &dbGroup;
 	}
+	
+
+	static WXDB::CUserGroup* UserGroup()
+	{
+		static WXDB::CUserGroup dbUserGroup(db());
+
+		return  &dbUserGroup;
+	}
 
 	static bool UnInit()
 	{
@@ -102,6 +114,13 @@ public:
 		static WXBNS::CGroup bnsGroup;
 
 		return &bnsGroup;
+	}
+	
+	static WXBNS::CUserGroup* UserGroup()
+	{
+		static WXBNS::CUserGroup bnsUserGroup;
+
+		return &bnsUserGroup;
 	}
 };
 

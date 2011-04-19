@@ -47,7 +47,7 @@ void CDlgPower::OnBnClickedOk()
 
 	std::pair<int, int> intPair = m_listGroupCtl.GetMapItemData<std::pair<int, int> >(nIndex);
 
-	CDlgPowerEdit edit(m_listGroupCtl.m_pList->GetItemData(nIndex), intPair.second);
+	CDlgPowerEdit edit(m_listGroupCtl.m_pList->GetItemData(nIndex), intPair.first, intPair.second);
 
 	if(IDOK==edit.DoModal())
 	{
@@ -93,7 +93,7 @@ void CDlgPower::List(CListCtrl* pList)
 		vecItem.push_back(data._groupName);
 
 		m_listGroupCtl.AddItems(vecItem, data._userID);
-		m_listGroupCtl.SetMapItemData(i, std::pair<int, int>(data._userID, data._groupID));
+		m_listGroupCtl.SetMapItemData(i, std::pair<int, int>(data._groupID, data._groupUserID));
 	}
 
 }

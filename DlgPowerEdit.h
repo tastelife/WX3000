@@ -9,7 +9,7 @@ class CDlgPowerEdit : public CDialog
 	DECLARE_DYNAMIC(CDlgPowerEdit)
 
 public:
-	CDlgPowerEdit(int nUserID, int nGroupID, CWnd* pParent = NULL);   // 标准构造函数
+	CDlgPowerEdit(int nUserID, int nGroupID, int nUserGroupID,CWnd* pParent = NULL);   // 标准构造函数
 	virtual ~CDlgPowerEdit();
 
 // 对话框数据
