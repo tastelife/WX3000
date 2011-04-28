@@ -177,7 +177,8 @@ bool CUser::FindUserName(int nID, std::string& strUserName)
 	bool bRtn = false;
 
 	WXDB::DBUserData data;
-	if(bRtn = DB::User()->Find(nID, data))
+	bRtn = DB::User()->Find(nID, data);
+	if(bRtn)
 	{
 		strUserName = data._loginName;
 	}

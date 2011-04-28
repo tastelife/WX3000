@@ -210,7 +210,7 @@ template<>
 class CWXGetVariantValue <short>
 {
 public:
-	int operator ()(const _variant_t& varData) throw(...)
+	short operator ()(const _variant_t& varData) throw(...)
 	{
 		if (VT_I2==varData.vt)
 		{
@@ -222,7 +222,7 @@ public:
 		}
 	}
 	
-	int operator ()(const _variant_t& varData, short nDefault) throw()
+	short operator ()(const _variant_t& varData, short nDefault) throw()
 	{
 		if (VT_I2==varData.vt)
 		{

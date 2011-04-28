@@ -66,9 +66,9 @@ void CUser::GetAllList(CWXMemDataVector<DBUserData>& memDataVec)
 		" ,[col_user_passwd]"
 		" ,[col_user_recordState]"
 		" ,[col_user_operator]"
-		" ,[col_user_operatorTime]"
+		" ,[col_user_operatoTime]"
 		" ,[col_user_copyFromID]"
-		" FROM [wx].[dbo].[user1]"
+		" FROM [wx].[dbo].[userTBL]"
 		" where col_user_recordState!=2");
 	//转换成内存数据
 	CWXRecordsetPtrToVecDBdata<DBUserData>()(rec, memDataVec);
@@ -120,9 +120,9 @@ bool CUser::Find(int nID, DBUserData& data)
 		" ,[col_user_passwd]"
 		" ,[col_user_recordState]"
 		" ,[col_user_operator]"
-		" ,[col_user_operatorTime]"
+		" ,[col_user_operatoTime]"
 		" ,[col_user_copyFromID]"
-		" FROM [wx].[dbo].[user1]" 
+		" FROM [wx].[dbo].[userTBL]" 
 		" where col_user_id = "
 		+ strSql;
 
@@ -156,9 +156,9 @@ bool CUser::IsLogin(std::string strName, std::string strPassWord, DBUserData* pD
 		" ,[col_user_passwd]"
 		" ,[col_user_recordState]"
 		" ,[col_user_operator]"
-		" ,[col_user_operatorTime]"
+		" ,[col_user_operatoTime]"
 		" ,[col_user_copyFromID]"
-		" FROM [wx].[dbo].[user1]" 
+		" FROM [wx].[dbo].[userTBL]" 
 		" where col_user_loginName = '"
 		+ strName
 		+ "' and col_user_passwd = '"
