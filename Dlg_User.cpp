@@ -38,15 +38,6 @@ void CDlg_User::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_LIST3, m_list);
 }
 
-bool isDataDule(DWORD dwData)
-{
-	if(3==dwData)
-	{
-		return true;
-	}
-	return false;
-}
-
 
 void CDlg_User::List(CListCtrl* pList)
 {
@@ -79,7 +70,8 @@ void CDlg_User::List(CListCtrl* pList)
 		m_listCtrl.AddItems(vecItem, data._id);
 
 	}
-
+	
+	m_listCtrl.Select(0);
 }
 
 BOOL CDlg_User::OnInitDialog()
@@ -103,6 +95,7 @@ BOOL CDlg_User::OnInitDialog()
 BEGIN_MESSAGE_MAP(CDlg_User, CDHtmlDialog)
 	ON_BN_CLICKED(IDOK, &CDlg_User::OnBnClickedOk)
 	ON_BN_CLICKED(IDC_BUTTON1, &CDlg_User::OnBnClickedButton1)
+	ON_BN_CLICKED(IDOK2, &CDlg_User::OnBnClickedOk2)
 END_MESSAGE_MAP()
 
 BEGIN_DHTML_EVENT_MAP(CDlg_User)
@@ -147,10 +140,7 @@ void CDlg_User::OnBnClickedOk()
 	int index = m_listCtrl.GetFirstSelected();
 	if(index>=0)
 	{
-		dlgUserAdd.m_nID = m_list.GetItemData(index);
-	std::string strName;
-	BNS::User()->FindUserName(dlgUserAdd.m_nID, strName);
-		dlgUserAdd.m_strUserName = strName.c_str();
+		dlgUserAdd.m_nID = -1;
 	}
 
 	dlgUserAdd.DoModal();
@@ -162,5 +152,24 @@ void CDlg_User::OnBnClickedOk()
 void CDlg_User::OnBnClickedButton1()
 {	
 	BNS::User()->Delete(m_list.GetItemData(m_listCtrl.GetFirstSelected()));
+	List(&this->m_list);
+}
+
+void CDlg_User::OnBnClickedOk2()
+{
+	CDlogUserAdd dlgUserAdd;
+
+	int index = m_listCtrl.GetFirstSelected();
+	if(index>=0)
+	{
+		dlgUserAdd.m_nID = m_list.GetItemData(index);
+		std::string strName;
+		BNS::User()->FindUserName(dlgUserAdd.m_nID, strName);
+		dlgUserAdd.m_strUserName = strName.c_str();
+	}
+
+	dlgUserAdd.DoModal();
+
+	
 	List(&this->m_list);
 }

@@ -11,6 +11,9 @@
 #include "DlgLogin.h"
 #include "DlgPower.h"
 
+
+#include "DlogMain.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -135,18 +138,8 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	DB::Init();
 
-	CDlgLogin login;
-	if(IDOK!=login.DoModal())
-	{
-		exit(0);
-	}
-
-	CDlg_User user;
-
-	user.DoModal();
-
-	CDlgPower dlgPower;
-	dlgPower.DoModal();
+	CDlogMain dlg;
+	dlg.DoModal();
 
 	exit(0);
 

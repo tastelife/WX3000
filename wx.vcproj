@@ -246,6 +246,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\DlogMain.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\DlogUserAdd.cpp"
 				>
 			</File>
@@ -393,6 +397,10 @@
 			</File>
 			<File
 				RelativePath=".\DlgPowerEdit.h"
+				>
+			</File>
+			<File
+				RelativePath=".\DlogMain.h"
 				>
 			</File>
 			<File

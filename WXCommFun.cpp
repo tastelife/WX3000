@@ -154,6 +154,7 @@ int CWXFun::GetIPMacName(std::string& strIP, std::string& strMac, std::string& s
 		he.h_name, he.h_aliases, he.h_addrtype, he.h_length);
 
 	sockaddr_in sa;
+	strIP = "";
 	for (int nAdapter=0; he.h_addr_list[nAdapter]; nAdapter++) {
 		memcpy ( &sa.sin_addr.s_addr, he.h_addr_list[nAdapter],he.h_length);
 		// 输出机器的IP地址.

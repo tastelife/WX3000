@@ -55,14 +55,8 @@ bool CWXDBConnect::Open()
 bool CWXDBConnect::Close()
 {	
 	HRESULT hr;
-	try
-	{
-		hr = m_pConnection->Close();
-	}
-    catch (...)
-    {
-        return false;
-    }
+
+	hr = m_pConnection->Close();
 
 	if(FAILED(hr))
 	{
