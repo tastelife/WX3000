@@ -1,2 +1,3 @@
-数据库：
-　　登录表：ＩＰ类型改为　text
+数据库：　　登录表：ＩＰ类型改为　text
+　　2011／04／29
+数据库：　　View_powerView改为View_UserGroup 　　　　　　　　　　

@@ -19,7 +19,7 @@ CPower::~CPower(void)
 
 
 //获得列表
-void CPower::GetAllList(CWXMemDataVector<DBPowerViewData>& memDataVec)
+void CPower::GetUserGroupViewAllList(CWXMemDataVector<DBUserGroupViewData>& memDataVec)
 {
 	//执行
 	_RecordsetPtr rec = this->m_pDBCon->ExecText("SELECT [col_userGroup_id]"
@@ -27,9 +27,9 @@ void CPower::GetAllList(CWXMemDataVector<DBPowerViewData>& memDataVec)
 		" ,[col_group_id]"
 		" ,[col_user_loginName]"
 		" ,[col_group_name]"
-		" FROM [wx].[dbo].[View_Power]");
+		" FROM [wx].[dbo].[View_UserGroup]");
 	//转换成内存数据
-	CWXRecordsetPtrToVecDBdata<DBPowerViewData>()(rec, memDataVec);
+	CWXRecordsetPtrToVecDBdata<DBUserGroupViewData>()(rec, memDataVec);
 }
 
 

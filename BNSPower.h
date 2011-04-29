@@ -20,7 +20,7 @@ public:
 
 public:
 	//ÄÚ´æÊý¾Ý
-	CWXMemDataVector<WXDB::DBPowerViewData> m_memDataVec;
+	CWXMemDataVector<WXDB::DBUserGroupViewData> m_memDataVecUserGroupView;
 };
 
 

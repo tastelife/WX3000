@@ -76,14 +76,14 @@ void CDlgPower::List(CListCtrl* pList)
 	pList->DeleteAllItems();
 
 	BNS::Power()->RefrushAll();
-	CWXMemDataVector<WXDB::DBPowerViewData> vecData;
-	vecData = BNS::Power()->m_memDataVec;
+	CWXMemDataVector<WXDB::DBUserGroupViewData> vecData;
+	vecData = BNS::Power()->m_memDataVecUserGroupView;
 
 	CString str;
 
 	for(unsigned int i=0; i<vecData.size(); ++i)
 	{
-		WXDB::DBPowerViewData data = vecData.at(i);
+		WXDB::DBUserGroupViewData data = vecData.at(i);
 
 
 		std::vector<std::string> vecItem;

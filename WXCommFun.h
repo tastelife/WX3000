@@ -1,6 +1,8 @@
 //WXCommFun.h
 #pragma once
 #include "WXCommMacroCode.h"
+//#include "WXDbComm.h"
+//#include "WXDbDataType.h"
 #include <algorithm>
 #include <COMUTIL.H>
 #include <string>
@@ -265,6 +267,39 @@ public:
 	}
 };
 
+/*
+//WXDB::Power
+template<>
+class CWXGetVariantValue <WXDB::Power>
+{
+public:
+	WXDB::Power operator ()(const _variant_t& varData) throw(...)
+	{
+		if ((VT_I4==varData.vt)||(VT_INT==varData.vt))
+		{
+			WXDB::Power power(varData.lVal);
+			return power;
+		}
+		else
+		{
+			throw std::string(WX_COMM_VAR_TYPE_ERR);
+		}
+	}
+	
+	WXDB::Power operator ()(const _variant_t& varData, 
+		WXDB::Power dateDefault) throw()
+	{
+		if ((VT_I4==varData.vt)||(VT_INT==varData.vt))
+		{
+			WXDB::Power power(varData.lVal);
+			return power;
+		}
+		else
+		{
+			return dateDefault;
+		}
+	}
+};*/
 #undef WX_COMM_VAR_TYPE_ERR
 
 //可变变量的值的存
@@ -287,7 +322,18 @@ public:
 		return _variant_t(tData.c_str());
 	}
 };
-
+/*
+//WXDB::Power
+template <>
+class CWXSetVariantValue <WXDB::Power>
+{
+public:
+	_variant_t operator ()(const WXDB::Power& tData)
+	{
+		return _variant_t(tData._nPower);
+	}
+};
+*/
 class CWXFun
 {
 public:

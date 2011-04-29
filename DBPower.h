@@ -18,8 +18,8 @@ private:
 	CPower(void);
 
 public:
-	//获得列表
-	void GetAllList(CWXMemDataVector<DBPowerViewData>& memDataVec);
+	//用户组获得列表
+	void GetUserGroupViewAllList(CWXMemDataVector<DBUserGroupViewData>& memDataVec);
 	
 private:
 	//数据库句柄

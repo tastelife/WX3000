@@ -21,9 +21,9 @@ CPower::~CPower(void)
 //获得所有数据保存在内存数据中
 bool CPower::RefrushAll()
 {
-	this->m_memDataVec.clear();
+	this->m_memDataVecUserGroupView.clear();
 
-	DB::Power()->GetAllList(this->m_memDataVec);
+	DB::Power()->GetUserGroupViewAllList(this->m_memDataVecUserGroupView);
 
 	return true;
 }
