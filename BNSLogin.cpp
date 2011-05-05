@@ -99,6 +99,18 @@ bool CLogin::Logout()
 }
 
 
+//登录ID
+int CLogin::GetLoginID()
+{
+	if(NULL==m_pUserData)
+	{
+		return -1;
+	}
+
+	return m_pUserData->_id;
+}
+
+
 //用户是否已登录,存在返回true
 bool CLogin::IsLoging(int nUserID)
 {

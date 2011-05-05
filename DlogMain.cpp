@@ -39,6 +39,7 @@ BEGIN_MESSAGE_MAP(CDlogMain, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON4, &CDlogMain::OnBnClickedButton4)
 	ON_BN_CLICKED(IDC_BUTTON5, &CDlogMain::OnBnClickedButton5)
 	ON_BN_CLICKED(IDC_BUTTON6, &CDlogMain::OnBnClickedButton6)
+	ON_BN_CLICKED(IDC_BUTTON7, &CDlogMain::OnBnClickedButton7)
 END_MESSAGE_MAP()
 
 
@@ -51,12 +52,7 @@ void CDlogMain::OnBnClickedButton1()
 		CDlgLogin login;
 		if(IDOK==login.DoModal())
 		{
-			this->GetDlgItem(IDC_BUTTON1)->EnableWindow(0);
-			this->GetDlgItem(IDC_BUTTON2)->EnableWindow(1);
-			this->GetDlgItem(IDC_BUTTON3)->EnableWindow(1);
-			this->GetDlgItem(IDC_BUTTON4)->EnableWindow(1);
-			this->GetDlgItem(IDC_BUTTON5)->EnableWindow(1);
-			this->GetDlgItem(IDC_BUTTON6)->EnableWindow(1);
+			EnableButton();
 		}
 		else
 		{			
@@ -95,4 +91,33 @@ void CDlogMain::OnBnClickedButton5()
 
 void CDlogMain::OnBnClickedButton6()
 {
+}
+
+
+void CDlogMain::EnableButton()
+{
+	this->GetDlgItem(IDC_BUTTON1)->EnableWindow(0);
+	BNS::Power()->RefrushAll();
+	
+	if(BNS::Power()->GetUserPower(BNS::Login()->GetLoginID()).IsReadPower())
+	{
+		this->GetDlgItem(IDC_BUTTON2)->EnableWindow(1);
+	}
+
+	this->GetDlgItem(IDC_BUTTON3)->EnableWindow(1);
+	this->GetDlgItem(IDC_BUTTON4)->EnableWindow(1);
+	this->GetDlgItem(IDC_BUTTON5)->EnableWindow(1);
+	this->GetDlgItem(IDC_BUTTON6)->EnableWindow(1);
+	this->GetDlgItem(IDC_BUTTON7)->EnableWindow(1);
+}
+void CDlogMain::OnBnClickedButton7()
+{
+	BNS::Login()->Logout();
+	this->GetDlgItem(IDC_BUTTON1)->EnableWindow(1);
+	this->GetDlgItem(IDC_BUTTON2)->EnableWindow(0);
+	this->GetDlgItem(IDC_BUTTON3)->EnableWindow(0);
+	this->GetDlgItem(IDC_BUTTON4)->EnableWindow(0);
+	this->GetDlgItem(IDC_BUTTON5)->EnableWindow(0);
+	this->GetDlgItem(IDC_BUTTON6)->EnableWindow(0);
+	this->GetDlgItem(IDC_BUTTON7)->EnableWindow(0);
 }

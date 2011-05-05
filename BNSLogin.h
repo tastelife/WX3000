@@ -21,6 +21,8 @@ public:
 	bool Login(std::string strName, std::string strPassWord);
 	//登出
 	bool Logout();
+	//登录ID
+	int GetLoginID();
 
 private:
 	//用户是否已登录,存在返回true

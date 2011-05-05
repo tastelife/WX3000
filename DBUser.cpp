@@ -186,5 +186,19 @@ bool CUser::IsLogin(std::string strName, std::string strPassWord, DBUserData* pD
 }
 
 
+//用户名相等返回true
+bool  CUser::IsUserNameDue(WXDB::DBUserData dbUserData, std::string strName)
+{
+	return dbUserData._loginName==strName;
+}
+
+
+//id相等返回true
+bool CUser::IsIDDue(WXDB::DBUserData dbUserData, int nID)
+{
+	return dbUserData._id ==nID;
+}
+
+
 
 NAMESPACE_DB_END

@@ -26,4 +26,9 @@ public:
 	afx_msg void OnBnClickedButton4();
 	afx_msg void OnBnClickedButton5();
 	afx_msg void OnBnClickedButton6();
+
+private:
+	void EnableButton();
+public:
+	afx_msg void OnBnClickedButton7();
 };

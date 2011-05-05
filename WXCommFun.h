@@ -1,8 +1,6 @@
 //WXCommFun.h
 #pragma once
 #include "WXCommMacroCode.h"
-//#include "WXDbComm.h"
-//#include "WXDbDataType.h"
 #include <algorithm>
 #include <COMUTIL.H>
 #include <string>
@@ -267,7 +265,94 @@ public:
 	}
 };
 
-/*
+namespace WXDB 
+{
+	struct Power
+	{
+		int _nPower;
+
+		bool IsCreatePower()
+		{
+			return (_nPower&0x01)!=0;
+		}
+		void SetCreatePower(bool bPower)
+		{
+			if(bPower)
+			{
+				_nPower = _nPower|0x01;
+			}
+			else
+			{
+				_nPower = _nPower&(~0x01);
+			}
+		}
+
+		bool IsDeletePower()
+		{
+			return (_nPower&0x02)!=0;
+		}
+		void SetDeletePower(bool bPower)
+		{
+			if(bPower)
+			{
+				_nPower = _nPower|0x02;
+			}
+			else
+			{
+				_nPower = _nPower&(~0x02);
+			}
+		}
+
+		bool IsEditPower()
+		{
+			return (_nPower&0x04)!=0;
+		}
+		void SetEditPower(bool bPower)
+		{
+			if(bPower)
+			{
+				_nPower = _nPower|0x04;
+			}
+			else
+			{
+				_nPower = _nPower&(~0x04);
+			}
+		}
+
+		bool IsReadPower()
+		{
+			return (_nPower&0x08)!=0;
+		}
+		void SetReadPower(bool bPower)
+		{
+			if(bPower)
+			{
+				_nPower = _nPower|0x08;
+			}
+			else
+			{
+				_nPower = _nPower&(~0x08);
+			}
+		}
+
+		Power()
+		{
+			_nPower = 0;
+		}
+
+		explicit Power(int nPower)
+		{
+			_nPower = nPower;
+		}
+
+		Power(Power& power)
+		{
+			_nPower = power._nPower;
+		}
+	};
+
+}
+
 //WXDB::Power
 template<>
 class CWXGetVariantValue <WXDB::Power>
@@ -299,7 +384,7 @@ public:
 			return dateDefault;
 		}
 	}
-};*/
+};
 #undef WX_COMM_VAR_TYPE_ERR
 
 //可变变量的值的存
@@ -322,7 +407,7 @@ public:
 		return _variant_t(tData.c_str());
 	}
 };
-/*
+
 //WXDB::Power
 template <>
 class CWXSetVariantValue <WXDB::Power>
@@ -333,7 +418,7 @@ public:
 		return _variant_t(tData._nPower);
 	}
 };
-*/
+
 class CWXFun
 {
 public:

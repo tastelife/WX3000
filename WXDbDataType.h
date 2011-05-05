@@ -152,91 +152,6 @@ struct DBUserGroupData
 };
 
 
-/*
-struct Power
-{
-	int _nPower;
-
-	bool GetCreatePower()
-	{
-		return (_nPower&0x01)!=0;
-	}
-	void SetCreatePower(bool bPower)
-	{
-		if(bPower)
-		{
-			_nPower = _nPower|0x01;
-		}
-		else
-		{
-			_nPower = _nPower&(~0x01);
-		}
-	}
-
-	bool GetDeletePower()
-	{
-		return (_nPower&0x02)!=0;
-	}
-	void SetDeletePower(bool bPower)
-	{
-		if(bPower)
-		{
-			_nPower = _nPower|0x02;
-		}
-		else
-		{
-			_nPower = _nPower&(~0x02);
-		}
-	}
-
-	bool GetEditPower()
-	{
-		return (_nPower&0x04)!=0;
-	}
-	void SetEditPower(bool bPower)
-	{
-		if(bPower)
-		{
-			_nPower = _nPower|0x04;
-		}
-		else
-		{
-			_nPower = _nPower&(~0x04);
-		}
-	}
-
-	bool GetReadPower()
-	{
-		return (_nPower&0x08)!=0;
-	}
-	void SetReadPower(bool bPower)
-	{
-		if(bPower)
-		{
-			_nPower = _nPower|0x08;
-		}
-		else
-		{
-			_nPower = _nPower&(~0x08);
-		}
-	}
-
-	Power()
-	{
-		_nPower = 0;
-	}
-
-	Power(int nPower)
-	{
-		_nPower = nPower;
-	}
-
-	Power(Power& power)
-	{
-		_nPower = power._nPower;
-	}
-};
-
 
 //组、功能点、权限视图对应数据
 struct DBGroupFunPointPowerViewData
@@ -247,39 +162,27 @@ struct DBGroupFunPointPowerViewData
 	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _groupID, 0);
 	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(std::string, _funPointName, 1);
 	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(std::string, _funPointDisplayName, 2);
-	//WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(Power, _groupFuncitonPointPower, 3);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(Power, _groupFuncitonPointPower, 3);
 
-	Power _groupFuncitonPointPower;
-	template<>
-		class SetClass<3>
-		{
-		public:
-			void operator()(DBGroupFunPointPowerViewData* stru, const _variant_t& varData)
-			{
-				stru->_groupFuncitonPointPower = CWXGetVariantValue<Power>()(varData);
-			}
-		};
-		
-		template<>
-		class GetClass<3>
-		{
-		public:
-			_variant_t operator()(const DBGroupFunPointPowerViewData* stru)
-			{
-				return CWXSetVariantValue<Power>()(stru->_groupFuncitonPointPower);
-			}
-		};
 
 	DBGroupFunPointPowerViewData()
 	{
 		_groupID = -1;
 		_funPointName = "";
 		_funPointDisplayName = "";
-		//_groupFuncitonPointPower._nPower = 0;
+		_groupFuncitonPointPower._nPower = 0;
+	}
+	
+	DBGroupFunPointPowerViewData(const DBGroupFunPointPowerViewData& data)
+	{
+		_groupID = data._groupID;
+		_funPointName = data._funPointName;
+		_funPointDisplayName = data._funPointDisplayName;
+		_groupFuncitonPointPower._nPower = data._groupFuncitonPointPower._nPower;
 	}
 };
 
-*/
+
 
 NAMESPACE_DB_END
 

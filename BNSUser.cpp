@@ -77,7 +77,7 @@ bool CUser::Edit(int nID, std::string strPassWord, int nEmpID)
 	
 	//内存中有该数据	
 	WXDB::DBUserData data;
-	if(!this->m_memDataVec.Find(std::bind2nd(std::ptr_fun(IsIDDue), nID), data))
+	if(!this->m_memDataVec.Find(std::bind2nd(std::ptr_fun(WXDB::CUser::IsIDDue), nID), data))
 	{
 		return false;
 	}
@@ -124,7 +124,7 @@ bool CUser::Delete(int nID)
 	
 	//内存中有该数据	
 	WXDB::DBUserData data;
-	if(!this->m_memDataVec.Find(std::bind2nd(std::ptr_fun(IsIDDue), nID), data))
+	if(!this->m_memDataVec.Find(std::bind2nd(std::ptr_fun(WXDB::CUser::IsIDDue), nID), data))
 	{
 		return false;
 	}
@@ -192,7 +192,7 @@ bool CUser::IsBeingInMem(std::string strName)
 {
 	CWXMemDataVector<WXDB::DBUserData> memDataVecFinded;
 	//用户已存在刚返回 false
-	if(this->m_memDataVec.Find(std::bind2nd(std::ptr_fun(IsUserNameDue), strName), memDataVecFinded)>0)
+	if(this->m_memDataVec.Find(std::bind2nd(std::ptr_fun(WXDB::CUser::IsUserNameDue), strName), memDataVecFinded)>0)
 	{
 		return true;
 	}
@@ -247,18 +247,6 @@ bool CUser::IsChanged(int nID, WXDB::DBUserData dbUserData)
 }
 
 
-//用户名相等返回true
-bool  CUser::IsUserNameDue(WXDB::DBUserData dbUserData, std::string strName)
-{
-	return dbUserData._loginName==strName;
-}
-
-
-//id相等返回true
-bool CUser::IsIDDue(WXDB::DBUserData dbUserData, int nID)
-{
-	return dbUserData._id ==nID;
-}
 
 
 NAMESPACE_BNS_END

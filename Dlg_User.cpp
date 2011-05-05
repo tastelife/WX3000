@@ -88,6 +88,22 @@ BOOL CDlg_User::OnInitDialog()
 	
 	List(&this->m_list);
 
+	
+	if(!BNS::Power()->GetUserPower(BNS::Login()->GetLoginID()).IsCreatePower())
+	{
+		this->GetDlgItem(IDOK)->ShowWindow(0);
+	}
+
+	if(!BNS::Power()->GetUserPower(BNS::Login()->GetLoginID()).IsEditPower())
+	{
+		this->GetDlgItem(IDOK2)->ShowWindow(0);
+	}
+
+	if(!BNS::Power()->GetUserPower(BNS::Login()->GetLoginID()).IsDeletePower())
+	{
+		this->GetDlgItem(IDC_BUTTON1)->ShowWindow(0);
+	}
+
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }

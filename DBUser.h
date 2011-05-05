@@ -41,6 +41,12 @@ public:
 
 	//创建新的用户ID
 	int CreateNewID();
+	
+	//用户名相等返回true
+	static bool IsUserNameDue(WXDB::DBUserData dbUserData, std::string strName);
+	//id相等返回true
+	static bool IsIDDue(WXDB::DBUserData dbUserData, int nID);
+
 private:
 	//数据库句柄
 	CWXDBConnect* m_pDBCon;

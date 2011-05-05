@@ -43,10 +43,6 @@ private:
 	bool IsBeingInMem(std::string strName);
 	//用户在数据库
 	bool IsBeingInDB(std::string strName);
-	//用户名相等返回true
-	static bool IsUserNameDue(WXDB::DBUserData dbUserData, std::string strName);
-	//id相等返回true
-	static bool IsIDDue(WXDB::DBUserData dbUserData, int nID);
 
 	//数据是否被更新
 	bool IsChanged(int nID, WXDB::DBUserData dbUserData);
