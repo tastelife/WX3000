@@ -35,26 +35,15 @@ bool CPower::RefrushAll()
 //指定用户对用户模块拥有的权限
 WXDB::Power CPower::GetUserPower(int nUserID)
 {
-	WXDB::Power power;
-
-	
-	//内存中的组数据	
-	WXDB::DBUserGroupViewData groupData;
-	if(BNS::Power()->m_memDataVecUserGroupView.Find(std::bind2nd(
-		std::ptr_fun(WXDB::CPower::IsUserIDDueGroup), nUserID), groupData))
-	{
-		//内存中的权限数据
-		WXDB::DBGroupFunPointPowerViewData powerData;
-		if(BNS::Power()->m_memDataVecGroupFunPointPowerViewData.Find(
-			std::bind2nd(std::ptr_fun(WXDB::CPower::IsGroupIDDueUserPower), groupData._groupID), powerData))
-		{
-			power._nPower = powerData._groupFuncitonPointPower._nPower;
-		}
-	}
-
-	return power;
+	return this->GetPower(nUserID, WXDB::CPower::IsGroupIDDueUserPower);
 }
 
+
+//指定用户对权限模块拥有的权限
+WXDB::Power CPower::GetPowerPower(int nUserID)
+{
+	return this->GetPower(nUserID, WXDB::CPower::IsGroupIDDuePowerPower);
+}
 
 
 

@@ -345,10 +345,11 @@ namespace WXDB
 			_nPower = nPower;
 		}
 
-		Power(Power& power)
+		Power(const Power& power)
 		{
 			_nPower = power._nPower;
 		}
+
 	};
 
 }

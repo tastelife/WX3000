@@ -104,7 +104,11 @@ void CDlogMain::EnableButton()
 		this->GetDlgItem(IDC_BUTTON2)->EnableWindow(1);
 	}
 
-	this->GetDlgItem(IDC_BUTTON3)->EnableWindow(1);
+	if(BNS::Power()->GetPowerPower(BNS::Login()->GetLoginID()).IsReadPower())
+	{
+		this->GetDlgItem(IDC_BUTTON3)->EnableWindow(1);
+	}
+
 	this->GetDlgItem(IDC_BUTTON4)->EnableWindow(1);
 	this->GetDlgItem(IDC_BUTTON5)->EnableWindow(1);
 	this->GetDlgItem(IDC_BUTTON6)->EnableWindow(1);

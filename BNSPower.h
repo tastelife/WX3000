@@ -26,8 +26,35 @@ public:
 	//内存数据
 	CWXMemDataVector<WXDB::DBUserGroupViewData> m_memDataVecUserGroupView;
 	CWXMemDataVector<WXDB::DBGroupFunPointPowerViewData> m_memDataVecGroupFunPointPowerViewData;
+
+	//指定用户对指定模块拥有的权限
+	template<class _Pr>
+	WXDB::Power GetPower(int nUserID, _Pr pred);
+	
 };
 
+//指定用户对指定模块拥有的权限
+template<class _Pr>
+WXDB::Power CPower::GetPower(int nUserID, _Pr pred)
+{
+	WXDB::Power power;
+
+	//内存中的组数据	
+	WXDB::DBUserGroupViewData groupData;
+	if(BNS::Power()->m_memDataVecUserGroupView.Find(std::bind2nd(
+		std::ptr_fun(WXDB::CPower::IsUserIDDueGroup), nUserID), groupData))
+	{
+		//内存中的权限数据
+		WXDB::DBGroupFunPointPowerViewData powerData;
+		if(BNS::Power()->m_memDataVecGroupFunPointPowerViewData.Find(
+			std::bind2nd(std::ptr_fun(pred), groupData._groupID), powerData))
+		{
+			power._nPower = powerData._groupFuncitonPointPower._nPower;
+		}
+	}
+
+	return power;
+}
 
 NAMESPACE_BNS_END
 

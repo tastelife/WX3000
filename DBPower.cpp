@@ -52,10 +52,19 @@ bool CPower::IsUserIDDueGroup(DBUserGroupViewData dbUserGroupViewData, int nUser
 	return dbUserGroupViewData._userID == nUserID;
 }
 
-//组、功能点、权限视图中的组 id相等返回true
+//组、功能点、权限视图中的 组id相等 功能点＝user”返回true
 bool CPower::IsGroupIDDueUserPower(DBGroupFunPointPowerViewData dbGroupFunPointPowerViewData, int nGroupID)
 {
 	if(dbGroupFunPointPowerViewData._funPointName!="user")
+	{
+		return false;
+	}
+	return dbGroupFunPointPowerViewData._groupID == nGroupID;
+}
+//组、功能点、权限视图中的 组id相等 功能点=“power”返回true
+bool CPower::IsGroupIDDuePowerPower(DBGroupFunPointPowerViewData dbGroupFunPointPowerViewData, int nGroupID)
+{
+	if(dbGroupFunPointPowerViewData._funPointName!="power")
 	{
 		return false;
 	}
