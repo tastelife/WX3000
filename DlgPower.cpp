@@ -93,7 +93,9 @@ void CDlgPower::List(CListCtrl* pList)
 		vecItem.push_back(data._groupName);
 
 		m_listGroupCtl.AddItems(vecItem, data._userID);
-		m_listGroupCtl.SetMapItemData(i, std::pair<int, int>(data._groupID, data._groupUserID));
+
+		std::pair<int, int> tItem(data._groupID, data._groupUserID);
+		m_listGroupCtl.SetMapItemData(i, tItem);
 	}
 
 }

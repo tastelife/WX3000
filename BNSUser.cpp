@@ -120,8 +120,7 @@ bool CUser::Edit(WXDB::DBUserData& data)
 
 //删除一个用户
 bool CUser::Delete(int nID)
-{
-	
+{	
 	//内存中有该数据	
 	WXDB::DBUserData data;
 	if(!this->m_memDataVec.Find(std::bind2nd(std::ptr_fun(WXDB::CUser::IsIDDue), nID), data))

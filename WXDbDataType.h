@@ -183,6 +183,37 @@ struct DBGroupFunPointPowerViewData
 };
 
 
+//字典对应数据
+struct DBDictionaryData
+{
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_USE(DBDictionaryData, 8);
+
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _id, 0);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(std::string, _type, 1);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _enum, 2);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(std::string, _name, 3);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD_DEFAULT(std::string, _manual, 4, "");
+
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(short, _recordStat, 5);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _operator, 6);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(DATE, _operatorTime, 7);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _copyFromID, 8);
+
+	DBDictionaryData()
+	{
+		_id = -1;
+		_type = "";
+		_enum = -1;
+		_name = "";
+		_manual = "";
+		
+		_recordStat = 0;
+		_operator = 0;
+		_operatorTime = 0;
+		_copyFromID = 0;
+	}
+};
+
 
 NAMESPACE_DB_END
 

@@ -43,21 +43,54 @@ END_MESSAGE_MAP()
 
 // CDlogUserAdd 消息处理程序
 
+
+BOOL CDlogUserAdd::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+
+	if(-1==this->m_nID)
+	{
+		this->GetDlgItem(IDOK2)->ShowWindow(0);
+	}
+	else
+	{
+		this->GetDlgItem(IDOK)->ShowWindow(0);
+		((CEdit*)this->GetDlgItem(IDC_EDIT3))->SetReadOnly(TRUE);
+	}
+
+	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
+}
+
+
 void CDlogUserAdd::OnBnClickedOk()
 {
 	this->UpdateData(TRUE);
+	if(this->m_strPw1 != this->m_strPw2)
+	{
+		MessageBox("密码不一致");
+		return;
+	}
 
-	BNS::User()->Add(this->m_strUserName.GetBuffer(0), 
+	if(!BNS::User()->Add(this->m_strUserName.GetBuffer(0), 
 		this->m_strPw1.GetBuffer(0),
-		-1);
+		-1))
+	{
+		MessageBox("用户已存在");
+		return;
+	}
 
 	this->OnOK();
 }
 
 void CDlogUserAdd::OnBnClickedOk2()
-{
-	
+{	
 	this->UpdateData(TRUE);
+	if(this->m_strPw1 != this->m_strPw2)
+	{
+		MessageBox("密码不一致");
+		return;
+	}
 
 	BNS::User()->Edit(this->m_nID, 
 		this->m_strPw1.GetBuffer(0),

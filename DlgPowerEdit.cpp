@@ -105,7 +105,7 @@ int CDlgPowerEdit::SeclecByItemData(int nData)
 {
 	for(int i=0; i<m_cmbGroup.GetCount(); i++)
 	{
-		if(m_cmbGroup.GetItemData(i)==nData)
+		if(m_cmbGroup.GetItemData(i)==(DWORD)nData)
 		{
 			return m_cmbGroup.SetCurSel(i);
 		}

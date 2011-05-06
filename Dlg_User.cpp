@@ -43,6 +43,8 @@ void CDlg_User::List(CListCtrl* pList)
 {
 	pList->DeleteAllItems();
 
+	BNS::Dictionary()->RefrushAll();
+
 	BNS::User()->RefrushAll();
 	CWXMemDataVector<WXDB::DBUserData> vecData;
 	vecData = BNS::User()->m_memDataVec;
@@ -64,8 +66,7 @@ void CDlg_User::List(CListCtrl* pList)
 		str.Format(_T("%d"), data._empId);
 		vecItem.push_back(str.GetBuffer(0));
 
-		str.Format(_T("%d"), data._recordStat);
-		vecItem.push_back(str.GetBuffer(0));
+		vecItem.push_back(BNS::Dictionary()->GetRecordName(data._recordStat));
 
 		m_listCtrl.AddItems(vecItem, data._id);
 

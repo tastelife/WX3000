@@ -8,6 +8,7 @@
 #include "DBPower.h"
 #include "DBGroup.h"
 #include "DBUserGroup.h"
+#include "DBDictionary.h"
 
 
 
@@ -16,6 +17,7 @@
 #include "BNSPower.h"
 #include "BNSGroup.h"
 #include "BNSUserGroup.h"
+#include "BNSDictionary.h"
 
 
 
@@ -71,6 +73,14 @@ public:
 
 		return  &dbUserGroup;
 	}
+	
+
+	static WXDB::CDictionary* Dictionary()
+	{
+		static WXDB::CDictionary dbDictionary(db());
+
+		return  &dbDictionary;
+	}
 
 	static bool UnInit()
 	{
@@ -121,6 +131,13 @@ public:
 		static WXBNS::CUserGroup bnsUserGroup;
 
 		return &bnsUserGroup;
+	}
+	
+	static WXBNS::CDictionary* Dictionary()
+	{
+		static WXBNS::CDictionary bnsDictionary;
+
+		return &bnsDictionary;
 	}
 };
 

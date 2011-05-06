@@ -186,6 +186,10 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\BNSDictionary.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\BNSGroup.cpp"
 				>
 			</File>
@@ -207,6 +211,10 @@
 			</File>
 			<File
 				RelativePath=".\CalendarBar.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\DBDictionary.cpp"
 				>
 			</File>
 			<File
@@ -340,6 +348,10 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath=".\BNSDictionary.h"
+				>
+			</File>
+			<File
 				RelativePath=".\BNSGroup.h"
 				>
 			</File>
@@ -361,6 +373,10 @@
 			</File>
 			<File
 				RelativePath=".\CalendarBar.h"
+				>
+			</File>
+			<File
+				RelativePath=".\DBDictionary.h"
 				>
 			</File>
 			<File
@@ -465,6 +481,10 @@
 			</File>
 			<File
 				RelativePath=".\WXDBConnect.h"
+				>
+			</File>
+			<File
+				RelativePath=".\WXDbDataType.h"
 				>
 			</File>
 			<File

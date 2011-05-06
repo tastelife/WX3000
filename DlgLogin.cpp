@@ -48,7 +48,6 @@ void CDlgLogin::OnBnClickedOk()
 	}
 	else
 	{
-		MessageBox("lonin failed");
-		OnCancel();
+		MessageBox("µÇÂ¼Ê§°Ü");
 	}
 }

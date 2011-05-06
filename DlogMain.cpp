@@ -56,7 +56,6 @@ void CDlogMain::OnBnClickedButton1()
 		}
 		else
 		{			
-			MessageBox("µÇÂ¼Ê§°Ü");
 		}
 	}
 	catch(_com_error   e)
