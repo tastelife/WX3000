@@ -3,4 +3,4 @@
 数据库：　　View_powerView改为View_UserGroup 　　　　　　　　　　
     2011/05/06
 数据库：　　View_UserGroup　通过记录筛选修改　1　、　3为可用
-            powerEnmu表名改为dictionary 
+            powerEnmu表名改为dictionary , 列名同样变更

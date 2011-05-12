@@ -23,15 +23,15 @@ CDictionary::~CDictionary(void)
 void CDictionary::GetAllList(CWXMemDataVector<DBDictionaryData>& memDataVec)
 {
 	//执行
-	_RecordsetPtr rec = this->m_pDBCon->ExecText("SELECT [col_powerEnum_id]"
-		"  ,[col_powerEnum_type]"
-		"  ,[col_powerEnum_enum]"
-		"  ,[col_powerEnum_name]"
-		"  ,[col_powerEnum_manual]"
-		"  ,[col_powerEnum_recordState]"
-		"  ,[col_powerEnum_operator]"
-		"  ,[col_powerEnum_operatoTime]"
-		"  ,[col_powerEnum_recordCopyFrom]"
+	_RecordsetPtr rec = this->m_pDBCon->ExecText("SELECT [col_dictionary_id]"
+		"  ,[col_dictionary_type]"
+		"  ,[col_dictionary_enum]"
+		"  ,[col_dictionary_name]"
+		"  ,[col_dictionary_manual]"
+		"  ,[col_dictionary_recordState]"
+		"  ,[col_dictionary_operator]"
+		"  ,[col_dictionary_operatoTime]"
+		"  ,[col_dictionary_recordCopyFrom]"
 		"  FROM [wx].[dbo].[dictionary ]");
 	//转换成内存数据
 	CWXRecordsetPtrToVecDBdata<DBDictionaryData>()(rec, memDataVec);

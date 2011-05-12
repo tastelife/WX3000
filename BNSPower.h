@@ -27,6 +27,7 @@ public:
 	CWXMemDataVector<WXDB::DBUserGroupViewData> m_memDataVecUserGroupView;
 	CWXMemDataVector<WXDB::DBGroupFunPointPowerViewData> m_memDataVecGroupFunPointPowerViewData;
 
+private:
 	//指定用户对指定模块拥有的权限
 	template<class _Pr>
 	WXDB::Power GetPower(int nUserID, _Pr pred);
