@@ -215,6 +215,85 @@ struct DBDictionaryData
 };
 
 
+
+//部门对应数据
+struct DBCompanyBaseData
+{
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_USE(DBCompanyBaseData, 10);
+
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _id, 0);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(std::string, _companyName, 1);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _higherAuthoritiesID, 2);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(std::string, _phone, 3);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _header, 4);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(DATE, _cretateTime, 5);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD_DEFAULT(std::string, _memo, 6, "");
+
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(short, _recordStat, 7);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _operator, 8);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(DATE, _operatorTime, 9);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _copyFromID, 10);
+
+	DBCompanyBaseData()
+	{
+		_id = -1;
+		_companyName = "";
+		_higherAuthoritiesID = -1;
+		_phone = "";
+		_header = -1;
+		_cretateTime = 0;
+		_memo = "";
+		
+		_recordStat = 0;
+		_operator = 0;
+		_operatorTime = 0;
+		_copyFromID = 0;
+	}
+};
+
+
+
+//员工对应数据
+struct DBEmployeeData
+{
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_USE(DBEmployeeData, 11);
+
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _id, 0);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(std::string, _name, 1);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _companyBaseID, 2);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _sex, 3);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(DATE, _birthday, 4);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD_DEFAULT(std::string, _mobile, 5, "");
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD_DEFAULT(std::string, _phone, 6, "");
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _position, 7);
+
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(short, _recordStat, 8);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _operator, 9);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(DATE, _operatorTime, 10);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _copyFromID, 11);
+
+	DBEmployeeData()
+	{
+		_id = -1;
+		_name = "";
+		_companyBaseID = -1;
+		_sex = -1;
+		_birthday = 0;
+		_mobile = "";
+		_phone = "";
+		_position = -1;
+		
+		_recordStat = 0;
+		_operator = 0;
+		_operatorTime = 0;
+		_copyFromID = 0;
+	}
+};
+
+
+
+
+
 NAMESPACE_DB_END
 
 

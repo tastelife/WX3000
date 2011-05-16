@@ -1,6 +1,6 @@
 USE [wx]
 GO
-/****** Object:  Table [dbo].[userGroup]    Script Date: 05/13/2011 16:55:09 ******/
+/****** Object:  Table [dbo].[userGroup]    Script Date: 05/16/2011 11:19:40 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -34,7 +34,7 @@ INSERT [dbo].[userGroup] ([col_userGroup_id], [col_group_id], [col_user_id], [co
 INSERT [dbo].[userGroup] ([col_userGroup_id], [col_group_id], [col_user_id], [col_userGroup_recordState], [col_userGroup_operator], [col_userGroup_operatoTime], [col_userGroup_copyFromID]) VALUES (27, 4, 19, 1, 0, CAST(0x00009ED400EA6797 AS DateTime), -1)
 INSERT [dbo].[userGroup] ([col_userGroup_id], [col_group_id], [col_user_id], [col_userGroup_recordState], [col_userGroup_operator], [col_userGroup_operatoTime], [col_userGroup_copyFromID]) VALUES (28, 3, 28, 1, 0, CAST(0x00009EDA01066935 AS DateTime), -1)
 INSERT [dbo].[userGroup] ([col_userGroup_id], [col_group_id], [col_user_id], [col_userGroup_recordState], [col_userGroup_operator], [col_userGroup_operatoTime], [col_userGroup_copyFromID]) VALUES (29, 4, 29, 1, 0, CAST(0x00009EDA01066E9D AS DateTime), -1)
-/****** Object:  Table [dbo].[publicinFormation]    Script Date: 05/13/2011 16:55:09 ******/
+/****** Object:  Table [dbo].[publicinFormation]    Script Date: 05/16/2011 11:19:40 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -47,7 +47,7 @@ CREATE TABLE [dbo].[publicinFormation](
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[newID]    Script Date: 05/13/2011 16:55:09 ******/
+/****** Object:  Table [dbo].[newID]    Script Date: 05/16/2011 11:19:40 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -69,7 +69,7 @@ GO
 INSERT [dbo].[newID] ([col_newID_ID], [col_newID_lastID], [col_newID_tableName]) VALUES (0, 31, N'userTBL                         ')
 INSERT [dbo].[newID] ([col_newID_ID], [col_newID_lastID], [col_newID_tableName]) VALUES (1, 176, N'login                           ')
 INSERT [dbo].[newID] ([col_newID_ID], [col_newID_lastID], [col_newID_tableName]) VALUES (2, 29, N'userGroup                       ')
-/****** Object:  Table [dbo].[messageBoard]    Script Date: 05/13/2011 16:55:09 ******/
+/****** Object:  Table [dbo].[messageBoard]    Script Date: 05/16/2011 11:19:40 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -82,7 +82,7 @@ CREATE TABLE [dbo].[messageBoard](
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[login]    Script Date: 05/13/2011 16:55:09 ******/
+/****** Object:  Table [dbo].[login]    Script Date: 05/16/2011 11:19:40 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -195,7 +195,7 @@ INSERT [dbo].[login] ([col_login_id], [col_user_id], [col_login_loginTime], [col
 INSERT [dbo].[login] ([col_login_id], [col_user_id], [col_login_loginTime], [col_login_state], [col_login_computerName], [col_login_mac], [col_login_ip], [col_login_recordState], [col_login_operatorUserID], [col_login_operatoTime], [col_login_copyFromID]) VALUES (174, 29, CAST(0x00009EE001033EA1 AS DateTime), 0, N'7bwz82x_win7pro                                                                                                                 ', N'                                                                                                                                ', N'192.168.120.78  192.168.56.1  ', 2, 0, CAST(0x00009EE00103461B AS DateTime), -1)
 INSERT [dbo].[login] ([col_login_id], [col_user_id], [col_login_loginTime], [col_login_state], [col_login_computerName], [col_login_mac], [col_login_ip], [col_login_recordState], [col_login_operatorUserID], [col_login_operatoTime], [col_login_copyFromID]) VALUES (175, 1, CAST(0x00009EE100F1CBC6 AS DateTime), 0, N'7bwz82x_win7pro                                                                                                                 ', N'                                                                                                                                ', N'192.168.120.78  192.168.56.1  ', 2, 0, CAST(0x00009EE100F1D75E AS DateTime), -1)
 INSERT [dbo].[login] ([col_login_id], [col_user_id], [col_login_loginTime], [col_login_state], [col_login_computerName], [col_login_mac], [col_login_ip], [col_login_recordState], [col_login_operatorUserID], [col_login_operatoTime], [col_login_copyFromID]) VALUES (176, 1, CAST(0x00009EE1010A89FC AS DateTime), 0, N'7bwz82x_win7pro                                                                                                                 ', N'                                                                                                                                ', N'192.168.120.78  192.168.56.1  ', 2, 0, CAST(0x00009EE1010B0803 AS DateTime), -1)
-/****** Object:  Table [dbo].[hintuser]    Script Date: 05/13/2011 16:55:09 ******/
+/****** Object:  Table [dbo].[hintuser]    Script Date: 05/16/2011 11:19:40 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -214,7 +214,7 @@ CREATE TABLE [dbo].[hintuser](
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[hint]    Script Date: 05/13/2011 16:55:09 ******/
+/****** Object:  Table [dbo].[hint]    Script Date: 05/16/2011 11:19:40 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -246,7 +246,7 @@ CREATE TABLE [dbo].[hint](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[groupFunctionPointPower]    Script Date: 05/13/2011 16:55:09 ******/
+/****** Object:  Table [dbo].[groupFunctionPointPower]    Script Date: 05/16/2011 11:19:40 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -269,7 +269,7 @@ INSERT [dbo].[groupFunctionPointPower] ([col_group_id], [col_functinPoint_id], [
 INSERT [dbo].[groupFunctionPointPower] ([col_group_id], [col_functinPoint_id], [col_groupFuncitonPointPower], [col_groupFunctionPointPower_recordState], [col_groupFunctionPointPower_operator], [col_groupFunctionPointPower_operatoTime], [col_groupFunctionPointPower_copyFrom]) VALUES (2, 201, 0, 1, 0, CAST(0x00009F9800000000 AS DateTime), 0)
 INSERT [dbo].[groupFunctionPointPower] ([col_group_id], [col_functinPoint_id], [col_groupFuncitonPointPower], [col_groupFunctionPointPower_recordState], [col_groupFunctionPointPower_operator], [col_groupFunctionPointPower_operatoTime], [col_groupFunctionPointPower_copyFrom]) VALUES (3, 201, 0, 1, 0, CAST(0x00009F9800000000 AS DateTime), 0)
 INSERT [dbo].[groupFunctionPointPower] ([col_group_id], [col_functinPoint_id], [col_groupFuncitonPointPower], [col_groupFunctionPointPower_recordState], [col_groupFunctionPointPower_operator], [col_groupFunctionPointPower_operatoTime], [col_groupFunctionPointPower_copyFrom]) VALUES (4, 201, 0, 1, 0, CAST(0x00009F9800000000 AS DateTime), 0)
-/****** Object:  Table [dbo].[group]    Script Date: 05/13/2011 16:55:09 ******/
+/****** Object:  Table [dbo].[group]    Script Date: 05/16/2011 11:19:40 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -295,7 +295,7 @@ INSERT [dbo].[group] ([col_group_id], [col_group_name], [col_group_recordState],
 INSERT [dbo].[group] ([col_group_id], [col_group_name], [col_group_recordState], [col_group_opertor], [col_group_opertoTime], [col_group_copyFromID]) VALUES (2, N'常规组                                                                                                                          ', 1, 0, CAST(0x00009F9800000000 AS DateTime), 0)
 INSERT [dbo].[group] ([col_group_id], [col_group_name], [col_group_recordState], [col_group_opertor], [col_group_opertoTime], [col_group_copyFromID]) VALUES (3, N'受限组                                                                                                                          ', 1, 0, CAST(0x00009F9800000000 AS DateTime), 0)
 INSERT [dbo].[group] ([col_group_id], [col_group_name], [col_group_recordState], [col_group_opertor], [col_group_opertoTime], [col_group_copyFromID]) VALUES (4, N'禁用组                                                                                                                          ', 1, 0, CAST(0x00009F9800000000 AS DateTime), 0)
-/****** Object:  Table [dbo].[functinPoint]    Script Date: 05/13/2011 16:55:09 ******/
+/****** Object:  Table [dbo].[functinPoint]    Script Date: 05/16/2011 11:19:40 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -316,14 +316,14 @@ CREATE TABLE [dbo].[functinPoint](
 GO
 INSERT [dbo].[functinPoint] ([col_functinPoint_id], [col_functinPoint_name], [col_functinPoint_displayName], [col_functinPoint_recordState], [col_functinPoint_operator], [col_functinPoint_opertoTime], [col_functinPoint_copyFromID]) VALUES (101, N'user', N'用户管理', 1, 0, CAST(0x000007D900000000 AS DateTime), 0)
 INSERT [dbo].[functinPoint] ([col_functinPoint_id], [col_functinPoint_name], [col_functinPoint_displayName], [col_functinPoint_recordState], [col_functinPoint_operator], [col_functinPoint_opertoTime], [col_functinPoint_copyFromID]) VALUES (201, N'power', N'权限管理', 1, 0, CAST(0x000007D900000000 AS DateTime), 0)
-/****** Object:  Table [dbo].[employee ]    Script Date: 05/13/2011 16:55:09 ******/
+/****** Object:  Table [dbo].[employee]    Script Date: 05/16/2011 11:19:40 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_PADDING ON
 GO
-CREATE TABLE [dbo].[employee ](
+CREATE TABLE [dbo].[employee](
 	[col_employee_id] [int] NOT NULL,
 	[col_employee_name] [char](20) NOT NULL,
 	[col_companyBase_id] [int] NOT NULL,
@@ -344,7 +344,7 @@ CREATE TABLE [dbo].[employee ](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[dictionary ]    Script Date: 05/13/2011 16:55:09 ******/
+/****** Object:  Table [dbo].[dictionary ]    Script Date: 05/16/2011 11:19:40 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -379,7 +379,7 @@ INSERT [dbo].[dictionary ] ([col_dictionary_id], [col_dictionary_type], [col_dic
 INSERT [dbo].[dictionary ] ([col_dictionary_id], [col_dictionary_type], [col_dictionary_enum], [col_dictionary_name], [col_dictionary_manual], [col_dictionary_recordState], [col_dictionary_operator], [col_dictionary_operatoTime], [col_dictionary_recordCopyFrom]) VALUES (200002, N'functionPointPower', 2, N'删除', NULL, 1, 0, CAST(0x00009F9800000000 AS DateTime), 0)
 INSERT [dbo].[dictionary ] ([col_dictionary_id], [col_dictionary_type], [col_dictionary_enum], [col_dictionary_name], [col_dictionary_manual], [col_dictionary_recordState], [col_dictionary_operator], [col_dictionary_operatoTime], [col_dictionary_recordCopyFrom]) VALUES (200003, N'functionPointPower', 4, N'修改', NULL, 1, 0, CAST(0x00009F9800000000 AS DateTime), 0)
 INSERT [dbo].[dictionary ] ([col_dictionary_id], [col_dictionary_type], [col_dictionary_enum], [col_dictionary_name], [col_dictionary_manual], [col_dictionary_recordState], [col_dictionary_operator], [col_dictionary_operatoTime], [col_dictionary_recordCopyFrom]) VALUES (200004, N'functionPointPower', 8, N'查看', NULL, 1, 0, CAST(0x00009F9800000000 AS DateTime), 0)
-/****** Object:  Table [dbo].[companyBase ]    Script Date: 05/13/2011 16:55:09 ******/
+/****** Object:  Table [dbo].[companyBase ]    Script Date: 05/16/2011 11:19:40 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -406,7 +406,7 @@ CREATE TABLE [dbo].[companyBase ](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[userTBL]    Script Date: 05/13/2011 16:55:09 ******/
+/****** Object:  Table [dbo].[userTBL]    Script Date: 05/16/2011 11:19:40 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -454,7 +454,7 @@ INSERT [dbo].[userTBL] ([col_user_id], [col_user_loginName], [col_user_empId], [
 INSERT [dbo].[userTBL] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatoTime], [col_user_copyFromID]) VALUES (29, N'4                   ', -1, N'4                                                                                                                                                                                                                                                               ', 3, 0, CAST(0x00009EDA010654B1 AS DateTime), -1)
 INSERT [dbo].[userTBL] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatoTime], [col_user_copyFromID]) VALUES (31, N'www                 ', -1, N'w                                                                                                                                                                                                                                                               ', 1, 0, CAST(0x00009EDB0111B36D AS DateTime), -1)
 INSERT [dbo].[userTBL] ([col_user_id], [col_user_loginName], [col_user_empId], [col_user_passwd], [col_user_recordState], [col_user_operator], [col_user_operatoTime], [col_user_copyFromID]) VALUES (30, N'5                   ', -1, N'5                                                                                                                                                                                                                                                               ', 3, 0, CAST(0x00009EDB00FAB0A8 AS DateTime), -1)
-/****** Object:  View [dbo].[View_UserGroup]    Script Date: 05/13/2011 16:55:10 ******/
+/****** Object:  View [dbo].[View_UserGroup]    Script Date: 05/16/2011 11:19:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -610,7 +610,7 @@ End
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'View_UserGroup'
 GO
-/****** Object:  View [dbo].[View_GroupFunPointPower]    Script Date: 05/13/2011 16:55:10 ******/
+/****** Object:  View [dbo].[View_GroupFunPointPower]    Script Date: 05/16/2011 11:19:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -765,7 +765,7 @@ End
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'View_GroupFunPointPower'
 GO
-/****** Object:  StoredProcedure [dbo].[userGroup_add]    Script Date: 05/13/2011 16:55:07 ******/
+/****** Object:  StoredProcedure [dbo].[userGroup_add]    Script Date: 05/16/2011 11:19:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -801,7 +801,7 @@ INSERT INTO [wx].[dbo].[userGroup]
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[user_add]    Script Date: 05/13/2011 16:55:07 ******/
+/****** Object:  StoredProcedure [dbo].[user_add]    Script Date: 05/16/2011 11:19:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -841,7 +841,7 @@ INSERT INTO [wx].dbo.userTBL
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[userGroup_edit]    Script Date: 05/13/2011 16:55:07 ******/
+/****** Object:  StoredProcedure [dbo].[userGroup_edit]    Script Date: 05/16/2011 11:19:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -863,7 +863,7 @@ UPDATE [wx].[dbo].[userGroup]
  
 END
 GO
-/****** Object:  StoredProcedure [dbo].[userGroup_delete]    Script Date: 05/13/2011 16:55:07 ******/
+/****** Object:  StoredProcedure [dbo].[userGroup_delete]    Script Date: 05/16/2011 11:19:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -880,7 +880,7 @@ delete [wx].[dbo].[userGroup]
  
 END
 GO
-/****** Object:  StoredProcedure [dbo].[comm_CreateNewID]    Script Date: 05/13/2011 16:55:07 ******/
+/****** Object:  StoredProcedure [dbo].[comm_CreateNewID]    Script Date: 05/16/2011 11:19:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -909,7 +909,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[login_logoutExceptionAll]    Script Date: 05/13/2011 16:55:07 ******/
+/****** Object:  StoredProcedure [dbo].[login_logoutExceptionAll]    Script Date: 05/16/2011 11:19:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -930,7 +930,7 @@ UPDATE [wx].[dbo].login
  
 END
 GO
-/****** Object:  StoredProcedure [dbo].[login_logoutException]    Script Date: 05/13/2011 16:55:07 ******/
+/****** Object:  StoredProcedure [dbo].[login_logoutException]    Script Date: 05/16/2011 11:19:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -953,7 +953,7 @@ UPDATE [wx].[dbo].login
  
 END
 GO
-/****** Object:  StoredProcedure [dbo].[login_logout]    Script Date: 05/13/2011 16:55:07 ******/
+/****** Object:  StoredProcedure [dbo].[login_logout]    Script Date: 05/16/2011 11:19:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -976,7 +976,7 @@ UPDATE [wx].[dbo].login
  
 END
 GO
-/****** Object:  StoredProcedure [dbo].[login_login]    Script Date: 05/13/2011 16:55:07 ******/
+/****** Object:  StoredProcedure [dbo].[login_login]    Script Date: 05/16/2011 11:19:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1025,7 +1025,7 @@ INSERT INTO [wx].dbo.login
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[login_IsLogining]    Script Date: 05/13/2011 16:55:07 ******/
+/****** Object:  StoredProcedure [dbo].[login_IsLogining]    Script Date: 05/16/2011 11:19:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1047,7 +1047,7 @@ BEGIN
 	return @count
 END
 GO
-/****** Object:  StoredProcedure [dbo].[user_IsBeing]    Script Date: 05/13/2011 16:55:07 ******/
+/****** Object:  StoredProcedure [dbo].[user_IsBeing]    Script Date: 05/16/2011 11:19:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1067,7 +1067,7 @@ BEGIN
 	return @count
 END
 GO
-/****** Object:  StoredProcedure [dbo].[user_edit]    Script Date: 05/13/2011 16:55:07 ******/
+/****** Object:  StoredProcedure [dbo].[user_edit]    Script Date: 05/16/2011 11:19:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1095,7 +1095,7 @@ UPDATE [wx].[dbo].[userTBL]
  WHERE col_user_id = @col_user_id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[user_delete]    Script Date: 05/13/2011 16:55:07 ******/
+/****** Object:  StoredProcedure [dbo].[user_delete]    Script Date: 05/16/2011 11:19:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1115,7 +1115,7 @@ UPDATE [wx].[dbo].[userTBL]
  WHERE col_user_id = @col_user_id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[user_CreateNewID]    Script Date: 05/13/2011 16:55:07 ******/
+/****** Object:  StoredProcedure [dbo].[user_CreateNewID]    Script Date: 05/16/2011 11:19:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1136,7 +1136,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[login_CreateNewID]    Script Date: 05/13/2011 16:55:07 ******/
+/****** Object:  StoredProcedure [dbo].[login_CreateNewID]    Script Date: 05/16/2011 11:19:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1157,7 +1157,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[userGroup_CreateNewID]    Script Date: 05/13/2011 16:55:07 ******/
+/****** Object:  StoredProcedure [dbo].[userGroup_CreateNewID]    Script Date: 05/16/2011 11:19:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1178,7 +1178,7 @@ BEGIN
 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[userGroup_setByUserID]    Script Date: 05/13/2011 16:55:07 ******/
+/****** Object:  StoredProcedure [dbo].[userGroup_setByUserID]    Script Date: 05/16/2011 11:19:38 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

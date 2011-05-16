@@ -190,6 +190,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\BNSEmployee.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\BNSGroup.cpp"
 				>
 			</File>
@@ -215,6 +219,10 @@
 			</File>
 			<File
 				RelativePath=".\DBDictionary.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\DBEmployee.cpp"
 				>
 			</File>
 			<File
@@ -352,6 +360,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\BNSEmployee.h"
+				>
+			</File>
+			<File
 				RelativePath=".\BNSGroup.h"
 				>
 			</File>
@@ -377,6 +389,10 @@
 			</File>
 			<File
 				RelativePath=".\DBDictionary.h"
+				>
+			</File>
+			<File
+				RelativePath=".\DBEmployee.h"
 				>
 			</File>
 			<File
