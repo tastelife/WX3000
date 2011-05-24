@@ -116,6 +116,8 @@ void CDlogUserAdd::OnBnClickedOk2()
 
 void CDlogUserAdd::OnBnClickedButton1()
 {
+	UpdateData();
+
 	CDlgEmployee empDlg(CDlgEmployee::E_START_TYPE_SELECTION);
 	if(IDOK==empDlg.DoModal())
 	{

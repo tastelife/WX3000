@@ -178,8 +178,16 @@ void CDlg_User::OnBnClickedOk()
 
 void CDlg_User::OnBnClickedButton1()
 {	
-	BNS::User()->Delete(m_list.GetItemData(m_listCtrl.GetFirstSelected()));
-	List(&this->m_list);
+	int nID = m_list.GetItemData(m_listCtrl.GetFirstSelected());
+	std::string strName;
+	if(BNS::User()->FindUserName(nID, strName))
+	{
+		if(IDYES==MessageBox((std::string("确认删除用户：" ) + strName.c_str()).c_str(), "", MB_YESNO))
+		{
+			BNS::User()->Delete(nID);
+			List(&this->m_list);
+		}
+	}
 }
 
 void CDlg_User::OnBnClickedOk2()
