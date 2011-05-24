@@ -32,6 +32,18 @@ bool CEmployee::RefrushAll()
 	return true;
 }
 
+//通过员工ID获得员工信息
+bool CEmployee::GetInfo(int nID, WXDB::DBEmployeeData &data)
+{
+	if(this->m_memDataVec.Find(
+		std::bind2nd(std::ptr_fun(WXDB::CEmployee::IsIDDue), nID), 
+		data))
+	{
+		return true;
+	}
+
+	return false;
+}
 
 
 NAMESPACE_BNS_END

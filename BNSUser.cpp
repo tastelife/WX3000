@@ -170,14 +170,13 @@ bool CUser::RefrushAll()
 	return true;
 }
 
-//获得一个用户
+//获得一个用户名
 bool CUser::FindUserName(int nID, std::string& strUserName)
 {
 	bool bRtn = false;
 
 	WXDB::DBUserData data;
-	bRtn = DB::User()->Find(nID, data);
-	if(bRtn)
+	if(GetInfo(nID, data))
 	{
 		strUserName = data._loginName;
 	}
@@ -185,7 +184,33 @@ bool CUser::FindUserName(int nID, std::string& strUserName)
 	return bRtn;
 }
 
+//获得一个用户
+bool CUser::GetInfo(int nID, WXDB::DBUserData& data)
+{
+	if(this->m_memDataVec.Find(
+		std::bind2nd(std::ptr_fun(WXDB::CUser::IsIDDue), nID), 
+		data))
+	{
+		return true;
+	}
 
+	return false;
+}
+
+//用户是否可以被修改
+bool CUser::IsPermitEdit(int nID)
+{
+	WXDB::DBUserData data;
+	if(GetInfo(nID, data))
+	{
+		if(data._recordStat==WXDB::E_DICTIONARY_STATE_CREATE || data._recordStat==WXDB::E_DICTIONARY_STATE_EDIT)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
 //用户在内存
 bool CUser::IsBeingInMem(std::string strName)
 {

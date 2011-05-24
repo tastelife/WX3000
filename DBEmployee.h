@@ -22,7 +22,8 @@ public:
 	//获得列表
 	void GetAllList(CWXMemDataVector<DBEmployeeData>& memDataVec);
 
-
+	//ID相等时返回true
+	static bool IsIDDue(DBEmployeeData data, int nID);
 private:
 	//数据库句柄
 	CWXDBConnect* m_pDBCon;

@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <COMUTIL.H>
 #include <string>
+#include <sstream>
 
 
 //输出日志记录函数轨迹
@@ -82,6 +83,18 @@ public:
 	static std::wstring s2ws(const std::string str);
 	//wstring to string
 	static std::string ws2s(const std::wstring& wstr);
+	//single type to string
+	template <typename T>
+	static std::string single2s(const T t)
+	{
+		std::string rtnStr;
+		std::stringstream sstr;
+
+		sstr << t;
+		sstr >> rtnStr;
+
+		return rtnStr;
+	}
 private:
 	static wchar_t* Char2WChar(const char* p);
 	static char* WChar2Char(const wchar_t* pw);
@@ -267,71 +280,79 @@ public:
 
 namespace WXDB 
 {
+
+	enum E_DICTIONARY_FUNCTIONPOINTPOWER
+	{
+		E_DICTIONARY_FUNCTIONPOINTPOWER_CREATE				 = 1,
+		E_DICTIONARY_FUNCTIONPOINTPOWER_DELETE				 = 2,
+		E_DICTIONARY_FUNCTIONPOINTPOWER_EDIT				 = 4,
+		E_DICTIONARY_FUNCTIONPOINTPOWER_READ				 = 8,
+	};
 	struct Power
 	{
 		int _nPower;
 
 		bool IsCreatePower()
 		{
-			return (_nPower&0x01)!=0;
+			return (_nPower&0x01)!=E_DICTIONARY_FUNCTIONPOINTPOWER_CREATE;
 		}
 		void SetCreatePower(bool bPower)
 		{
 			if(bPower)
 			{
-				_nPower = _nPower|0x01;
+				_nPower = _nPower|E_DICTIONARY_FUNCTIONPOINTPOWER_CREATE;
 			}
 			else
 			{
-				_nPower = _nPower&(~0x01);
+				_nPower = _nPower&(~E_DICTIONARY_FUNCTIONPOINTPOWER_CREATE);
 			}
 		}
 
 		bool IsDeletePower()
 		{
-			return (_nPower&0x02)!=0;
+			return (_nPower&E_DICTIONARY_FUNCTIONPOINTPOWER_DELETE)!=0;
 		}
 		void SetDeletePower(bool bPower)
 		{
 			if(bPower)
 			{
-				_nPower = _nPower|0x02;
+				_nPower = _nPower|E_DICTIONARY_FUNCTIONPOINTPOWER_DELETE;
 			}
 			else
 			{
-				_nPower = _nPower&(~0x02);
+				_nPower = _nPower&(~E_DICTIONARY_FUNCTIONPOINTPOWER_DELETE);
 			}
 		}
 
 		bool IsEditPower()
 		{
-			return (_nPower&0x04)!=0;
+			return (_nPower&E_DICTIONARY_FUNCTIONPOINTPOWER_EDIT)!=0;
 		}
 		void SetEditPower(bool bPower)
 		{
 			if(bPower)
 			{
-				_nPower = _nPower|0x04;
+				_nPower = _nPower|E_DICTIONARY_FUNCTIONPOINTPOWER_EDIT;
 			}
 			else
 			{
-				_nPower = _nPower&(~0x04);
+				_nPower = _nPower&(~E_DICTIONARY_FUNCTIONPOINTPOWER_EDIT);
 			}
 		}
 
 		bool IsReadPower()
 		{
-			return (_nPower&0x08)!=0;
+			return (_nPower&E_DICTIONARY_FUNCTIONPOINTPOWER_READ)!=0;
 		}
 		void SetReadPower(bool bPower)
 		{
 			if(bPower)
 			{
-				_nPower = _nPower|0x08;
+				_nPower = _nPower|E_DICTIONARY_FUNCTIONPOINTPOWER_READ;
 			}
 			else
 			{
-				_nPower = _nPower&(~0x08);
+				_nPower = _nPower&(~E_DICTIONARY_FUNCTIONPOINTPOWER_READ);
 			}
 		}
 
@@ -427,6 +448,8 @@ public:
 	~CWXFun();
 
 
-	static int GetIPMacName(std::string& strIP, std::string& strMac, std::string& strHostName);
+	static int GetIPMacHostName(std::string& strIP, std::string& strMac, std::string& strHostName);
+	static int GetMacByCmd(std::string& strMac);
+	static int GetIPHostName(std::string& strIP, std::string& strHostName);
 };
 

@@ -25,6 +25,11 @@ public:
 	bool Delete(int nID);
 	//获得一个用户名
 	bool FindUserName(int nID, std::string& strUserName);
+	//获得一个用户
+	bool GetInfo(int nID, WXDB::DBUserData& data);
+
+	//用户是否可以被修改
+	bool IsPermitEdit(int nID);
 
 	//获得所有数据保存在内存数据中
 	bool RefrushAll();

@@ -44,7 +44,7 @@ bool CLogin::Login(std::string strName, std::string strPassWord)
 	//生成数据	
 	m_loginData._id = DB::Login()->CreateNewID();
 	m_loginData._userID = m_pUserData->_id;
-	CWXFun::GetIPMacName(m_loginData._ip, m_loginData._mac, m_loginData._computerName);
+	CWXFun::GetIPMacHostName(m_loginData._ip, m_loginData._mac, m_loginData._computerName);
 
 
 	//用户是否在其它客户端登录

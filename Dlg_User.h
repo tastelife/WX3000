@@ -59,4 +59,5 @@ public:
 	afx_msg void OnBnClickedButton1();
 	
 	afx_msg void OnBnClickedOk2();
+	afx_msg void OnLvnItemchangedList3(NMHDR *pNMHDR, LRESULT *pResult);
 };

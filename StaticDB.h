@@ -29,7 +29,8 @@ class DB
 public:
 	static bool Init()
 	{
-		db()->SetSQLConcetText(("Provider=SQLOLEDB; Server=7BWZ82X_win7pro\\uboxc;Database=wx; uid=sa; pwd=U-BOXc1921#;"));
+		//db()->SetSQLConcetText(("Provider=SQLOLEDB; Server=7BWZ82X_win7pro\\uboxc;Database=wx; uid=sa; pwd=U-BOXc1921#;"));
+		db()->SetSQLConcetText(("Provider=SQLOLEDB; server=(local)\\sqlexpress;database=wx;integrated security=sspi"));
 		if(!db()->Open())
 		{
 			AfxMessageBox("open db error");

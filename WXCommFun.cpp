@@ -119,7 +119,133 @@ CWXFun::~CWXFun()
 {
 }
 
-int CWXFun::GetIPMacName(std::string& strIP, std::string& strMac, std::string& strHostName)
+
+//用命令行方式获取网卡MAC地址
+BOOL GetMacByCmd(char *lpszMac);
+
+////////////////////////////////////////////////////////////////////////////
+// 函数名： GetMacByCmd(char *lpszMac)
+// 参数：
+//      输入： void
+//      输出： lpszMac,返回的MAC地址串
+// 返回值：
+//      TRUE:  获得MAC地址。
+//      FALSE: 获取MAC地址失败。
+// 过程：
+//      1. 创建一个无名管道。
+//      2. 创建一个IPCONFIG 的进程，并将输出重定向到管道。
+//      3. 从管道获取命令行返回的所有信息放入缓冲区lpszBuffer。
+//      4. 从缓冲区lpszBuffer中获得抽取出MAC串。
+//
+//  提示：可以方便的由此程序获得IP地址等其他信息。
+//        对于其他的可以通过其他命令方式得到的信息只需改变strFetCmd 和
+//        str4Search的内容即可。
+///////////////////////////////////////////////////////////////////////////
+
+int CWXFun::GetMacByCmd(std::string& strMac)
+{
+	
+	char lpszMac[128];
+	//命令行输出缓冲大小
+	const long MAX_COMMAND_SIZE = 10000;
+
+	//获取MAC命令行
+	char szFetCmd[] = "ipconfig /all";
+	//网卡MAC地址的前导信息
+	const std::string str4Search = "Physical Address. . . . . . . . . : ";
+	//初始化返回MAC地址缓冲区
+	memset(lpszMac, 0x00, sizeof(lpszMac));
+	BOOL bret; 
+
+	SECURITY_ATTRIBUTES sa;
+	HANDLE hReadPipe,hWritePipe;
+
+	sa.nLength = sizeof(SECURITY_ATTRIBUTES);
+	sa.lpSecurityDescriptor = NULL;
+	sa.bInheritHandle = TRUE;
+
+	//创建管道
+	bret = CreatePipe(&hReadPipe, &hWritePipe, &sa, 0);
+	if(!bret)
+	{
+		return -2;
+	}
+
+	//控制命令行窗口信息
+	STARTUPINFO si;
+	//返回进程信息
+	PROCESS_INFORMATION pi;
+
+	si.cb = sizeof(STARTUPINFO);
+	GetStartupInfo(&si);
+	si.hStdError = hWritePipe;
+	si.hStdOutput = hWritePipe;
+	si.wShowWindow = SW_HIDE; //隐藏命令行窗口
+	si.dwFlags = STARTF_USESHOWWINDOW | STARTF_USESTDHANDLES;
+
+	//创建获取命令行进程
+	bret = CreateProcess (NULL, szFetCmd, NULL, NULL, TRUE, 0, NULL,
+		NULL, &si, &pi );
+
+	char szBuffer[MAX_COMMAND_SIZE+1]; //放置命令行输出缓冲区
+	std::string strBuffer;
+
+	if (bret)
+	{
+		WaitForSingleObject (pi.hProcess, INFINITE);
+		unsigned long count;
+
+		memset(szBuffer, 0x00, sizeof(szBuffer));
+		bret  =  ReadFile(hReadPipe,  szBuffer,  MAX_COMMAND_SIZE,  &count,  0);
+		if(!bret)
+		{
+			//关闭所有的句柄
+			CloseHandle(hWritePipe);
+			CloseHandle(pi.hProcess);
+			CloseHandle(pi.hThread);
+			CloseHandle(hReadPipe);
+			return -2;
+		}
+		else
+		{
+			strBuffer = szBuffer;
+			long ipos;
+			ipos = strBuffer.find(str4Search);
+
+			//提取MAC地址串
+			strBuffer = strBuffer.substr(ipos+str4Search.length());
+			ipos = strBuffer.find("\n");
+			strBuffer = strBuffer.substr(0, ipos);
+		}
+
+	}
+	
+	memset(szBuffer, 0x00, sizeof(szBuffer));
+	strcpy_s(szBuffer, strBuffer.c_str());
+
+	//去掉中间的“00-50-EB-0F-27-82”中间的'-'得到0050EB0F2782
+	int j = 0;
+	for(int i=0; i<(int)strlen(szBuffer); i++)
+	{
+		if(szBuffer[i] != '-')
+		{
+			lpszMac[j] = szBuffer[i];
+			j++;
+		}
+	}
+
+	//关闭所有的句柄
+	CloseHandle(hWritePipe);
+	CloseHandle(pi.hProcess);
+	CloseHandle(pi.hThread);
+	CloseHandle(hReadPipe);
+	strMac = lpszMac;
+
+	return 0;
+
+}
+
+int CWXFun::GetIPHostName(std::string& strIP, std::string& strHostName)
 {   
 	////////////////
 	// 初始化 Windows sockets API. 要求版本为 version 1.1
@@ -150,9 +276,6 @@ int CWXFun::GetIPMacName(std::string& strIP, std::string& strMac, std::string& s
 	// 解析返回的hostent信息.
 	//
 	hostent& he = *pHostent;
-	printf("name=%s\naliases=%s\naddrtype=%d\nlength=%d\n",
-		he.h_name, he.h_aliases, he.h_addrtype, he.h_length);
-
 	sockaddr_in sa;
 	strIP = "";
 	for (int nAdapter=0; he.h_addr_list[nAdapter]; nAdapter++) {
@@ -167,4 +290,10 @@ int CWXFun::GetIPMacName(std::string& strIP, std::string& strMac, std::string& s
 	WSACleanup();
 
 	return 0;
+}
+
+
+int CWXFun::GetIPMacHostName(std::string& strIP, std::string& strMac, std::string& strHostName)
+{
+	return GetIPHostName(strIP, strHostName) + GetMacByCmd(strMac);
 }

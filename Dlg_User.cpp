@@ -44,8 +44,9 @@ void CDlg_User::List(CListCtrl* pList)
 	pList->DeleteAllItems();
 
 	BNS::Dictionary()->RefrushAll();
-
 	BNS::User()->RefrushAll();
+	BNS::Employee()->RefrushAll();
+
 	CWXMemDataVector<WXDB::DBUserData> vecData;
 	vecData = BNS::User()->m_memDataVec;
 
@@ -62,9 +63,17 @@ void CDlg_User::List(CListCtrl* pList)
 		vecItem.push_back(str.GetBuffer(0));
 
 		vecItem.push_back(data._loginName);
-
-		str.Format(_T("%d"), data._empId);
-		vecItem.push_back(str.GetBuffer(0));
+		
+		//员工
+		WXDB::DBEmployeeData empData;
+		if(data._empId>=0 && BNS::Employee()->GetInfo(data._empId, empData))
+		{
+			vecItem.push_back(empData._name);
+		}
+		else
+		{
+			vecItem.push_back("");
+		}
 
 		vecItem.push_back(BNS::Dictionary()->GetRecordName(data._recordStat));
 
@@ -113,6 +122,7 @@ BEGIN_MESSAGE_MAP(CDlg_User, CDHtmlDialog)
 	ON_BN_CLICKED(IDOK, &CDlg_User::OnBnClickedOk)
 	ON_BN_CLICKED(IDC_BUTTON1, &CDlg_User::OnBnClickedButton1)
 	ON_BN_CLICKED(IDOK2, &CDlg_User::OnBnClickedOk2)
+	ON_NOTIFY(LVN_ITEMCHANGED, IDC_LIST3, &CDlg_User::OnLvnItemchangedList3)
 END_MESSAGE_MAP()
 
 BEGIN_DHTML_EVENT_MAP(CDlg_User)
@@ -189,4 +199,24 @@ void CDlg_User::OnBnClickedOk2()
 
 	
 	List(&this->m_list);
+}
+
+
+void CDlg_User::OnLvnItemchangedList3(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+	// TODO: 在此添加控件通知处理程序代码
+
+	if(m_listCtrl.GetFirstSelected()>=0)
+	{
+		int nID = m_list.GetItemData(m_listCtrl.GetFirstSelected());
+		WXDB::DBUserData userData;
+		if(BNS::User()->GetInfo(nID, userData))
+		{
+			this->GetDlgItem(IDOK2)->EnableWindow(BNS::User()->IsPermitEdit(userData._id));		
+			this->GetDlgItem(IDC_BUTTON1)->EnableWindow(BNS::User()->IsPermitEdit(userData._id));
+		}
+	}
+
+	*pResult = 0;
 }

@@ -163,7 +163,8 @@ bool CUser::IsLogin(std::string strName, std::string strPassWord, DBUserData* pD
 		+ "' and col_user_passwd = '"
 		+ strPassWord
 		+ "'"
-		+ " and (col_user_recordState = 1 OR col_user_recordState = 3)";
+		+ " and (col_user_recordState = " + CWXConver::single2s(E_DICTIONARY_STATE_CREATE) 
+		+ " OR col_user_recordState = " + CWXConver::single2s(E_DICTIONARY_STATE_EDIT) + ")";
 
 	CWXMemDataVector<DBUserData> memDataVec;
 	//Ö´ÐÐ

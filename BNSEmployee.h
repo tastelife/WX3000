@@ -20,7 +20,8 @@ public:
 public:
 	//获得所有数据保存在内存数据中
 	bool RefrushAll();
-
+	//通过员工ID获得员工信息
+	bool GetInfo(int nID, WXDB::DBEmployeeData &data);
 public:
 	//内存数据
 	CWXMemDataVector<WXDB::DBEmployeeData> m_memDataVec;
