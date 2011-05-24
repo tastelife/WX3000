@@ -37,14 +37,31 @@ WXDB::Power CPower::GetUserPower(int nUserID)
 {
 	return this->GetPower(nUserID, WXDB::CPower::IsGroupIDDueUserPower);
 }
-
-
 //指定用户对权限模块拥有的权限
 WXDB::Power CPower::GetPowerPower(int nUserID)
 {
 	return this->GetPower(nUserID, WXDB::CPower::IsGroupIDDuePowerPower);
 }
-
+//指定用户对部门模块拥有的权限
+WXDB::Power CPower::GetCompanyBasePower(int nUserID)
+{
+	return this->GetPower(nUserID, WXDB::CPower::IsGroupIDDueCompanyBasePower);
+}
+//指定用户对员工模块拥有的权限
+WXDB::Power CPower::GetEmployeePower(int nUserID)
+{
+	return this->GetPower(nUserID, WXDB::CPower::IsGroupIDDueEmployeePower);
+}
+//指定用户对客户模块拥有的权限
+WXDB::Power CPower::GetCustomerPower(int nUserID)
+{
+	return this->GetPower(nUserID, WXDB::CPower::IsGroupIDDueCustomerPower);
+}
+//指定用户对供应商模块拥有的权限
+WXDB::Power CPower::GetSupplierPower(int nUserID)
+{
+	return this->GetPower(nUserID, WXDB::CPower::IsGroupIDDueSupplierPower);
+}
 
 
 NAMESPACE_BNS_END

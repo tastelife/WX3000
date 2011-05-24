@@ -10,6 +10,7 @@
 #include "Dlg_User.h"
 #include "DlgLogin.h"
 #include "DlgPower.h"
+#include "DlgEmployee.h"
 
 // CDlogMain 对话框
 
@@ -40,6 +41,7 @@ BEGIN_MESSAGE_MAP(CDlogMain, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON5, &CDlogMain::OnBnClickedButton5)
 	ON_BN_CLICKED(IDC_BUTTON6, &CDlogMain::OnBnClickedButton6)
 	ON_BN_CLICKED(IDC_BUTTON7, &CDlogMain::OnBnClickedButton7)
+	ON_BN_CLICKED(IDC_BUTTON10, &CDlogMain::OnBnClickedButton10)
 END_MESSAGE_MAP()
 
 
@@ -82,12 +84,16 @@ void CDlogMain::OnBnClickedOk()
 
 void CDlogMain::OnBnClickedButton4()
 {
+	CDlgEmployee empDlg(CDlgEmployee::E_START_TYPE_FUNCTION);
+	empDlg.DoModal();
 }
 
+//客户
 void CDlogMain::OnBnClickedButton5()
 {
 }
 
+//供应商
 void CDlogMain::OnBnClickedButton6()
 {
 }
@@ -107,11 +113,28 @@ void CDlogMain::EnableButton()
 	{
 		this->GetDlgItem(IDC_BUTTON3)->EnableWindow(1);
 	}
-
-	this->GetDlgItem(IDC_BUTTON4)->EnableWindow(1);
-	this->GetDlgItem(IDC_BUTTON5)->EnableWindow(1);
-	this->GetDlgItem(IDC_BUTTON6)->EnableWindow(1);
+	//员工
+	if(BNS::Power()->GetEmployeePower(BNS::Login()->GetLoginID()).IsReadPower())
+	{
+		this->GetDlgItem(IDC_BUTTON4)->EnableWindow(1);
+	}
+	//客户
+	if(BNS::Power()->GetCustomerPower(BNS::Login()->GetLoginID()).IsReadPower())
+	{
+		this->GetDlgItem(IDC_BUTTON5)->EnableWindow(1);
+	}
+	//供应商
+	if(BNS::Power()->GetSupplierPower(BNS::Login()->GetLoginID()).IsReadPower())
+	{
+		this->GetDlgItem(IDC_BUTTON6)->EnableWindow(1);
+	}
+	//退出
 	this->GetDlgItem(IDC_BUTTON7)->EnableWindow(1);
+	//部门
+	if(BNS::Power()->GetCompanyBasePower(BNS::Login()->GetLoginID()).IsReadPower())
+	{
+		this->GetDlgItem(IDC_BUTTON10)->EnableWindow(1);
+	}
 }
 void CDlogMain::OnBnClickedButton7()
 {
@@ -123,4 +146,10 @@ void CDlogMain::OnBnClickedButton7()
 	this->GetDlgItem(IDC_BUTTON5)->EnableWindow(0);
 	this->GetDlgItem(IDC_BUTTON6)->EnableWindow(0);
 	this->GetDlgItem(IDC_BUTTON7)->EnableWindow(0);
+	this->GetDlgItem(IDC_BUTTON10)->EnableWindow(0);
+}
+
+//部门
+void CDlogMain::OnBnClickedButton10()
+{
 }

@@ -179,6 +179,7 @@ bool CUser::FindUserName(int nID, std::string& strUserName)
 	if(GetInfo(nID, data))
 	{
 		strUserName = data._loginName;
+		bRtn = true;
 	}
 
 	return bRtn;
@@ -211,6 +212,23 @@ bool CUser::IsPermitEdit(int nID)
 
 	return false;
 }
+
+//用户是否关联了员工
+bool CUser::IsRelevanceEmployee(int nID)
+{
+	WXDB::DBUserData data;
+	if(GetInfo(nID, data))
+	{
+		if(data._empId>=0)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+
 //用户在内存
 bool CUser::IsBeingInMem(std::string strName)
 {

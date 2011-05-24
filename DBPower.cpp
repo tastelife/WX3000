@@ -70,6 +70,42 @@ bool CPower::IsGroupIDDuePowerPower(DBGroupFunPointPowerViewData dbGroupFunPoint
 	}
 	return dbGroupFunPointPowerViewData._groupID == nGroupID;
 }
+//组、功能点、权限视图中的 组id相等 功能点=“companyBase”返回true
+bool CPower::IsGroupIDDueCompanyBasePower(DBGroupFunPointPowerViewData dbGroupFunPointPowerViewData, int nGroupID)
+{
+	if(dbGroupFunPointPowerViewData._funPointName!="companyBase")
+	{
+		return false;
+	}
+	return dbGroupFunPointPowerViewData._groupID == nGroupID;
+}
+//组、功能点、权限视图中的 组id相等 功能点=“employee”返回true
+bool CPower::IsGroupIDDueEmployeePower(DBGroupFunPointPowerViewData dbGroupFunPointPowerViewData, int nGroupID)
+{
+	if(dbGroupFunPointPowerViewData._funPointName!="employee")
+	{
+		return false;
+	}
+	return dbGroupFunPointPowerViewData._groupID == nGroupID;
+}
+//组、功能点、权限视图中的 组id相等 功能点=“customer”返回true
+bool CPower::IsGroupIDDueCustomerPower(DBGroupFunPointPowerViewData dbGroupFunPointPowerViewData, int nGroupID)
+{
+	if(dbGroupFunPointPowerViewData._funPointName!="customer")
+	{
+		return false;
+	}
+	return dbGroupFunPointPowerViewData._groupID == nGroupID;
+}
+//组、功能点、权限视图中的 组id相等 功能点=“supplier”返回true
+bool CPower::IsGroupIDDueSupplierPower(DBGroupFunPointPowerViewData dbGroupFunPointPowerViewData, int nGroupID)
+{
+	if(dbGroupFunPointPowerViewData._funPointName!="supplier")
+	{
+		return false;
+	}
+	return dbGroupFunPointPowerViewData._groupID == nGroupID;
+}
 
 
 NAMESPACE_DB_END

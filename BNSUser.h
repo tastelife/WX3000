@@ -31,6 +31,9 @@ public:
 	//用户是否可以被修改
 	bool IsPermitEdit(int nID);
 
+	//用户关联的员工
+	bool IsRelevanceEmployee(int nID);
+
 	//获得所有数据保存在内存数据中
 	bool RefrushAll();
 

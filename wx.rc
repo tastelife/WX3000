@@ -16,13 +16,11 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// 中文(中华人民共和国) resources
+// 中文(简体，中国) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
-#ifdef _WIN32
 LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
 #pragma code_page(936)
-#endif //_WIN32
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -96,7 +94,7 @@ IDB_INFO                BITMAP                  "res\\info.bmp"
 // Toolbar
 //
 
-IDR_MAINFRAME TOOLBAR  16, 16
+IDR_MAINFRAME TOOLBAR 16, 16
 BEGIN
     BUTTON      ID_FILE_NEW
     BUTTON      ID_FILE_OPEN
@@ -110,7 +108,7 @@ BEGIN
     BUTTON      ID_APP_ABOUT
 END
 
-IDR_MAINFRAME_256 TOOLBAR  16, 16
+IDR_MAINFRAME_256 TOOLBAR 16, 16
 BEGIN
     BUTTON      ID_FILE_NEW
     BUTTON      ID_FILE_OPEN
@@ -130,7 +128,7 @@ END
 // Menu
 //
 
-IDR_MAINFRAME MENU 
+IDR_MAINFRAME MENU
 BEGIN
     POPUP "文件(&F)"
     BEGIN
@@ -185,7 +183,7 @@ BEGIN
     END
 END
 
-IDR_POPUP_EDIT MENU 
+IDR_POPUP_EDIT MENU
 BEGIN
     POPUP "编辑"
     BEGIN
@@ -195,7 +193,7 @@ BEGIN
     END
 END
 
-IDR_THEME_MENU MENU 
+IDR_THEME_MENU MENU
 BEGIN
     MENUITEM "Office 2007 (蓝色样式)(&B)",      ID_VIEW_APPLOOK_OFF_2007_BLUE
     MENUITEM "Office 2007 (黑色样式)(&L)",      ID_VIEW_APPLOOK_OFF_2007_BLACK
@@ -209,7 +207,7 @@ END
 // Accelerator
 //
 
-IDR_MAINFRAME ACCELERATORS 
+IDR_MAINFRAME ACCELERATORS
 BEGIN
     "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
     "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
@@ -314,7 +312,7 @@ BEGIN
     COMBOBOX        IDC_COMBO1,60,38,110,128,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
 END
 
-IDD_DIALOG_MAIN DIALOGEX 0, 0, 322, 209
+IDD_DIALOG_MAIN DIALOGEX 0, 0, 322, 254
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "Dialog"
@@ -323,10 +321,23 @@ BEGIN
     PUSHBUTTON      "登录",IDC_BUTTON1,18,7,50,14
     PUSHBUTTON      "用户",IDC_BUTTON2,18,59,50,14,WS_DISABLED
     PUSHBUTTON      "权限",IDC_BUTTON3,18,89,50,14,WS_DISABLED
-    PUSHBUTTON      "员工",IDC_BUTTON4,18,120,50,14,WS_DISABLED
-    PUSHBUTTON      "客户",IDC_BUTTON5,18,150,50,14,WS_DISABLED
-    PUSHBUTTON      "供应商",IDC_BUTTON6,18,180,50,14,WS_DISABLED
+    PUSHBUTTON      "员工",IDC_BUTTON4,18,150,50,14,WS_DISABLED
+    PUSHBUTTON      "客户",IDC_BUTTON5,18,180,50,14,WS_DISABLED
+    PUSHBUTTON      "供应商",IDC_BUTTON6,18,209,50,14,WS_DISABLED
     PUSHBUTTON      "退出",IDC_BUTTON7,18,30,50,14,WS_DISABLED
+    PUSHBUTTON      "部门",IDC_BUTTON10,18,120,50,14,WS_DISABLED
+END
+
+IDD_DIALOG_EMPLOYEE DIALOGEX 0, 0, 459, 386
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,402,365,50,14
+    PUSHBUTTON      "添加",IDC_BUTTON1,223,365,50,14
+    PUSHBUTTON      "修改",IDC_BUTTON8,281,365,50,14
+    PUSHBUTTON      "删除",IDC_BUTTON9,341,365,50,14
+    CONTROL         "",IDC_LIST3,"SysListView32",LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,445,338
 END
 
 
@@ -375,7 +386,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_ABOUTBOX, DIALOG
     BEGIN
@@ -451,13 +462,22 @@ BEGIN
         RIGHTMARGIN, 315
         VERTGUIDE, 18
         TOPMARGIN, 7
-        BOTTOMMARGIN, 202
+        BOTTOMMARGIN, 247
         HORZGUIDE, 30
         HORZGUIDE, 59
         HORZGUIDE, 89
         HORZGUIDE, 120
         HORZGUIDE, 150
         HORZGUIDE, 180
+        HORZGUIDE, 209
+    END
+
+    IDD_DIALOG_EMPLOYEE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 452
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 379
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -475,23 +495,23 @@ IDR_HTML_DLG_USER       HTML                    "Dlg_User.htm"
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDP_OLE_INIT_FAILED     "OLE 初始化失败。请确保 OLE 库是正确的版本。"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDR_MAINFRAME           "wx\n\nwx\n\n\nwx.Document\nwx.Document"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     AFX_IDS_APP_TITLE       "wx"
     AFX_IDS_IDLEMESSAGE     "就绪"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_INDICATOR_EXT        "EXT"
     ID_INDICATOR_CAPS       "CAP"
@@ -501,7 +521,7 @@ BEGIN
     ID_INDICATOR_REC        "REC"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_FILE_NEW             "创建新文档\n新建"
     ID_FILE_OPEN            "打开现有文档\n打开"
@@ -515,13 +535,13 @@ BEGIN
     ID_FILE_PRINT_PREVIEW   "显示整页\n打印预览"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_APP_ABOUT            "显示程序信息、版本号和版权\n关于"
     ID_APP_EXIT             "退出应用程序；提示保存文档\n退出"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_FILE_MRU_FILE1       "打开此文档"
     ID_FILE_MRU_FILE2       "打开此文档"
@@ -541,18 +561,18 @@ BEGIN
     ID_FILE_MRU_FILE16      "打开此文档"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_NEXT_PANE            "切换到下一个窗格\n下一窗格"
     ID_PREV_PANE            "切换回上一个窗格\n上一窗格"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_WINDOW_SPLIT         "将活动窗口拆分为多个窗格\n拆分"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_EDIT_CLEAR           "清除选定内容\n清除"
     ID_EDIT_CLEAR_ALL       "清除全部内容\n全部清除"
@@ -567,17 +587,17 @@ BEGIN
     ID_EDIT_REDO            "恢复上次撤消的操作\n重做"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_VIEW_STATUS_BAR      "显示或隐藏状态栏\n切换状态栏"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_VIEW_CAPTION_BAR     "显示或隐藏标题栏\n切换标题栏"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     AFX_IDS_SCSIZE          "更改窗口大小"
     AFX_IDS_SCMOVE          "更改窗口位置"
@@ -588,18 +608,18 @@ BEGIN
     AFX_IDS_SCCLOSE         "关闭活动窗口并提示保存文档"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     AFX_IDS_SCRESTORE       "将窗口恢复到正常大小"
     AFX_IDS_SCTASKLIST      "激活任务列表"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     AFX_IDS_PREVIEW_CLOSE   "关闭打印预览模式\n取消预览"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_STATUS_PANE1        "窗格 1"
     IDS_STATUS_PANE2        "窗格 2"
@@ -607,7 +627,7 @@ BEGIN
     IDS_TOOLBAR_CUSTOMIZE   "自定义..."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_MYCALENDARS         "我的日历"
     IDS_CALENDAR            "日历"
@@ -615,17 +635,17 @@ BEGIN
     IDS_FOLDERS             "文件夹"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_OUTLOOKBAR          "Outlook 栏"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_RIBBON_CAPTIONBAR   "标题栏"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_CAPTION_BUTTON      "选项..."
     IDS_CAPTION_BUTTON_TIP  "单击此处查看其他选项"
@@ -634,12 +654,12 @@ BEGIN
     IDS_CAPTION_IMAGE_TEXT  "这是向用户显示的信息性消息。"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_EDIT_MENU           "编辑"
 END
 
-#endif    // 中文(中华人民共和国) resources
+#endif    // 中文(简体，中国) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

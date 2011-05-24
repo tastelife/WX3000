@@ -21,6 +21,14 @@ public:
 	WXDB::Power GetUserPower(int nUserID);
 	//指定用户对权限模块拥有的权限
 	WXDB::Power GetPowerPower(int nUserID);
+	//指定用户对部门模块拥有的权限
+	WXDB::Power GetCompanyBasePower(int nUserID);
+	//指定用户对员工模块拥有的权限
+	WXDB::Power GetEmployeePower(int nUserID);
+	//指定用户对客户模块拥有的权限
+	WXDB::Power GetCustomerPower(int nUserID);
+	//指定用户对供应商模块拥有的权限
+	WXDB::Power GetSupplierPower(int nUserID);
 
 public:
 	//内存数据

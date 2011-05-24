@@ -111,6 +111,13 @@ std::string CWXConver::ws2s(const std::wstring& wstr)
 }  
 
 
+//date to string
+std::string CWXConver::date2s(DATE date, std::string strFormat)
+{
+	COleDateTime tm(date);
+	return tm.Format(strFormat.c_str()).GetBuffer(0);
+}
+
 
 CWXFun::CWXFun()
 {

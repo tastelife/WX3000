@@ -29,7 +29,12 @@ public:
 private:
 	CString m_strPw1;
 	CString m_strPw2;
+	int m_nRelevanceEmpID;
 public:
 	int m_nID;
 	afx_msg void OnBnClickedOk2();
+	afx_msg void OnBnClickedButton1();
+private:
+	// 关联员工名
+	CString m_strEmpName;
 };

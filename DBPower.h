@@ -33,6 +33,18 @@ public:
 	//组、功能点、权限视图中的 组id相等 功能点=“power”返回true
 	static bool IsGroupIDDuePowerPower(DBGroupFunPointPowerViewData dbGroupFunPointPowerViewData, int nGroupID);
 
+	//组、功能点、权限视图中的 组id相等 功能点=“companyBase”返回true
+	static bool IsGroupIDDueCompanyBasePower(DBGroupFunPointPowerViewData dbGroupFunPointPowerViewData, int nGroupID);
+
+	//组、功能点、权限视图中的 组id相等 功能点=“employee”返回true
+	static bool IsGroupIDDueEmployeePower(DBGroupFunPointPowerViewData dbGroupFunPointPowerViewData, int nGroupID);
+
+	//组、功能点、权限视图中的 组id相等 功能点=“customer”返回true
+	static bool IsGroupIDDueCustomerPower(DBGroupFunPointPowerViewData dbGroupFunPointPowerViewData, int nGroupID);
+
+	//组、功能点、权限视图中的 组id相等 功能点=“supplier”返回true
+	static bool IsGroupIDDueSupplierPower(DBGroupFunPointPowerViewData dbGroupFunPointPowerViewData, int nGroupID);
+
 private:
 	//数据库句柄
 	CWXDBConnect* m_pDBCon;

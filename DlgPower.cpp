@@ -75,7 +75,9 @@ void CDlgPower::List(CListCtrl* pList)
 {
 	pList->DeleteAllItems();
 
-	BNS::Power()->RefrushAll();
+	BNS::Power()->RefrushAll();	
+	BNS::User()->RefrushAll();
+
 	CWXMemDataVector<WXDB::DBUserGroupViewData> vecData;
 	vecData = BNS::Power()->m_memDataVecUserGroupView;
 

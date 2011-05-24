@@ -217,6 +217,11 @@ void CDlg_User::OnLvnItemchangedList3(NMHDR *pNMHDR, LRESULT *pResult)
 			this->GetDlgItem(IDC_BUTTON1)->EnableWindow(BNS::User()->IsPermitEdit(userData._id));
 		}
 	}
+	else
+	{
+		this->GetDlgItem(IDOK2)->EnableWindow(FALSE);		
+		this->GetDlgItem(IDC_BUTTON1)->EnableWindow(FALSE);
+	}
 
 	*pResult = 0;
 }

@@ -95,6 +95,8 @@ public:
 
 		return rtnStr;
 	}
+	//date to string
+	static std::string date2s(DATE date, std::string strFormat="%Y-%m-%d %H:%M");
 private:
 	static wchar_t* Char2WChar(const char* p);
 	static char* WChar2Char(const wchar_t* pw);
@@ -294,7 +296,7 @@ namespace WXDB
 
 		bool IsCreatePower()
 		{
-			return (_nPower&0x01)!=E_DICTIONARY_FUNCTIONPOINTPOWER_CREATE;
+			return (_nPower&E_DICTIONARY_FUNCTIONPOINTPOWER_CREATE)!=0;
 		}
 		void SetCreatePower(bool bPower)
 		{
