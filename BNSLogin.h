@@ -23,6 +23,8 @@ public:
 	bool Logout();
 	//登录ID
 	int GetLoginID();
+	//当前登录用户
+	const WXDB::DBUserData* GetUserData();
 
 private:
 	//用户是否已登录,存在返回true

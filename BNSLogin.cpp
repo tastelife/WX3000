@@ -45,7 +45,8 @@ bool CLogin::Login(std::string strName, std::string strPassWord)
 	m_loginData._id = DB::Login()->CreateNewID();
 	m_loginData._userID = m_pUserData->_id;
 	CWXFun::GetIPMacHostName(m_loginData._ip, m_loginData._mac, m_loginData._computerName);
-
+	//操作人
+	m_loginData._operator = m_pUserData->_id;
 
 	//用户是否在其它客户端登录
 	if(this->IsLoging(m_loginData._userID))
@@ -65,7 +66,7 @@ bool CLogin::Login(std::string strName, std::string strPassWord)
 
 
 	//清理异常退出
-	DB::Login()->Logout(m_loginData._userID, m_loginData._operator);
+	DB::Login()->Logout(m_loginData._userID, m_pUserData->_id);
 
 	bool bRtn = this->Login(m_loginData);
 
@@ -90,7 +91,7 @@ bool CLogin::Logout()
 		return true;
 	}
 
-	DB::Login()->Logout(m_loginData._id, m_loginData._state, m_loginData._operator);
+	DB::Login()->Logout(m_loginData._id, m_loginData._state, m_pUserData->_id);
 
 	delete m_pUserData;
 	m_pUserData = NULL;
@@ -115,6 +116,13 @@ int CLogin::GetLoginID()
 bool CLogin::IsLoging(int nUserID)
 {
 	return DB::Login()->IsLoging(nUserID);
+}
+
+
+//当前登录用户
+const WXDB::DBUserData* CLogin::GetUserData()
+{
+	return m_pUserData;
 }
 
 NAMESPACE_BNS_END

@@ -46,6 +46,9 @@ bool CUser::Add(std::string strName, std::string strPassWord, int nEmpID)
 		//用户ID
 		data._id = DB::User()->CreateNewID();
 
+		//操作人
+		data._operator = BNS::Login()->GetUserData()->_id;
+
 		//添加到数据库
 		bRtn = this->Add(data);
 	}
@@ -100,6 +103,8 @@ bool CUser::Edit(int nID, std::string strPassWord, int nEmpID)
 	data._passwd = strPassWord;
 	//修改关联
 	data._empId = nEmpID;
+	//操作人
+	data._operator = BNS::Login()->GetUserData()->_id;
 	
 	//添加到数据库
 	bRtn = this->Edit(data);
@@ -141,9 +146,9 @@ bool CUser::Delete(int nID)
 		WXBNS::CWXLockDBSingle::Init()->UnLockUser(data._loginName);
 		return false;
 	}
-
+	
 	//删除一个用户
-	Delete(nID, 0);
+	Delete(nID, BNS::Login()->GetUserData()->_id);
 
 	//解除锁定
 	WXBNS::CWXLockDBSingle::Init()->UnLockUser(data._loginName);

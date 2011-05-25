@@ -104,7 +104,7 @@ int CUser::CreateNewID()
 }
 
 
-//查找一条记录
+//从数据库查找一条记录
 bool CUser::Find(int nID, DBUserData& data)
 {
 	//sql 

@@ -27,7 +27,7 @@ public:
 	//删除一条记录
 	void Delete(int nID, int nOpretor);
 
-	//查找一条记录
+	//从数据库查找一条记录
 	bool Find(int nID, DBUserData& data);
 
 	//获得列表

@@ -22,7 +22,7 @@ CUserGroup::~CUserGroup(void)
 //设定用户关联的组
 bool CUserGroup::SetUserGroupByUserID(int nUserID, int nGroupID)
 {
-	DB::UserGroup()->SetUserGroupByUserID(nUserID, nGroupID, 0);
+	DB::UserGroup()->SetUserGroupByUserID(nUserID, nGroupID, BNS::Login()->GetUserData()->_id);
 	return true;
 }
 
