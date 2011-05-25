@@ -40,7 +40,10 @@ public:
 	WXDB::DBEmployeeData m_empSelected;
 private:
 	void List();
+	//选择时 “确定”按钮是否有效
 	void EnabaleOk();
+	//“编辑”“删除”按钮是否有效
+	void EnabaleEditDelete();
 
 	E_START_TYPE m_eStartType;
 public:

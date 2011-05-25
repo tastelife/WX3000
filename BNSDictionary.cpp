@@ -30,11 +30,11 @@ bool CDictionary::RefrushAll()
 
 
 //通过枚举值获得名称
-std::string CDictionary::GetName(std::string strName, int nEnum)
+std::string CDictionary::GetName(std::string strType, int nEnum)
 {
 	WXDB::DBDictionaryData dictionaryData;
 	if(this->m_memDataVec.Find(
-		std::bind2nd(std::ptr_fun(WXDB::CDictionary::IsTypeEnumDue), std::pair<std::string,int>(strName, nEnum)), 
+		std::bind2nd(std::ptr_fun(WXDB::CDictionary::IsTypeEnumDue), std::pair<std::string,int>(strType, nEnum)), 
 		dictionaryData))
 	{
 		return dictionaryData._name;
@@ -42,14 +42,39 @@ std::string CDictionary::GetName(std::string strName, int nEnum)
 
 	return "";
 }
+//通过枚举值设定名称
+void CDictionary::SetName(std::string strType, int nEnum, std::string strName, int nOperator)
+{
+	WXDB::DBDictionaryData data;
+	data._type = strType;
+	data._enum = nEnum;
+	data._name = strName;
+	data._operator = nOperator;
+}
 
-
-//通过枚举值获得指定的记录状态名
+//通过枚举值获得记录状态名
 std::string CDictionary::GetRecordName(int nEnum)
 {
 	return this->GetName("recordState", nEnum);
 }
 
+//通过枚举值获得性别名
+std::string CDictionary::GetSexName(int nEnum)
+{
+	return this->GetName("sex", nEnum);
+}
+
+
+//通过枚举值获得员工.职位名
+std::string CDictionary::GetEmployeePositionName(int nEnum)
+{
+	return this->GetName("employee.position", nEnum);
+}
+//通过枚举值设定员工.职位名
+void  CDictionary::SetEmployeePositionName(int nEnum, std::string strName, int nOperator)
+{
+	SetName("employee.position", nEnum, strName, nOperator);
+}
 
 
 NAMESPACE_BNS_END

@@ -50,13 +50,13 @@ BOOL CDlgEmployee::OnInitDialog()
 	CDialog::OnInitDialog();
 
 	std::vector<SWXLISTCTROLCOLUMN> vecTitle;
-	vecTitle.push_back(SWXLISTCTROLCOLUMN(0,"员工号", LVCFMT_LEFT, 60));
-	vecTitle.push_back(SWXLISTCTROLCOLUMN(1,"姓名", LVCFMT_LEFT, 60));
-	vecTitle.push_back(SWXLISTCTROLCOLUMN(2,"部门", LVCFMT_LEFT, 60));
-	vecTitle.push_back(SWXLISTCTROLCOLUMN(3,"性别", LVCFMT_LEFT, 60));
-	vecTitle.push_back(SWXLISTCTROLCOLUMN(4,"生日", LVCFMT_LEFT, 140));
-	vecTitle.push_back(SWXLISTCTROLCOLUMN(5,"手机", LVCFMT_LEFT, 70));
-	vecTitle.push_back(SWXLISTCTROLCOLUMN(6,"座机", LVCFMT_LEFT, 70));
+	vecTitle.push_back(SWXLISTCTROLCOLUMN(0,"员工号", LVCFMT_LEFT, 50));
+	vecTitle.push_back(SWXLISTCTROLCOLUMN(1,"姓名", LVCFMT_LEFT, 74));
+	vecTitle.push_back(SWXLISTCTROLCOLUMN(2,"部门", LVCFMT_LEFT, 100));
+	vecTitle.push_back(SWXLISTCTROLCOLUMN(3,"性别", LVCFMT_LEFT, 50));
+	vecTitle.push_back(SWXLISTCTROLCOLUMN(4,"生日", LVCFMT_LEFT, 110));
+	vecTitle.push_back(SWXLISTCTROLCOLUMN(5,"手机", LVCFMT_LEFT, 80));
+	vecTitle.push_back(SWXLISTCTROLCOLUMN(6,"座机", LVCFMT_LEFT, 80));
 	vecTitle.push_back(SWXLISTCTROLCOLUMN(7,"职位", LVCFMT_LEFT, 60));
 	vecTitle.push_back(SWXLISTCTROLCOLUMN(8,"当前状态", LVCFMT_LEFT, 60));
 	CWXListCtrl(&this->m_list).SetColTitle(vecTitle);
@@ -75,20 +75,19 @@ BOOL CDlgEmployee::OnInitDialog()
 	else
 	{	
 		this->GetDlgItem(IDOK)->ShowWindow(0);
-	//if(!BNS::Power()->GetUserPower(BNS::Login()->GetLoginID()).IsCreatePower())
-	//{
-	//	this->GetDlgItem(IDOK)->ShowWindow(0);
-	//}
 
-	//if(!BNS::Power()->GetUserPower(BNS::Login()->GetLoginID()).IsEditPower())
-	//{
-	//	this->GetDlgItem(IDOK2)->ShowWindow(0);
-	//}
-
-	//if(!BNS::Power()->GetUserPower(BNS::Login()->GetLoginID()).IsDeletePower())
-	//{
-	//	this->GetDlgItem(IDC_BUTTON1)->ShowWindow(0);
-	//}
+		if(!BNS::Power()->GetEmployeePower(BNS::Login()->GetLoginID()).IsCreatePower())
+		{
+			this->GetDlgItem(IDC_BUTTON1)->ShowWindow(0);
+		}
+		if(!BNS::Power()->GetEmployeePower(BNS::Login()->GetLoginID()).IsEditPower())
+		{
+			this->GetDlgItem(IDC_BUTTON8)->ShowWindow(0);
+		}
+		if(!BNS::Power()->GetEmployeePower(BNS::Login()->GetLoginID()).IsDeletePower())
+		{
+			this->GetDlgItem(IDC_BUTTON9)->ShowWindow(0);
+		}
 	}
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
@@ -99,7 +98,7 @@ void CDlgEmployee::List()
 	m_list.DeleteAllItems();
 
 	BNS::Dictionary()->RefrushAll();
-	//BNS::com()->RefrushAll();
+	BNS::CompanyBase()->RefrushAll();
 	BNS::Employee()->RefrushAll();
 
 	CWXMemDataVector<WXDB::DBEmployeeData> vecData;
@@ -117,9 +116,11 @@ void CDlgEmployee::List()
 		//姓名
 		vecItem.push_back(data._name);
 		//部门
-		vecItem.push_back("");
+		WXDB::DBCompanyBaseData companyBaseData;
+		BNS::CompanyBase()->GetInfo(data._companyBaseID, companyBaseData);
+		vecItem.push_back(companyBaseData._companyName);
 		//性别
-		vecItem.push_back("");
+		vecItem.push_back(BNS::Dictionary()->GetSexName(data._sex));
 		//生日
 		vecItem.push_back(CWXConver::date2s(data._birthday));
 		//手机
@@ -127,7 +128,7 @@ void CDlgEmployee::List()
 		//座机
 		vecItem.push_back(data._phone);
 		//职位
-		vecItem.push_back("");
+		vecItem.push_back(BNS::Dictionary()->GetEmployeePositionName(data._position));
 		//当前状态
 		vecItem.push_back(BNS::Dictionary()->GetRecordName(data._recordStat));
 
@@ -167,11 +168,13 @@ void CDlgEmployee::OnLvnItemchangedList3(NMHDR *pNMHDR, LRESULT *pResult)
 	// TODO: 在此添加控件通知处理程序代码
 	
 	EnabaleOk();
+	EnabaleEditDelete();
 
 	*pResult = 0;
 }
 
 
+//选择时 “确定”按钮是否有效
 void CDlgEmployee::EnabaleOk()
 {
 	if(m_listCtrl.GetFirstSelected()>=0)
@@ -181,5 +184,22 @@ void CDlgEmployee::EnabaleOk()
 	else
 	{
 		this->GetDlgItem(IDOK)->EnableWindow(FALSE);
+	}
+}
+
+//“编辑”“删除”按钮是否有效
+void CDlgEmployee::EnabaleEditDelete()
+{
+	if(m_listCtrl.GetFirstSelected()>=0)
+	{
+		int nID = m_list.GetItemData(m_listCtrl.GetFirstSelected());
+		
+		this->GetDlgItem(IDC_BUTTON8)->EnableWindow(BNS::Employee()->IsPermitEdit(nID));		
+		this->GetDlgItem(IDC_BUTTON9)->EnableWindow(BNS::Employee()->IsPermitEdit(nID));
+	}
+	else
+	{
+		this->GetDlgItem(IDC_BUTTON8)->EnableWindow(FALSE);		
+		this->GetDlgItem(IDC_BUTTON9)->EnableWindow(FALSE);
 	}
 }

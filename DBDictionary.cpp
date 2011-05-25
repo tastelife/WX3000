@@ -18,6 +18,17 @@ CDictionary::~CDictionary(void)
 {
 }
 
+//修改一条记录
+void CDictionary::Edit(DBDictionaryData& data)
+{
+	//存储过程参数
+	std::vector<_variant_t> vecVarParam;
+	CWXDBdataToVecVar<DBDictionaryData>()(data, vecVarParam);
+
+	//执行
+	this->m_pDBCon->ExecStoredProc("dictionary_edit", vecVarParam);
+}
+
 
 //获得列表
 void CDictionary::GetAllList(CWXMemDataVector<DBDictionaryData>& memDataVec)

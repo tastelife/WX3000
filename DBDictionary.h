@@ -19,6 +19,9 @@ private:
 	CDictionary(void);
 
 public:
+	//修改一条记录
+	void Edit(DBDictionaryData& data);
+
 	//获得列表
 	void GetAllList(CWXMemDataVector<DBDictionaryData>& memDataVec);
 

@@ -118,6 +118,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BNSCompanyBase.cpp" />
     <ClCompile Include="BNSDictionary.cpp" />
     <ClCompile Include="BNSEmployee.cpp" />
     <ClCompile Include="BNSGroup.cpp" />
@@ -126,6 +127,7 @@
     <ClCompile Include="BNSUser.cpp" />
     <ClCompile Include="BNSUserGroup.cpp" />
     <ClCompile Include="CalendarBar.cpp" />
+    <ClCompile Include="DBCompanyBase.cpp" />
     <ClCompile Include="DBDictionary.cpp" />
     <ClCompile Include="DBEmployee.cpp" />
     <ClCompile Include="DBGroup.cpp" />
@@ -161,6 +163,7 @@
     <ClCompile Include="wxView.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BNSCompanyBase.h" />
     <ClInclude Include="BNSDictionary.h" />
     <ClInclude Include="BNSEmployee.h" />
     <ClInclude Include="BNSGroup.h" />
@@ -169,6 +172,7 @@
     <ClInclude Include="BNSUser.h" />
     <ClInclude Include="BNSUserGroup.h" />
     <ClInclude Include="CalendarBar.h" />
+    <ClInclude Include="DBCompanyBase.h" />
     <ClInclude Include="DBDictionary.h" />
     <ClInclude Include="DBEmployee.h" />
     <ClInclude Include="DBGroup.h" />

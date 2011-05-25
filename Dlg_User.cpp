@@ -218,12 +218,9 @@ void CDlg_User::OnLvnItemchangedList3(NMHDR *pNMHDR, LRESULT *pResult)
 	if(m_listCtrl.GetFirstSelected()>=0)
 	{
 		int nID = m_list.GetItemData(m_listCtrl.GetFirstSelected());
-		WXDB::DBUserData userData;
-		if(BNS::User()->GetInfo(nID, userData))
-		{
-			this->GetDlgItem(IDOK2)->EnableWindow(BNS::User()->IsPermitEdit(userData._id));		
-			this->GetDlgItem(IDC_BUTTON1)->EnableWindow(BNS::User()->IsPermitEdit(userData._id));
-		}
+		
+		this->GetDlgItem(IDOK2)->EnableWindow(BNS::User()->IsPermitEdit(nID));		
+		this->GetDlgItem(IDC_BUTTON1)->EnableWindow(BNS::User()->IsPermitEdit(nID));
 	}
 	else
 	{

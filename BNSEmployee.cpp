@@ -46,4 +46,20 @@ bool CEmployee::GetInfo(int nID, WXDB::DBEmployeeData &data)
 }
 
 
+//员工是否可以被修改
+bool CEmployee::IsPermitEdit(int nID)
+{
+	WXDB::DBEmployeeData data;
+	if(GetInfo(nID, data))
+	{
+		if(data._recordStat==WXDB::E_DICTIONARY_STATE_CREATE || data._recordStat==WXDB::E_DICTIONARY_STATE_EDIT)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+
 NAMESPACE_BNS_END

@@ -10,6 +10,7 @@
 #include "DBUserGroup.h"
 #include "DBDictionary.h"
 #include "DBEmployee.h"
+#include "DBCompanyBase.h"
 
 
 
@@ -20,6 +21,7 @@
 #include "BNSUserGroup.h"
 #include "BNSDictionary.h"
 #include "BNSEmployee.h"
+#include "BNSCompanyBase.h"
 
 
 
@@ -93,6 +95,14 @@ public:
 
 		return  &dbEmployee;
 	}
+	
+
+	static WXDB::CCompanyBase* CompanyBase()
+	{
+		static WXDB::CCompanyBase dbCompanyBase(db());
+
+		return  &dbCompanyBase;
+	}
 
 	static bool UnInit()
 	{
@@ -157,6 +167,13 @@ public:
 		static WXBNS::CEmployee bnsEmployee;
 
 		return &bnsEmployee;
+	}
+	
+	static WXBNS::CCompanyBase* CompanyBase()
+	{
+		static WXBNS::CCompanyBase bnsCompanyBase;
+
+		return &bnsCompanyBase;
 	}
 };
 
