@@ -136,6 +136,7 @@
     <ClCompile Include="DBUser.cpp" />
     <ClCompile Include="DBUserGroup.cpp" />
     <ClCompile Include="DlgEmployee.cpp" />
+    <ClCompile Include="DlgEmployeeAdd.cpp" />
     <ClCompile Include="Dlg_User.cpp" />
     <ClCompile Include="DlgLogin.cpp" />
     <ClCompile Include="DlgPower.cpp" />
@@ -181,6 +182,7 @@
     <ClInclude Include="DBUser.h" />
     <ClInclude Include="DBUserGroup.h" />
     <ClInclude Include="DlgEmployee.h" />
+    <ClInclude Include="DlgEmployeeAdd.h" />
     <ClInclude Include="Dlg_User.h" />
     <ClInclude Include="DlgLogin.h" />
     <ClInclude Include="DlgPower.h" />

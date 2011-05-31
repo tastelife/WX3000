@@ -18,6 +18,14 @@ public:
 	~CEmployee(void);
 
 public:
+	
+	//添加一个用户
+	bool Add();	
+	//修改一个用户
+	bool Edit(int nID);
+	//删除一个用户
+	bool Delete(int nID);
+
 	//获得所有数据保存在内存数据中
 	bool RefrushAll();
 
@@ -26,6 +34,14 @@ public:
 	
 	//员工是否可以被修改
 	bool IsPermitEdit(int nID);
+	
+private:
+	//添加一个用户
+	bool Add(WXDB::DBEmployeeData& data);
+	//修改一个用户
+	bool Edit(WXDB::DBEmployeeData& data);
+	//删除一个用户
+	bool Delete(int nID, int nOpertor);
 public:
 	//内存数据
 	CWXMemDataVector<WXDB::DBEmployeeData> m_memDataVec;

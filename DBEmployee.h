@@ -19,6 +19,18 @@ private:
 
 
 public:
+	//添加一条记录
+	void Add(DBEmployeeData& data);
+
+	//修改一条记录
+	void Edit(DBEmployeeData& data);
+
+	//删除一条记录
+	void Delete(int nID, int nOpretor);
+
+	//从数据库查找一条记录
+	bool Find(int nID, DBEmployeeData& data);
+
 	//获得列表
 	void GetAllList(CWXMemDataVector<DBEmployeeData>& memDataVec);
 

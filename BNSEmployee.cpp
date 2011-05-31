@@ -21,6 +21,30 @@ CEmployee::~CEmployee(void)
 }
 
 
+//删除一个用户
+bool CEmployee::Delete(int nID, int nOpertor)
+{
+	DB::Employee()->Delete(nID, nOpertor);
+
+	return true;
+}
+//修改一个用户
+bool CEmployee::Edit(WXDB::DBEmployeeData& data)
+{
+	DB::Employee()->Edit(data);
+
+	return true;
+}
+//添加一个用户
+bool CEmployee::Add(WXDB::DBEmployeeData& data)
+{
+
+	DB::Employee()->Add(data);
+
+	return true;
+}
+
+
 
 //获得所有数据保存在内存数据中
 bool CEmployee::RefrushAll()
