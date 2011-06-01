@@ -92,6 +92,26 @@ bool CEmployee::Find(int nID, DBEmployeeData& data)
 }
 
 
+//员工是否存在,存在返回true
+bool CEmployee::IsBeingByID(int nID)
+{
+	bool bRtn = false;
+	//存储过程参数 员工ID
+	std::vector<_variant_t> vecVarParam;
+	vecVarParam.push_back(_variant_t(nID));
+
+	//执行
+	int nCount = this->m_pDBCon->ExecStoredProc("employee_IsBeing", vecVarParam, NULL).lVal;
+
+	if(nCount>0)
+	{
+		bRtn = true;
+	}
+
+	return bRtn;
+}
+
+
 //获得列表
 void CEmployee::GetAllList(CWXMemDataVector<DBEmployeeData>& memDataVec)
 {

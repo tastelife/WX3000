@@ -24,7 +24,42 @@ CEmployee::~CEmployee(void)
 //添加一个用户
 bool CEmployee::Add(const BNSEmployeeData& data)
 {
-	return false;
+	bool bRtn = true;
+	//用户在内存
+	if(this->IsBeingInMem(data._id))
+	{
+		return false;
+	}
+
+
+	//锁定用户,失败则返回 false
+	if(!WXBNS::CWXLockDBSingle::Init()->LockEmployee(data._id))
+	{
+		return false;
+	}
+	
+	//用户不在数据库
+	if(!this->IsBeingInDB(data._id))
+	{
+		//生成数据	
+		WXDB::DBEmployeeData empData;
+
+		//操作人
+		empData._operator = BNS::Login()->GetUserData()->_id;
+
+		//添加到数据库
+		bRtn = this->Add(data);
+	}
+	else
+	{
+		bRtn =false;
+	}
+
+
+	//解除锁定
+	WXBNS::CWXLockDBSingle::Init()->UnLockEmployee(data._id);
+
+	return bRtn;
 }
 //修改一个用户
 bool CEmployee::Edit(const BNSEmployeeData& data)
@@ -97,6 +132,33 @@ bool CEmployee::IsPermitEdit(int nID)
 		{
 			return true;
 		}
+	}
+
+	return false;
+}
+
+
+//员工在内存
+bool CEmployee::IsBeingInMem(int nID)
+{
+	CWXMemDataVector<WXDB::DBEmployeeData> memDataVecFinded;
+	//用户已存在刚返回 false
+	if(this->m_memDataVec.Find(std::bind2nd(std::ptr_fun(WXDB::CEmployee::IsIDDue), nID),
+		memDataVecFinded)>0)
+	{
+		return true;
+	}
+
+	return false;
+}
+
+
+//用户在数据库
+bool CEmployee::IsBeingInDB(int nID)
+{
+	if(DB::Employee()->IsBeingByID(nID))
+	{
+		return true;
 	}
 
 	return false;

@@ -43,6 +43,12 @@ private:
 	bool Edit(WXDB::DBEmployeeData& data);
 	//删除一个用户
 	bool Delete(int nID, int nOpertor);
+
+	//员工在内存
+	bool CEmployee::IsBeingInMem(int nID);
+	//用户在数据库
+	bool IsBeingInDB(int nID);
+
 public:
 	//内存数据
 	CWXMemDataVector<WXDB::DBEmployeeData> m_memDataVec;

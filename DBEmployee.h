@@ -30,6 +30,9 @@ public:
 
 	//从数据库查找一条记录
 	bool Find(int nID, DBEmployeeData& data);
+	
+	//员工是否存在,存在返回true
+	bool IsBeingByID(int nID);
 
 	//获得列表
 	void GetAllList(CWXMemDataVector<DBEmployeeData>& memDataVec);

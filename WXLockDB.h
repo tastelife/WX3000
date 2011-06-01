@@ -71,7 +71,33 @@ public:
 		return true;
 	}
 
+	
+	//员工锁定
+	bool LockEmployee(int nEmployeeID)
+	{
+		bool bRtn = true;
 
+		nEmployeeID++;
+
+		return bRtn;
+	}
+	//员工解锁
+	bool UnLockEmployee(int nEmployeeID)
+	{
+		bool bRtn = true;
+		
+		nEmployeeID++;
+		
+		return bRtn;
+
+	}
+	//员工是否已经被锁定
+	bool IsLockeEmployee(int nEmployeeID)
+	{		
+		nEmployeeID++;
+
+		return true;
+	}
 private:
 	//上锁用数据库连接
 	CWXDBConnect* m_db;
