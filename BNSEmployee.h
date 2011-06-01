@@ -6,6 +6,8 @@
 #include "WXMemDataVector.h"
 #include "WXDbDataType.h"
 #include <string>
+#include "WXBNSDataType.h"
+
 
 
 NAMESPACE_BNS_BEGIN
@@ -17,12 +19,11 @@ public:
 	CEmployee(void);
 	~CEmployee(void);
 
-public:
-	
+public:	
 	//添加一个用户
-	bool Add();	
+	bool Add(const BNSEmployeeData& data);	
 	//修改一个用户
-	bool Edit(int nID);
+	bool Edit(const BNSEmployeeData& data);
 	//删除一个用户
 	bool Delete(int nID);
 

@@ -21,6 +21,23 @@ CEmployee::~CEmployee(void)
 }
 
 
+//添加一个用户
+bool CEmployee::Add(const BNSEmployeeData& data)
+{
+	return false;
+}
+//修改一个用户
+bool CEmployee::Edit(const BNSEmployeeData& data)
+{
+	return false;
+}
+//删除一个用户
+bool CEmployee::Delete(int nID)
+{
+	return false;
+}
+
+
 //删除一个用户
 bool CEmployee::Delete(int nID, int nOpertor)
 {

@@ -199,6 +199,8 @@
     <ClInclude Include="tinystr.h" />
     <ClInclude Include="tinyxml.h" />
     <ClInclude Include="wx.h" />
+    <ClInclude Include="WXBNSComm.h" />
+    <ClInclude Include="WXBNSDataType.h" />
     <ClInclude Include="WXCommConfigure.h" />
     <ClInclude Include="WXCommFun.h" />
     <ClInclude Include="WXCommMacroCode.h" />
