@@ -268,31 +268,38 @@ bool CUser::IsChanged(int nID, WXDB::DBUserData dbUserData)
 	{
 		return true;
 	}
-	//以下有一处更新,视为被更新
-	if(dbUserData._empId!=lastData._empId)
-	{
-		return true;
-	}
-	if(dbUserData._operator!=lastData._operator)
-	{
-		return true;
-	}
-	if(dbUserData._operatorTime!=lastData._operatorTime)
-	{
-		return true;
-	}
-	if(dbUserData._passwd!=lastData._passwd)
-	{
-		return true;
-	}
-	if(dbUserData._recordStat!=lastData._recordStat)
-	{
-		return true;
-	}
-
-	return false;
+	//相等视为未更新
+	return !IsEqual(dbUserData, lastData);
 }
 
+
+//用户数据是否相等
+bool CUser::IsEqual(const WXDB::DBUserData& dbUserDataFirst, const WXDB::DBUserData& dbUserDataSec) const
+{
+	//以下有一处不同,视为不相等
+	if(dbUserDataFirst._empId!=dbUserDataSec._empId)
+	{
+		return false;
+	}
+	if(dbUserDataFirst._operator!=dbUserDataSec._operator)
+	{
+		return false;
+	}
+	if(dbUserDataFirst._operatorTime!=dbUserDataSec._operatorTime)
+	{
+		return false;
+	}
+	if(dbUserDataFirst._passwd!=dbUserDataSec._passwd)
+	{
+		return false;
+	}
+	if(dbUserDataFirst._recordStat!=dbUserDataSec._recordStat)
+	{
+		return false;
+	}
+
+	return true;
+}
 
 
 

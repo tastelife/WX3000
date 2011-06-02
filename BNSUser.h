@@ -55,6 +55,9 @@ private:
 	//数据是否被更新
 	bool IsChanged(int nID, WXDB::DBUserData dbUserData);
 
+	//用户数据是否相等
+	bool IsEqual(const WXDB::DBUserData& dbUserDataFirst, const WXDB::DBUserData& dbUserDataSec) const;
+
 public:
 	//内存数据
 	CWXMemDataVector<WXDB::DBUserData> m_memDataVec;
