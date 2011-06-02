@@ -18,6 +18,22 @@ CUser::~CUser(void)
 }
 
 
+//生成数据
+WXDB::DBUserData CUser::CreateData(std::string strName, std::string strPassWord, int nEmpID)
+{
+	WXDB::DBUserData data;
+	data._loginName = strName;
+	data._passwd = strPassWord;
+	data._empId = nEmpID;
+	//用户ID
+	data._id = DB::User()->CreateNewID();
+	
+	//操作人
+	data._operator = BNS::Login()->GetUserData()->_id;
+	return 
+}
+
+
 //添加一个用户
 bool CUser::Add(std::string strName, std::string strPassWord, int nEmpID)
 {
@@ -38,19 +54,8 @@ bool CUser::Add(std::string strName, std::string strPassWord, int nEmpID)
 	//用户不在数据库
 	if(!this->IsBeingInDB(strName))
 	{
-		//生成数据	
-		WXDB::DBUserData data;
-		data._loginName = strName;
-		data._passwd = strPassWord;
-		data._empId = nEmpID;
-		//用户ID
-		data._id = DB::User()->CreateNewID();
-
-		//操作人
-		data._operator = BNS::Login()->GetUserData()->_id;
-
 		//添加到数据库
-		bRtn = this->Add(data);
+		bRtn = this->Add(CreateData(strName, strPassWord, nEmpID));
 	}
 	else
 	{

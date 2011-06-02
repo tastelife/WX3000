@@ -44,9 +44,10 @@ private:
 	bool Edit(WXDB::DBUserData& data);
 	//删除一个用户
 	bool Delete(int nID, int nOpertor);
+	
+	//生成数据
+	WXDB::DBUserData CreateData(std::string strName, std::string strPassWord, int nEmpID);
 
-
-private:
 	//用户在内存
 	bool IsBeingInMem(std::string strName);
 	//用户在数据库
