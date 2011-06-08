@@ -155,6 +155,7 @@
     <ClCompile Include="tinyxmlerror.cpp" />
     <ClCompile Include="tinyxmlparser.cpp" />
     <ClCompile Include="wx.cpp" />
+    <ClCompile Include="WXComboBoxCtrl.cpp" />
     <ClCompile Include="WXCommConfigure.cpp" />
     <ClCompile Include="WXCommFun.cpp" />
     <ClCompile Include="WXDBConnect.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="wx.h" />
     <ClInclude Include="WXBNSComm.h" />
     <ClInclude Include="WXBNSDataType.h" />
+    <ClInclude Include="WXComboBoxCtrl.h" />
     <ClInclude Include="WXCommConfigure.h" />
     <ClInclude Include="WXCommFun.h" />
     <ClInclude Include="WXCommMacroCode.h" />

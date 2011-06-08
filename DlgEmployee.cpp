@@ -6,6 +6,8 @@
 #include "DlgEmployee.h"
 #include "afxdialogex.h"
 
+#include "DlgEmployeeAdd.h"
+
 #include "WXDBConnect.h"
 #include "WXDbComm.h"
 #include "StaticDB.h"
@@ -143,11 +145,23 @@ void CDlgEmployee::OnBnClickedOk()
 //Ìí¼Ó
 void CDlgEmployee::OnBnClickedButton1()
 {
+	CDlgEmployeeAdd dlgEmpAdd;
+	if(IDOK==dlgEmpAdd.DoModal())
+	{
+		List();
+	}
 }
 
 //ÐÞ¸Ä
 void CDlgEmployee::OnBnClickedButton8()
 {
+	int nID = m_list.GetItemData(m_listCtrl.GetFirstSelected());
+
+	CDlgEmployeeAdd dlgEmpAdd(nID);
+	if(IDOK==dlgEmpAdd.DoModal())
+	{
+		List();
+	}
 }
 
 void CDlgEmployee::OnLvnItemchangedList3(NMHDR *pNMHDR, LRESULT *pResult)

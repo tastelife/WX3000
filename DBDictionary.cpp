@@ -57,6 +57,12 @@ bool  CDictionary::IsTypeEnumDue(WXDB::DBDictionaryData dbDictionaryData, std::p
 	return (dbDictionaryData._enum==pairData.second)&&(dbDictionaryData._type==pairData.first);
 }
 
+//类型　相等返回true
+bool  CDictionary::IsTypeDue(WXDB::DBDictionaryData dbDictionaryData, std::string strType)
+{
+	return dbDictionaryData._type==strType;
+}
+
 
 NAMESPACE_DB_END
 

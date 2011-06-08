@@ -2,6 +2,7 @@
 #include "afxwin.h"
 #include "afxbutton.h"
 
+#include <map>
 
 // CDlgEmployeeAdd 对话框
 
@@ -10,7 +11,7 @@ class CDlgEmployeeAdd : public CDialog
 	DECLARE_DYNAMIC(CDlgEmployeeAdd)
 
 public:
-	CDlgEmployeeAdd(CWnd* pParent = NULL);   // 标准构造函数
+	CDlgEmployeeAdd(int nEmployeeID=-1, CWnd* pParent = NULL);   // 标准构造函数
 	virtual ~CDlgEmployeeAdd();
 
 // 对话框数据
@@ -18,6 +19,7 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
+	virtual BOOL OnInitDialog();
 
 	DECLARE_MESSAGE_MAP()
 public:
@@ -32,4 +34,11 @@ public:
 	CComboBox m_cmbEmployeePositionState;
 	CComboBox m_cmbEmployeeSex;
 	CMFCButton m_btnEmployeePicture;
+
+private:
+	//枚举数据加入下拉框内容
+	void EnumFillCmbBox(std::map<int, std::string>& enumList, CComboBox& cmbBox);
+	void EnumFillCmbBox(std::map<int, std::string>&& enumList, CComboBox& cmbBox);
+	//下拉框默认选中第一行
+	void SelectFirstCmbBox(CComboBox& cmbBox);
 };

@@ -3,6 +3,7 @@
 #include "WXMemDataVector.h"
 #include "WXDbDataType.h"
 #include <string>
+#include <map>
 
 
 NAMESPACE_BNS_BEGIN
@@ -20,6 +21,9 @@ public:
 	
 	//通过部门ID获得部门信息
 	bool GetInfo(int nID, WXDB::DBCompanyBaseData &data);
+
+	//部门枚举
+	std::map<int, std::string> GetEnumList();
 
 public:
 	//内存数据

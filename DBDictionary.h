@@ -27,7 +27,9 @@ public:
 
 	//类型、枚举值　相等返回true
 	static bool  IsTypeEnumDue(WXDB::DBDictionaryData dbDictionaryData, std::pair<std::string, int> pairData);
-
+	
+	//类型　相等返回true
+	static bool  IsTypeDue(WXDB::DBDictionaryData dbDictionaryData, std::string strType);
 private:
 	//数据库句柄
 	CWXDBConnect* m_pDBCon;

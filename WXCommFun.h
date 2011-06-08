@@ -22,6 +22,22 @@
 		msg +=  __FUNCTION__;\
 		CWXLogOutSingle::Init()->Output(0, nModule, msg.c_str(), NULL, 0, 3);\
 	}
+#define	WX_COMM_FUN_TRAJECTORY_RTN(nModule, OK)	\
+	{\
+		std::string msg;\
+		msg += __FILE__;\
+		msg += "\t";\
+		std::stringstream strStr;\
+		strStr << __LINE__;\
+		msg += "行号:";\
+		msg += strStr.str();\
+		msg += "\t";\
+		msg += "函数:";\
+		msg +=  __FUNCTION__;\
+		msg += "\t";\
+		if(OK){msg += " ok";} else{msg += " FAILED";}\
+		CWXLogOutSingle::Init()->Output(0, nModule, msg.c_str(), NULL, 0, 3);\
+	}
 
 
 //异常抛出类

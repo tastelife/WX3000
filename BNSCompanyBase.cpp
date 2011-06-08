@@ -45,6 +45,20 @@ bool CCompanyBase::GetInfo(int nID, WXDB::DBCompanyBaseData &data)
 }
 
 
+//╡©цец╤╬ы
+std::map<int, std::string> CCompanyBase::GetEnumList()
+{
+	std::map<int, std::string> enumList;
+
+	for(auto it=m_memDataVec.begin(); it<m_memDataVec.end(); ++it)
+	{
+		enumList[it->_id] = it->_companyName;
+	}
+
+	return std::move(enumList);
+}
+
+
 NAMESPACE_BNS_END
 
 
