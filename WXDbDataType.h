@@ -8,7 +8,10 @@
 #include "WXDbComm.h"
 
 NAMESPACE_DB_BEGIN;
-
+enum
+{
+	E_DB_DATA_COMMAND_ROW_COUNT = 4,
+};
 enum E_DICTIONARY_STATE
 {
 	E_DICTIONARY_STATE_CREATE							 = 1,
@@ -273,7 +276,7 @@ struct DBCompanyBaseData
 //员工对应数据
 struct DBEmployeeData
 {
-	WX_COMM_STRUCT_MEM_VAR_SET_GET_USE(DBEmployeeData, 11);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_USE(DBEmployeeData, 12);
 
 	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _id, 0);
 	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _companyBaseID, 1);
@@ -283,11 +286,12 @@ struct DBEmployeeData
 	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD_DEFAULT(std::string, _mobile, 5, "");
 	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD_DEFAULT(std::string, _phone, 6, "");
 	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _position, 7);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _positionState, 8);
 
-	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(short, _recordStat, 8);
-	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _operator, 9);
-	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(DATE, _operatorTime, 10);
-	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _copyFromID, 11);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(short, _recordStat, 9);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _operator, 10);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(DATE, _operatorTime, 11);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _copyFromID, 12);
 
 	DBEmployeeData()
 	{
@@ -299,6 +303,7 @@ struct DBEmployeeData
 		_mobile = "";
 		_phone = "";
 		_position = -1;
+		_positionState = -1;
 		
 		_recordStat = 0;
 		_operator = 0;

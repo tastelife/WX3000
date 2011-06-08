@@ -52,30 +52,35 @@ void CDictionary::SetName(std::string strType, int nEnum, std::string strName, i
 	data._operator = nOperator;
 }
 
-//通过枚举值获得记录状态名
+//通过枚举值获得 记录状态名
 std::string CDictionary::GetRecordName(int nEnum)
 {
 	return this->GetName("recordState", nEnum);
 }
 
-//通过枚举值获得性别名
+//通过枚举值获得 性别名
 std::string CDictionary::GetSexName(int nEnum)
 {
 	return this->GetName("sex", nEnum);
 }
 
 
-//通过枚举值获得员工.职位名
+//通过枚举值获得 员工.职位名
 std::string CDictionary::GetEmployeePositionName(int nEnum)
 {
 	return this->GetName("employee.position", nEnum);
 }
-//通过枚举值设定员工.职位名
+//通过枚举值设定 员工.职位名
 void  CDictionary::SetEmployeePositionName(int nEnum, std::string strName, int nOperator)
 {
 	SetName("employee.position", nEnum, strName, nOperator);
 }
 
+//通过枚举值获得 员工.在职状态 正式、临时、离职、休假
+std::string CDictionary::GetEmployeePositionState(int nEnum)
+{
+	return this->GetName("employee.positionState", nEnum);
+}
 
 NAMESPACE_BNS_END
 

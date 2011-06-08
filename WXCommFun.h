@@ -97,6 +97,35 @@ public:
 	}
 	//date to string
 	static std::string date2s(DATE date, std::string strFormat="%Y-%m-%d %H:%M");
+
+	//自定义的业务、数据类型的转换	
+	template<class SRC, class OBJ, int nSrcBegin, int nObjBegin, int nCount>
+	class CBnsDbConver
+	{
+	public:
+		void operator()(const SRC& src, OBJ& obj)
+		{
+			obj.Set<nObjBegin>(src.Get<nSrcBegin>());
+
+			CBnsDbConver<SRC, OBJ, nSrcBegin+1, nObjBegin+1, nCount-1>()(src, obj);
+		}
+	};
+	template<class SRC, class OBJ, int nSrcBegin, int nObjBegin>
+	class CBnsDbConver<SRC, OBJ, nSrcBegin, nObjBegin,1>
+	{
+	public:
+		void operator()(const SRC& src, OBJ& obj)
+		{
+			obj.Set<nObjBegin>(src.Get<nSrcBegin>());				
+		}
+	};
+	template<class SRC, class OBJ, int nSrcBegin, int nObjBegin, int nCount>
+	static void BnsDbConver(const SRC& src, OBJ& obj)
+	{
+
+		CBnsDbConver<SRC, OBJ, nSrcBegin+1, nObjBegin+1, nCount-1>()(src, obj);
+	}
+
 private:
 	static wchar_t* Char2WChar(const char* p);
 	static char* WChar2Char(const wchar_t* pw);

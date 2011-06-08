@@ -16,6 +16,11 @@ CWXListCtrl::CWXListCtrl(CListCtrl* pList) : pMapItemData(NULL)
 
 CWXListCtrl::~CWXListCtrl()
 {
+	if(NULL!=pMapItemData)
+	{
+		delete pMapItemData;
+		pMapItemData = NULL;
+	}
 }
 
 //插入标题内容

@@ -2,7 +2,7 @@ USE [wx]
 GO
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2005                    */
-/* Created on:     2011-5-21 17:48:52                           */
+/* Created on:     2011-6-4 18:42:14                            */
 /*==============================================================*/
 
 
@@ -224,6 +224,7 @@ create table employee (
    col_employee_mobile  nvarchar(20)         null,
    col_employee_phone   nvarchar(20)         null,
    col_employee_position int                  not null,
+   col_employee_positionState int                  not null,
    col_employee_recordState tinyint              not null,
    col_employee_operator int                  not null,
    col_employee_operatoTime datetime             not null,

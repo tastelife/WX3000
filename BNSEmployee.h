@@ -37,6 +37,8 @@ public:
 	bool IsPermitEdit(int nID);
 	
 private:
+	//生成数据
+	void CreateData(const BNSEmployeeData& bnsEmployeeData, WXDB::DBEmployeeData& dbEmpData) const;
 	//添加一个用户
 	bool Add(WXDB::DBEmployeeData& data);
 	//修改一个用户
@@ -48,7 +50,6 @@ private:
 	bool CEmployee::IsBeingInMem(int nID);
 	//用户在数据库
 	bool IsBeingInDB(int nID);
-
 public:
 	//内存数据
 	CWXMemDataVector<WXDB::DBEmployeeData> m_memDataVec;

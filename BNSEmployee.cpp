@@ -21,6 +21,19 @@ CEmployee::~CEmployee(void)
 }
 
 
+//生成数据
+void CEmployee::CreateData(const BNSEmployeeData& bnsEmployeeData, WXDB::DBEmployeeData& dbEmpData) const
+{
+	CWXConver::BnsDbConver<BNSEmployeeData, 
+		WXDB::DBEmployeeData,
+		0,
+		0,
+		dbEmpData.E_VIA_MAX-WXDB::E_DB_DATA_COMMAND_ROW_COUNT+1>
+		(bnsEmployeeData, dbEmpData);
+	//操作人
+	dbEmpData._operator = BNS::Login()->GetUserData()->_id;
+}
+
 //添加一个用户
 bool CEmployee::Add(const BNSEmployeeData& data)
 {
@@ -43,9 +56,7 @@ bool CEmployee::Add(const BNSEmployeeData& data)
 	{
 		//生成数据	
 		WXDB::DBEmployeeData empData;
-
-		//操作人
-		empData._operator = BNS::Login()->GetUserData()->_id;
+		CreateData(data, empData);
 
 		//添加到数据库
 		bRtn = this->Add(data);

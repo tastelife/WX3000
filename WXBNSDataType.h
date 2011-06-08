@@ -11,10 +11,10 @@
 NAMESPACE_BNS_BEGIN
 
 
-
+//员工对应数据
 struct BNSEmployeeData
 {
-	WX_COMM_STRUCT_MEM_VAR_SET_GET_USE(BNSEmployeeData, 7);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_USE(BNSEmployeeData, 8);
 
 	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _id, 0);
 	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _companyBaseID, 1);
@@ -24,6 +24,7 @@ struct BNSEmployeeData
 	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD_DEFAULT(std::string, _mobile, 5, "");
 	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD_DEFAULT(std::string, _phone, 6, "");
 	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _position, 7);
+	WX_COMM_STRUCT_MEM_VAR_SET_GET_ADD(int, _positionState, 8);
 
 
 	BNSEmployeeData()
@@ -36,7 +37,7 @@ struct BNSEmployeeData
 		_mobile = "";
 		_phone = "";
 		_position = -1;
-
+		_positionState = -1;
 	}
 };
 

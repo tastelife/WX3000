@@ -38,7 +38,6 @@ BEGIN_MESSAGE_MAP(CDlgEmployee, CDialog)
 	ON_BN_CLICKED(IDOK, &CDlgEmployee::OnBnClickedOk)
 	ON_BN_CLICKED(IDC_BUTTON1, &CDlgEmployee::OnBnClickedButton1)
 	ON_BN_CLICKED(IDC_BUTTON8, &CDlgEmployee::OnBnClickedButton8)
-	ON_BN_CLICKED(IDC_BUTTON9, &CDlgEmployee::OnBnClickedButton9)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_LIST3, &CDlgEmployee::OnLvnItemchangedList3)
 END_MESSAGE_MAP()
 
@@ -68,7 +67,6 @@ BOOL CDlgEmployee::OnInitDialog()
 	{
 		this->GetDlgItem(IDC_BUTTON1)->ShowWindow(0);
 		this->GetDlgItem(IDC_BUTTON8)->ShowWindow(0);
-		this->GetDlgItem(IDC_BUTTON9)->ShowWindow(0);
 		
 		EnabaleOk();
 	}
@@ -83,10 +81,6 @@ BOOL CDlgEmployee::OnInitDialog()
 		if(!BNS::Power()->GetEmployeePower(BNS::Login()->GetLoginID()).IsEditPower())
 		{
 			this->GetDlgItem(IDC_BUTTON8)->ShowWindow(0);
-		}
-		if(!BNS::Power()->GetEmployeePower(BNS::Login()->GetLoginID()).IsDeletePower())
-		{
-			this->GetDlgItem(IDC_BUTTON9)->ShowWindow(0);
 		}
 	}
 
@@ -129,7 +123,7 @@ void CDlgEmployee::List()
 		vecItem.push_back(data._phone);
 		//职位
 		vecItem.push_back(BNS::Dictionary()->GetEmployeePositionName(data._position));
-		//当前状态
+		//职位状态
 		vecItem.push_back(BNS::Dictionary()->GetRecordName(data._recordStat));
 
 		m_listCtrl.AddItems(vecItem, data._id);
@@ -156,12 +150,6 @@ void CDlgEmployee::OnBnClickedButton8()
 {
 }
 
-//删除
-void CDlgEmployee::OnBnClickedButton9()
-{
-}
-
-
 void CDlgEmployee::OnLvnItemchangedList3(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
@@ -187,19 +175,17 @@ void CDlgEmployee::EnabaleOk()
 	}
 }
 
-//“编辑”“删除”按钮是否有效
+//“编辑”按钮是否有效
 void CDlgEmployee::EnabaleEditDelete()
 {
 	if(m_listCtrl.GetFirstSelected()>=0)
 	{
 		int nID = m_list.GetItemData(m_listCtrl.GetFirstSelected());
 		
-		this->GetDlgItem(IDC_BUTTON8)->EnableWindow(BNS::Employee()->IsPermitEdit(nID));		
-		this->GetDlgItem(IDC_BUTTON9)->EnableWindow(BNS::Employee()->IsPermitEdit(nID));
+		this->GetDlgItem(IDC_BUTTON8)->EnableWindow(BNS::Employee()->IsPermitEdit(nID));	
 	}
 	else
 	{
 		this->GetDlgItem(IDC_BUTTON8)->EnableWindow(FALSE);		
-		this->GetDlgItem(IDC_BUTTON9)->EnableWindow(FALSE);
 	}
 }

@@ -30,7 +30,7 @@ WXDB::DBUserData CUser::CreateData(std::string strName, std::string strPassWord,
 	
 	//操作人
 	data._operator = BNS::Login()->GetUserData()->_id;
-	return 
+	return std::move(data);
 }
 
 
@@ -55,7 +55,8 @@ bool CUser::Add(std::string strName, std::string strPassWord, int nEmpID)
 	if(!this->IsBeingInDB(strName))
 	{
 		//添加到数据库
-		bRtn = this->Add(CreateData(strName, strPassWord, nEmpID));
+		WXDB::DBUserData data = CreateData(strName, strPassWord, nEmpID);
+		bRtn = this->Add(data);
 	}
 	else
 	{

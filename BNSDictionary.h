@@ -18,16 +18,19 @@ public:
 	//获得所有数据保存在内存数据中
 	bool RefrushAll();
 
-	//通过枚举值获得记录状态名
+	//通过枚举值获得 记录状态名
 	std::string GetRecordName(int nEnum);
 
-	//通过枚举值获得性别名
+	//通过枚举值获得 性别名
 	std::string GetSexName(int nEnum);
 		
-	//通过枚举值获得员工.职位名
+	//通过枚举值获得 员工.职位名
 	std::string GetEmployeePositionName(int nEnum);
-	//通过枚举值设定员工.职位名
+	//通过枚举值设定 员工.职位名
 	void  SetEmployeePositionName(int nEnum, std::string strName, int nOperator);
+	
+	//通过枚举值获得 员工.在职状态 正式、临时、离职、休假
+	std::string GetEmployeePositionState(int nEnum);
 
 private:
 	//通过枚举值获得名称
