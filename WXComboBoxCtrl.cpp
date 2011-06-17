@@ -23,7 +23,7 @@ void CWXComboBoxCtrl::EnumFillCmbBox(std::map<int, std::string>& enumList)
 		if(it->second!="")
 		{
 			m_pList->AddString(it->second.c_str());
-			m_pList->SetItemData(i, it->first);
+			m_pList->SetItemData(i, (unsigned int)(it->first));
 		}
 	}
 }
@@ -39,5 +39,18 @@ void CWXComboBoxCtrl::SelectFirstCmbBox()
 	if(m_pList->GetCount()>0)
 	{
 		m_pList->SetCurSel(0);
+	}
+}
+
+//下拉框通过附加数据选中
+void CWXComboBoxCtrl::SelectCmbBoxByItem(int nItem)
+{
+	for(int i=0; i<m_pList->GetCount(); ++i)
+	{
+		if(m_pList->GetItemData(i)==(unsigned int)nItem)
+		{
+			m_pList->SetCurSel(i);
+			break;
+		}
 	}
 }

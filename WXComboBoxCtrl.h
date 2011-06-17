@@ -14,6 +14,8 @@ public:
 	void EnumFillCmbBox(std::map<int, std::string>&& enumList);
 	//下拉框默认选中第一行
 	void SelectFirstCmbBox();
+	//下拉框通过附加数据选中
+	void SelectCmbBoxByItem(int nItem);
 
 private:
 	CWXComboBoxCtrl(void);

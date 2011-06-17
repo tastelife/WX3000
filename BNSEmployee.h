@@ -30,8 +30,11 @@ public:
 	//获得所有数据保存在内存数据中
 	bool RefrushAll();
 
-	//通过员工ID获得员工信息
+	//通过员工ID获得员工信息 基础
 	bool GetInfo(int nID, WXDB::DBEmployeeData &data);
+	
+	//通过员工ID获得员工信息 全部
+	bool GetInfo(int nID, BNSEmployeeData& bnsData);
 	
 	//员工是否可以被修改
 	bool IsPermitEdit(int nID);

@@ -39,6 +39,7 @@ private:
 	//枚举数据加入下拉框内容
 	void EnumFillCmbBox(std::map<int, std::string>& enumList, CComboBox& cmbBox);
 	void EnumFillCmbBox(std::map<int, std::string>&& enumList, CComboBox& cmbBox);
-	//下拉框默认选中第一行
-	void SelectFirstCmbBox(CComboBox& cmbBox);
+
+	//通过员工ID初始化界面，用于修改
+	void InitByEmpID(int nEmpID);
 };

@@ -154,6 +154,7 @@
     <ClCompile Include="tinyxml.cpp" />
     <ClCompile Include="tinyxmlerror.cpp" />
     <ClCompile Include="tinyxmlparser.cpp" />
+    <ClCompile Include="UIControlProperties.cpp" />
     <ClCompile Include="wx.cpp" />
     <ClCompile Include="WXComboBoxCtrl.cpp" />
     <ClCompile Include="WXCommConfigure.cpp" />
@@ -199,6 +200,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="tinystr.h" />
     <ClInclude Include="tinyxml.h" />
+    <ClInclude Include="UIControlProperties.h" />
     <ClInclude Include="wx.h" />
     <ClInclude Include="WXBNSComm.h" />
     <ClInclude Include="WXBNSDataType.h" />
@@ -214,6 +216,7 @@
     <ClInclude Include="WXLockDB.h" />
     <ClInclude Include="WXLogOut.h" />
     <ClInclude Include="WXMemDataVector.h" />
+    <ClInclude Include="WXUIComm.h" />
     <ClInclude Include="wxView.h" />
   </ItemGroup>
   <ItemGroup>

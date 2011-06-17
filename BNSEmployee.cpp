@@ -119,7 +119,7 @@ bool CEmployee::RefrushAll()
 	return true;
 }
 
-//通过员工ID获得员工信息
+//通过员工ID获得员工信息 基础
 bool CEmployee::GetInfo(int nID, WXDB::DBEmployeeData &data)
 {
 	if(this->m_memDataVec.Find(
@@ -132,6 +132,11 @@ bool CEmployee::GetInfo(int nID, WXDB::DBEmployeeData &data)
 	return false;
 }
 
+//通过员工ID获得员工信息 全部
+bool CEmployee::GetInfo(int nID, BNSEmployeeData& bnsData)
+{
+	return true;
+}
 
 //员工是否可以被修改
 bool CEmployee::IsPermitEdit(int nID)

@@ -6,6 +6,8 @@
 #include "DlgEmployeeAdd.h"
 #include "afxdialogex.h"
 
+#include "WXComboBoxCtrl.h"
+
 #include "StaticDB.h"
 
 
@@ -66,17 +68,21 @@ BOOL CDlgEmployeeAdd::OnInitDialog()
 	
 	//加入性别下拉框内容
 	EnumFillCmbBox(BNS::Dictionary()->GetListByTypeSex(), m_cmbEmployeeSex);
-	SelectFirstCmbBox(m_cmbEmployeeSex);
+	CWXComboBoxCtrl(&m_cmbEmployeeSex).SelectFirstCmbBox();
 	//职员状态
 	EnumFillCmbBox(BNS::Dictionary()->GetListByTypePositionState(), m_cmbEmployeePositionState);
-	SelectFirstCmbBox(m_cmbEmployeePositionState);
+	CWXComboBoxCtrl(&m_cmbEmployeePositionState).SelectFirstCmbBox();
 	//职位
 	EnumFillCmbBox(BNS::Dictionary()->GetListByTypePosition(), m_cmbEmployeePosition);
-	SelectFirstCmbBox(m_cmbEmployeePosition);
+	CWXComboBoxCtrl(&m_cmbEmployeePosition).SelectFirstCmbBox();
 	//部门
 	EnumFillCmbBox(BNS::CompanyBase()->GetEnumList(), m_cmbEmployeeCompanyBase);
-	SelectFirstCmbBox(m_cmbEmployeeCompanyBase);
+	CWXComboBoxCtrl(&m_cmbEmployeeCompanyBase).SelectFirstCmbBox();
 
+	if(m_nEmployeeID>=0)
+	{
+		InitByEmpID(m_nEmployeeID);
+	}
 	
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -115,11 +121,28 @@ void CDlgEmployeeAdd::EnumFillCmbBox(std::map<int, std::string>&& enumList, CCom
 }
 
 
-//下拉框默认选中第一行
-void CDlgEmployeeAdd::SelectFirstCmbBox(CComboBox& cmbBox)
+
+//通过员工ID初始化界面，用于修改
+void CDlgEmployeeAdd::InitByEmpID(int nEmpID)
 {
-	if(cmbBox.GetCount()>0)
-	{
-		cmbBox.SetCurSel(0);
-	}
+	WXBNS::BNSEmployeeData empData;
+	BNS::Employee()->GetInfo(nEmpID, empData);
+
+	
+	//性别
+	CWXComboBoxCtrl(&m_cmbEmployeeSex).SelectCmbBoxByItem(empData._sex);
+	//职员状态
+	CWXComboBoxCtrl(&m_cmbEmployeePositionState).SelectCmbBoxByItem(empData._positionState);
+	//职位
+	CWXComboBoxCtrl(&m_cmbEmployeePosition).SelectCmbBoxByItem(empData._position);
+	//部门
+	CWXComboBoxCtrl(&m_cmbEmployeeCompanyBase).SelectCmbBoxByItem(empData._companyBaseID);
+
+	this->m_strEmployeeName = empData._name.c_str();
+	this->m_strEmployeeMobile = empData._mobile.c_str();
+	this->m_strEmployeePhone = empData._phone.c_str();
+
+	this->UpdateData(0);
 }
+
+
