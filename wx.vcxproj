@@ -155,6 +155,7 @@
     <ClCompile Include="tinyxmlerror.cpp" />
     <ClCompile Include="tinyxmlparser.cpp" />
     <ClCompile Include="UIControlProperties.cpp" />
+    <ClCompile Include="UIEmployeeAdd.cpp" />
     <ClCompile Include="wx.cpp" />
     <ClCompile Include="WXComboBoxCtrl.cpp" />
     <ClCompile Include="WXCommConfigure.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="tinystr.h" />
     <ClInclude Include="tinyxml.h" />
     <ClInclude Include="UIControlProperties.h" />
+    <ClInclude Include="UIEmployeeAdd.h" />
     <ClInclude Include="wx.h" />
     <ClInclude Include="WXBNSComm.h" />
     <ClInclude Include="WXBNSDataType.h" />

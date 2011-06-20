@@ -135,7 +135,14 @@ bool CEmployee::GetInfo(int nID, WXDB::DBEmployeeData &data)
 //通过员工ID获得员工信息 全部
 bool CEmployee::GetInfo(int nID, BNSEmployeeData& bnsData)
 {
-	return true;
+	WXDB::DBEmployeeData dbData;
+	if(GetInfo(nID, dbData))
+	{
+		CWXConver::BnsDbConver<WXDB::DBEmployeeData, BNSEmployeeData, 0, 0, WXDB::DBEmployeeData::E_VIA_MAX-4>(dbData, bnsData);
+		return true;
+	}
+
+	return false;
 }
 
 //员工是否可以被修改

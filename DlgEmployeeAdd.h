@@ -3,6 +3,7 @@
 #include "afxbutton.h"
 
 #include <map>
+#include "atlcomtime.h"
 
 // CDlgEmployeeAdd 对话框
 
@@ -42,4 +43,6 @@ private:
 
 	//通过员工ID初始化界面，用于修改
 	void InitByEmpID(int nEmpID);
+public:
+	COleDateTime m_dtBirthday;
 };

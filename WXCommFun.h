@@ -476,6 +476,18 @@ public:
 		return _variant_t(tData.c_str());
 	}
 };
+//DATE
+template <>
+class CWXSetVariantValue <DATE>
+{
+public:
+	_variant_t operator ()(const DATE& tData)
+	{
+		_variant_t var(tData);
+		var.vt = VT_DATE;
+		return var;
+	}
+};
 
 //WXDB::Power
 template <>

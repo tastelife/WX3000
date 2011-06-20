@@ -28,22 +28,7 @@ CWXCommConfigure::~CWXCommConfigure(void)
 bool CWXCommConfigure::GetAllElement(const std::string& strNote, const std::string& strEleName,
 	std::vector<std::string>& vecElement)
 {
-	//载入xml
-	TiXmlDocument tiXmlDoc(this->GetFilePath().c_str());
-	if(!tiXmlDoc.LoadFile())
-	{
-		return false;
-	}
-	//获得节点
-	TiXmlNode* pTiXmlNode = NULL;
-	pTiXmlNode = tiXmlDoc.FirstChild(strNote);
-	if(NULL==pTiXmlNode)
-	{
-		return false;
-	}
-	//获得节点下的指定元素的首个元素
-	TiXmlElement* firstTiXmlElement = NULL;
-	firstTiXmlElement = pTiXmlNode->FirstChildElement(strEleName);
+	TiXmlElement* firstTiXmlElement = GetFirstTiXmlElementPoint(strNote, strEleName);
 	if(NULL==firstTiXmlElement)
 	{
 		//元素不存在不算错误
@@ -55,6 +40,19 @@ bool CWXCommConfigure::GetAllElement(const std::string& strNote, const std::stri
 	return true;
 }
 
+
+// 通过指定的节点和元素名，获得元素值
+std::string CWXCommConfigure::GetElement(const std::string& strNote, const std::string& strEleName)
+{	
+	TiXmlElement* firstTiXmlElement = GetFirstTiXmlElementPoint(strNote, strEleName);
+	if(NULL==firstTiXmlElement)
+	{
+		//元素不存在不算错误
+		return "";
+	}
+
+	return firstTiXmlElement->GetText();
+}
 
 // 把所有同级的指定的元素加入到vector<string>中
 void CWXCommConfigure::AddAllXmlEleToVec(TiXmlElement* firstTiXmlElement, std::string strEleName,
@@ -70,4 +68,28 @@ void CWXCommConfigure::AddAllXmlEleToVec(TiXmlElement* firstTiXmlElement, std::s
 		//获得同级的下一个元素
 		iterTiXmlElement = iterTiXmlElement->NextSiblingElement(strEleName);
 	}
+}
+
+
+//通过指定的节点和元素名获得元素值的第一个元素的指针
+TiXmlElement* CWXCommConfigure::GetFirstTiXmlElementPoint(const std::string& strNote, const std::string& strEleName)
+{
+	//载入xml
+	TiXmlDocument tiXmlDoc(this->GetFilePath().c_str());
+	if(!tiXmlDoc.LoadFile())
+	{
+		return NULL;
+	}
+	//获得节点
+	TiXmlNode* pTiXmlNode = NULL;
+	pTiXmlNode = tiXmlDoc.FirstChild(strNote);
+	if(NULL==pTiXmlNode)
+	{
+		return NULL;
+	}
+	//获得节点下的指定元素的首个元素
+	TiXmlElement* firstTiXmlElement = NULL;
+	firstTiXmlElement = pTiXmlNode->FirstChildElement(strEleName);
+
+	return firstTiXmlElement;
 }

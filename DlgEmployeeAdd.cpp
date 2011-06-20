@@ -8,6 +8,9 @@
 
 #include "WXComboBoxCtrl.h"
 
+#include "UIControlProperties.h"
+#include "UIEmployeeAdd.h"
+
 #include "StaticDB.h"
 
 
@@ -21,6 +24,7 @@ CDlgEmployeeAdd::CDlgEmployeeAdd(int nEmployeeID, CWnd* pParent /*=NULL*/)
 	, m_strEmployeeName(_T(""))
 	, m_strEmployeeMobile(_T(""))
 	, m_strEmployeePhone(_T(""))
+	, m_dtBirthday(COleDateTime::GetCurrentTime())
 {
 
 }
@@ -41,6 +45,7 @@ void CDlgEmployeeAdd::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_COMBO3, m_cmbEmployeePositionState);
 	DDX_Control(pDX, IDC_COMBO4, m_cmbEmployeeSex);
 	DDX_Control(pDX, IDC_MFCBUTTON2, m_btnEmployeePicture);
+	DDX_DateTimeCtrl(pDX, IDC_DATETIMEPICKER1, m_dtBirthday);
 }
 
 
@@ -82,6 +87,12 @@ BOOL CDlgEmployeeAdd::OnInitDialog()
 	if(m_nEmployeeID>=0)
 	{
 		InitByEmpID(m_nEmployeeID);
+	}
+	else
+	{
+		//修改按钮状态
+		WXUI::SetControlProperties<CButton>(*((CButton*) this->GetDlgItem(IDOK)), 
+			WXUI::ControlProperties(WXUI::ControlProperties::E_SHOWSTATE_HIDE));
 	}
 	
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
@@ -128,6 +139,12 @@ void CDlgEmployeeAdd::InitByEmpID(int nEmpID)
 	WXBNS::BNSEmployeeData empData;
 	BNS::Employee()->GetInfo(nEmpID, empData);
 
+	//编号状态
+	WXUI::SetControlProperties<CEdit>(*((CEdit*) this->GetDlgItem(IDC_EDIT1)), 
+		WXUI::CEmployeeAdd<false>().GetEmployeeIDProterty());
+	//新建按钮状态
+	WXUI::SetControlProperties<CButton>(*((CButton*) this->GetDlgItem(IDC_BUTTON10)), 
+		WXUI::ControlProperties(WXUI::ControlProperties::E_SHOWSTATE_HIDE));
 	
 	//性别
 	CWXComboBoxCtrl(&m_cmbEmployeeSex).SelectCmbBoxByItem(empData._sex);
@@ -137,7 +154,8 @@ void CDlgEmployeeAdd::InitByEmpID(int nEmpID)
 	CWXComboBoxCtrl(&m_cmbEmployeePosition).SelectCmbBoxByItem(empData._position);
 	//部门
 	CWXComboBoxCtrl(&m_cmbEmployeeCompanyBase).SelectCmbBoxByItem(empData._companyBaseID);
-
+	//生日
+	this->m_dtBirthday = empData._birthday;
 	this->m_strEmployeeName = empData._name.c_str();
 	this->m_strEmployeeMobile = empData._mobile.c_str();
 	this->m_strEmployeePhone = empData._phone.c_str();
