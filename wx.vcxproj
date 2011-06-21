@@ -122,6 +122,7 @@
     <ClCompile Include="BNSDictionary.cpp" />
     <ClCompile Include="BNSEmployee.cpp" />
     <ClCompile Include="BNSGroup.cpp" />
+    <ClCompile Include="BNSImageSave.cpp" />
     <ClCompile Include="BNSLogin.cpp" />
     <ClCompile Include="BNSPower.cpp" />
     <ClCompile Include="BNSUser.cpp" />
@@ -161,6 +162,7 @@
     <ClCompile Include="WXCommConfigure.cpp" />
     <ClCompile Include="WXCommFun.cpp" />
     <ClCompile Include="WXDBConnect.cpp" />
+    <ClCompile Include="WXDBSqlite.cpp" />
     <ClCompile Include="wxDoc.cpp" />
     <ClCompile Include="WXListCtrl.cpp" />
     <ClCompile Include="WXLogOut.cpp" />
@@ -171,6 +173,7 @@
     <ClInclude Include="BNSDictionary.h" />
     <ClInclude Include="BNSEmployee.h" />
     <ClInclude Include="BNSGroup.h" />
+    <ClInclude Include="BNSImageSave.h" />
     <ClInclude Include="BNSLogin.h" />
     <ClInclude Include="BNSPower.h" />
     <ClInclude Include="BNSUser.h" />
@@ -213,6 +216,7 @@
     <ClInclude Include="WXDbComm.h" />
     <ClInclude Include="WXDBConnect.h" />
     <ClInclude Include="WXDbDataType.h" />
+    <ClInclude Include="WXDBSqlite.h" />
     <ClInclude Include="wxDoc.h" />
     <ClInclude Include="WXListCtrl.h" />
     <ClInclude Include="WXLockDB.h" />

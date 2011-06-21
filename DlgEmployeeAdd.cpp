@@ -102,6 +102,7 @@ BOOL CDlgEmployeeAdd::OnInitDialog()
 //ÐÞ¸Ä
 void CDlgEmployeeAdd::OnBnClickedOk()
 {
+	BNS::ImageSave()->PutEmployeeImage(1, "c:\\1.jpg");
 	CDialog::OnOK();
 }
 

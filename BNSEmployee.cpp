@@ -138,7 +138,8 @@ bool CEmployee::GetInfo(int nID, BNSEmployeeData& bnsData)
 	WXDB::DBEmployeeData dbData;
 	if(GetInfo(nID, dbData))
 	{
-		CWXConver::BnsDbConver<WXDB::DBEmployeeData, BNSEmployeeData, 0, 0, WXDB::DBEmployeeData::E_VIA_MAX-4>(dbData, bnsData);
+		CWXConver::BnsDbConver<WXDB::DBEmployeeData, BNSEmployeeData, 0, 0, 
+			WXDB::DBEmployeeData::E_VIA_MAX-WXDB::E_DB_DATA_COMMAND_ROW_COUNT+1>(dbData, bnsData);
 		return true;
 	}
 

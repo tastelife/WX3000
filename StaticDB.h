@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include "WXCommConfigure.h"
+
 
 #include "DBUser.h"
 #include "DBLogin.h"
@@ -22,6 +24,7 @@
 #include "BNSDictionary.h"
 #include "BNSEmployee.h"
 #include "BNSCompanyBase.h"
+#include "BNSImageSave.h"
 
 
 
@@ -175,5 +178,22 @@ public:
 
 		return &bnsCompanyBase;
 	}
+	
+	static WXBNS::CImageSave* ImageSave()
+	{
+		static WXBNS::CImageSave imageSave;
+
+		return &imageSave;
+	}
 };
 
+class CMM
+{
+public:
+	static CWXCommConfigure* Configure()
+	{
+		static CWXCommConfigure configure("config.xml");
+
+		return &configure;
+	}
+};
