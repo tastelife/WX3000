@@ -30,7 +30,7 @@ public:
 			const void * pFileContent = sqlite3_column_blob( stat, 1 );
 			int len = sqlite3_column_bytes( stat, 1 );
 
-			_pred((const char *)pFileContent, len, pOther);
+			_pred((const unsigned char *)pFileContent, len, pOther);
 
 			sqlite3_finalize( stat );
 

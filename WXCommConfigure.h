@@ -27,6 +27,36 @@ private:
 	void AddAllXmlEleToVec(TiXmlElement* firstTiXmlElement, std::string strEleName,
 		std::vector<std::string>& vecElement);
 	//通过指定的节点和元素名获得元素值的第一个元素的指针
-	TiXmlElement* GetFirstTiXmlElementPoint(const std::string& strNote, const std::string& strEleName);
+	template<class Pred>
+	bool LoadAndDispose(const std::string& strNote, const std::string& strEleName, Pred _pred);
 };
 
+
+//通过指定的节点和元素名获得元素值的第一个元素的指针
+template<class Pred>
+bool CWXCommConfigure::LoadAndDispose(const std::string& strNote, const std::string& strEleName, Pred _pred)
+{
+	//载入xml
+	TiXmlDocument tiXmlDoc(this->GetFilePath().c_str());
+	if(!tiXmlDoc.LoadFile())
+	{
+		return false;
+	}
+	//获得节点
+	TiXmlNode* pTiXmlNode = NULL;
+	pTiXmlNode = tiXmlDoc.FirstChild(strNote);
+	if(NULL==pTiXmlNode)
+	{
+		return false;
+	}
+	//获得节点下的指定元素的首个元素	//处理
+	TiXmlElement* iterTiXmlElement = pTiXmlNode->FirstChildElement(strEleName);;
+	while(NULL!=iterTiXmlElement)
+	{
+		_pred(iterTiXmlElement);
+		//获得同级的下一个元素
+		iterTiXmlElement = iterTiXmlElement->NextSiblingElement(strEleName);
+	}
+
+	return true;
+}

@@ -35,6 +35,11 @@ public:
 	CComboBox m_cmbEmployeePositionState;
 	CComboBox m_cmbEmployeeSex;
 	CMFCButton m_btnEmployeePicture;
+	
+	//相片路径
+	CString m_strImagePath;
+	//原相片路径
+	CString m_strImagePathOld;
 
 private:
 	//枚举数据加入下拉框内容
@@ -43,6 +48,13 @@ private:
 
 	//通过员工ID初始化界面，用于修改
 	void InitByEmpID(int nEmpID);
+
+	//显示相片
+	void DisplayImage();
+private:
+	CImage m_image;
+
 public:
 	COleDateTime m_dtBirthday;
+	afx_msg void OnBnClickedMfcbutton2();
 };

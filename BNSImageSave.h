@@ -35,7 +35,9 @@ private:
 	//合成员工形像数据库的路径
 	std::string CreatePathEmployeeImageDB(int nEmployeeNO);
 	//读文件上传
-	bool ReadAndPut(std::string strDBName, std::string strFileName);
+	bool ReadAndPutImage(std::string strDBName, std::string strFileName);
+	//获得内容写文件
+	std::string DownAndWriteImage(std::string strDBName, std::string strFileName);
 };
 
 

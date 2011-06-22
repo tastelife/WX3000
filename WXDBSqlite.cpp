@@ -14,11 +14,11 @@ CWXDBSqlite::~CWXDBSqlite(void)
 bool CWXDBSqlite::SetAnyBlob(std::string strName, char* pData, int nDataLen, std::string strOther)
 {
 	sqlite3_stmt * stat;		
-	std::string strSql = "insert into any( ID, image) values( '";
+	std::string strSql = "insert into any( ID, image, othor) values( '";
 	strSql += strName;
-	strSql += "', ?,";
+	strSql += "', ?,'";
 	strSql += strOther;
-	strSql += ") ";
+	strSql += "') ";
 
 	if(SQLITE_OK!=sqlite3_prepare( m_pdb, strSql.c_str() , -1, &stat, 0 ))
 	{

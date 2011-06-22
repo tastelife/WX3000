@@ -52,6 +52,7 @@ void CDlgEmployeeAdd::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CDlgEmployeeAdd, CDialog)
 	ON_BN_CLICKED(IDOK, &CDlgEmployeeAdd::OnBnClickedOk)
 	ON_BN_CLICKED(IDC_BUTTON10, &CDlgEmployeeAdd::OnBnClickedButton10)
+	ON_BN_CLICKED(IDC_MFCBUTTON2, &CDlgEmployeeAdd::OnBnClickedMfcbutton2)
 END_MESSAGE_MAP()
 
 
@@ -102,7 +103,10 @@ BOOL CDlgEmployeeAdd::OnInitDialog()
 //修改
 void CDlgEmployeeAdd::OnBnClickedOk()
 {
-	BNS::ImageSave()->PutEmployeeImage(1, "c:\\1.jpg");
+	BNS::ImageSave()->PutEmployeeImage(1, "E:\\Temp\\1.JPG");
+	BNS::ImageSave()->DownLoadEmployeeImage(1);
+	BNS::ImageSave()->PutEmployeeImage(2, "E:\\Temp\\2.JPG");
+	BNS::ImageSave()->DownLoadEmployeeImage(2);
 	CDialog::OnOK();
 }
 
@@ -164,4 +168,34 @@ void CDlgEmployeeAdd::InitByEmpID(int nEmpID)
 	this->UpdateData(0);
 }
 
+
+
+//相片
+void CDlgEmployeeAdd::OnBnClickedMfcbutton2()
+{
+	CString strFilter;
+	strFilter = "位图文件|*.bmp|JPEG 图像文件|*.jpg|GIF 图像文件|*.gif|PNG 图像文件|*.png||";
+	CFileDialog fd(true, strFilter);
+	if(IDOK==fd.DoModal())
+	{
+		m_strImagePath = fd.GetPathName();
+		DisplayImage();
+	}
+}
+
+
+//显示相片
+void CDlgEmployeeAdd::DisplayImage()
+{
+	if(""==m_strImagePath)
+	{
+		return;
+	}
+	if(!m_image.IsNull())
+	{
+		m_image.Detach();
+	}
+	m_image.Load(m_strImagePath);
+	((CMFCButton*) this->GetDlgItem(IDC_MFCBUTTON2))->SetImage(m_image);
+}
 
