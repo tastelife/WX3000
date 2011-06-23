@@ -103,10 +103,14 @@ BOOL CDlgEmployeeAdd::OnInitDialog()
 //ÐÞ¸Ä
 void CDlgEmployeeAdd::OnBnClickedOk()
 {
-	BNS::ImageSave()->PutEmployeeImage(1, "E:\\Temp\\1.JPG");
-	BNS::ImageSave()->DownLoadEmployeeImage(1);
-	BNS::ImageSave()->PutEmployeeImage(2, "E:\\Temp\\2.JPG");
-	BNS::ImageSave()->DownLoadEmployeeImage(2);
+	WXBNS::BNSEmployeeData bnsEmpData;
+	BNS::Employee()->Edit(bnsEmpData);
+	//±£´æÏàÆ¬
+	if(m_strImagePath!=m_strImagePathOld)
+	{
+		BNS::ImageSave()->PutEmployeeImage(m_nEmployeeID, m_strImagePath.GetBuffer(0));
+	}
+
 	CDialog::OnOK();
 }
 
@@ -165,6 +169,15 @@ void CDlgEmployeeAdd::InitByEmpID(int nEmpID)
 	this->m_strEmployeeMobile = empData._mobile.c_str();
 	this->m_strEmployeePhone = empData._phone.c_str();
 
+	//Í¼Ïñ
+	std::string strImagePath;
+	if(""!=(strImagePath=BNS::ImageSave()->DownLoadEmployeeImage(nEmpID)))
+	{
+		m_strImagePath = strImagePath.c_str();
+		m_strImagePathOld = strImagePath.c_str();
+		DisplayImage();
+	}
+
 	this->UpdateData(0);
 }
 
@@ -195,7 +208,6 @@ void CDlgEmployeeAdd::DisplayImage()
 	{
 		m_image.Detach();
 	}
-	m_image.Load(m_strImagePath);
-	((CMFCButton*) this->GetDlgItem(IDC_MFCBUTTON2))->SetImage(m_image);
+	m_btnEmployeePicture.SetImage(m_strImagePath);
 }
 

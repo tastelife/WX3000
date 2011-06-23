@@ -4,6 +4,7 @@
 
 #include <map>
 #include "atlcomtime.h"
+#include "WXButtonImage.h"
 
 // CDlgEmployeeAdd 对话框
 
@@ -34,7 +35,7 @@ public:
 	CComboBox m_cmbEmployeePosition;
 	CComboBox m_cmbEmployeePositionState;
 	CComboBox m_cmbEmployeeSex;
-	CMFCButton m_btnEmployeePicture;
+	CWXButtonImage m_btnEmployeePicture;
 	
 	//相片路径
 	CString m_strImagePath;

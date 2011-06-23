@@ -158,6 +158,7 @@
     <ClCompile Include="UIControlProperties.cpp" />
     <ClCompile Include="UIEmployeeAdd.cpp" />
     <ClCompile Include="wx.cpp" />
+    <ClCompile Include="WXButtonImage.cpp" />
     <ClCompile Include="WXComboBoxCtrl.cpp" />
     <ClCompile Include="WXCommConfigure.cpp" />
     <ClCompile Include="WXCommFun.cpp" />
@@ -209,6 +210,7 @@
     <ClInclude Include="wx.h" />
     <ClInclude Include="WXBNSComm.h" />
     <ClInclude Include="WXBNSDataType.h" />
+    <ClInclude Include="WXButtonImage.h" />
     <ClInclude Include="WXComboBoxCtrl.h" />
     <ClInclude Include="WXCommConfigure.h" />
     <ClInclude Include="WXCommFun.h" />

@@ -75,7 +75,11 @@ bool CEmployee::Add(const BNSEmployeeData& data)
 //修改一个用户
 bool CEmployee::Edit(const BNSEmployeeData& data)
 {
-	return false;
+	//生成数据	
+	WXDB::DBEmployeeData empData;
+	CreateData(data, empData);
+
+	return this->Edit(empData);
 }
 //删除一个用户
 bool CEmployee::Delete(int nID)
